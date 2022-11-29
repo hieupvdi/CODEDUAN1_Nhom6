@@ -59,12 +59,12 @@ namespace _3.PL.Views
 
         private void btn_ThongKe_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Chưa có frm Thống kê");
         }
 
         private void btn_DangXuat_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Chưa có frm đăng nhập");
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using _1.DAL.Configurations;
+using _1.DAL.Extensions;
 using _1.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -52,8 +53,8 @@ namespace _1.DAL.Context
             modelBuilder.ApplyConfiguration(new SanPhamConfigurations());
             modelBuilder.ApplyConfiguration(new SizeConfigurations());
 
-
-           // modelBuilder.Seed();
+            // dùng để áp dữ liệu từ thư mục Extensions
+            modelBuilder.Seed();
 
             // Apply cac config cho cac model
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
