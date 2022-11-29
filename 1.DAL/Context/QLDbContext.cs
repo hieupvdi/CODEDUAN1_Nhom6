@@ -53,8 +53,8 @@ namespace _1.DAL.Context
             modelBuilder.ApplyConfiguration(new SanPhamConfigurations());
             modelBuilder.ApplyConfiguration(new SizeConfigurations());
 
-            // dùng để áp dữ liệu từ thư mục Extensions
-            modelBuilder.Seed();
+            // dùng để áp dữ liệu từ thư mục Extensions đang lỗi
+           // modelBuilder.Seed();
 
             // Apply cac config cho cac model
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
