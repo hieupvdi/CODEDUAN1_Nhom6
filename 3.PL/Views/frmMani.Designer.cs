@@ -36,10 +36,10 @@
             this.btn_HoaDon = new System.Windows.Forms.Button();
             this.btn_BanHang = new System.Windows.Forms.Button();
             this.btn_QLSanPham = new System.Windows.Forms.Button();
-            this.btn_TrangChu = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pn_frmchuyen = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -54,7 +54,6 @@
             this.panel1.Controls.Add(this.btn_HoaDon);
             this.panel1.Controls.Add(this.btn_BanHang);
             this.panel1.Controls.Add(this.btn_QLSanPham);
-            this.panel1.Controls.Add(this.btn_TrangChu);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -87,7 +86,7 @@
             this.btn_ThongKe.Font = new System.Drawing.Font("Nirmala UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThongKe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btn_ThongKe.Image = ((System.Drawing.Image)(resources.GetObject("btn_ThongKe.Image")));
-            this.btn_ThongKe.Location = new System.Drawing.Point(0, 354);
+            this.btn_ThongKe.Location = new System.Drawing.Point(0, 312);
             this.btn_ThongKe.Name = "btn_ThongKe";
             this.btn_ThongKe.Size = new System.Drawing.Size(186, 42);
             this.btn_ThongKe.TabIndex = 9;
@@ -104,7 +103,7 @@
             this.btn_QLNhanVien.Font = new System.Drawing.Font("Nirmala UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_QLNhanVien.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btn_QLNhanVien.Image = ((System.Drawing.Image)(resources.GetObject("btn_QLNhanVien.Image")));
-            this.btn_QLNhanVien.Location = new System.Drawing.Point(0, 312);
+            this.btn_QLNhanVien.Location = new System.Drawing.Point(0, 270);
             this.btn_QLNhanVien.Name = "btn_QLNhanVien";
             this.btn_QLNhanVien.Size = new System.Drawing.Size(186, 42);
             this.btn_QLNhanVien.TabIndex = 7;
@@ -121,7 +120,7 @@
             this.btn_HoaDon.Font = new System.Drawing.Font("Nirmala UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_HoaDon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btn_HoaDon.Image = ((System.Drawing.Image)(resources.GetObject("btn_HoaDon.Image")));
-            this.btn_HoaDon.Location = new System.Drawing.Point(0, 270);
+            this.btn_HoaDon.Location = new System.Drawing.Point(0, 228);
             this.btn_HoaDon.Name = "btn_HoaDon";
             this.btn_HoaDon.Size = new System.Drawing.Size(186, 42);
             this.btn_HoaDon.TabIndex = 6;
@@ -138,7 +137,7 @@
             this.btn_BanHang.Font = new System.Drawing.Font("Nirmala UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_BanHang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btn_BanHang.Image = ((System.Drawing.Image)(resources.GetObject("btn_BanHang.Image")));
-            this.btn_BanHang.Location = new System.Drawing.Point(0, 228);
+            this.btn_BanHang.Location = new System.Drawing.Point(0, 186);
             this.btn_BanHang.Name = "btn_BanHang";
             this.btn_BanHang.Size = new System.Drawing.Size(186, 42);
             this.btn_BanHang.TabIndex = 5;
@@ -155,7 +154,7 @@
             this.btn_QLSanPham.Font = new System.Drawing.Font("Nirmala UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_QLSanPham.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btn_QLSanPham.Image = ((System.Drawing.Image)(resources.GetObject("btn_QLSanPham.Image")));
-            this.btn_QLSanPham.Location = new System.Drawing.Point(0, 186);
+            this.btn_QLSanPham.Location = new System.Drawing.Point(0, 144);
             this.btn_QLSanPham.Name = "btn_QLSanPham";
             this.btn_QLSanPham.Size = new System.Drawing.Size(186, 42);
             this.btn_QLSanPham.TabIndex = 3;
@@ -163,23 +162,6 @@
             this.btn_QLSanPham.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_QLSanPham.UseVisualStyleBackColor = true;
             this.btn_QLSanPham.Click += new System.EventHandler(this.btn_QLSanPham_Click);
-            // 
-            // btn_TrangChu
-            // 
-            this.btn_TrangChu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_TrangChu.FlatAppearance.BorderSize = 0;
-            this.btn_TrangChu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_TrangChu.Font = new System.Drawing.Font("Nirmala UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_TrangChu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btn_TrangChu.Image = ((System.Drawing.Image)(resources.GetObject("btn_TrangChu.Image")));
-            this.btn_TrangChu.Location = new System.Drawing.Point(0, 144);
-            this.btn_TrangChu.Name = "btn_TrangChu";
-            this.btn_TrangChu.Size = new System.Drawing.Size(186, 42);
-            this.btn_TrangChu.TabIndex = 2;
-            this.btn_TrangChu.Text = "Trang Chủ";
-            this.btn_TrangChu.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btn_TrangChu.UseVisualStyleBackColor = true;
-            this.btn_TrangChu.Click += new System.EventHandler(this.btn_TrangChu_Click);
             // 
             // panel2
             // 
@@ -212,14 +194,23 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // pn_frmchuyen
+            // 
+            this.pn_frmchuyen.BackColor = System.Drawing.Color.Gray;
+            this.pn_frmchuyen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_frmchuyen.Location = new System.Drawing.Point(186, 0);
+            this.pn_frmchuyen.Name = "pn_frmchuyen";
+            this.pn_frmchuyen.Size = new System.Drawing.Size(1082, 732);
+            this.pn_frmchuyen.TabIndex = 2;
+            // 
             // frmMani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1268, 732);
+            this.Controls.Add(this.pn_frmchuyen);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMani";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMani";
@@ -240,9 +231,9 @@
         private System.Windows.Forms.Button btn_HoaDon;
         private System.Windows.Forms.Button btn_BanHang;
         private System.Windows.Forms.Button btn_QLSanPham;
-        private System.Windows.Forms.Button btn_TrangChu;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel pn_frmchuyen;
     }
 }

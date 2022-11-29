@@ -12,41 +12,49 @@ namespace _3.PL.Views
 {
     public partial class frmMani : Form
     {
+        private Form frmchinh;
         public frmMani()
         {
             InitializeComponent();
         }
-
-        private void btn_TrangChu_Click(object sender, EventArgs e)
+        public void ChuyenForm(Form form)
         {
-            frmMani f = new frmMani();
-            f.ShowDialog();
-           
+            if (frmchinh != null)
+            {
+                frmchinh.Close();
+            }
+            frmchinh = form;
+            form.TopLevel = false;
+            pn_frmchuyen.Controls.Add(form);
+            form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            form.Show();
         }
+   
 
         private void btn_QLSanPham_Click(object sender, EventArgs e)
         {
             frmQLSanPham f = new frmQLSanPham();
-            f.ShowDialog();
-           
+            ChuyenForm(f);
+
         }
 
         private void btn_BanHang_Click(object sender, EventArgs e)
         {
             frmBanHang f = new frmBanHang();
-            f.ShowDialog();
+            ChuyenForm(f);
         }
 
         private void btn_HoaDon_Click(object sender, EventArgs e)
         {
             frmQLHoaDon f = new frmQLHoaDon();
-            f.ShowDialog();
+            ChuyenForm(f);
         }
 
         private void btn_QLNhanVien_Click(object sender, EventArgs e)
         {
             frmQLNhanVien f = new frmQLNhanVien();
-            f.ShowDialog();
+            ChuyenForm(f);
         }
 
         private void btn_ThongKe_Click(object sender, EventArgs e)
