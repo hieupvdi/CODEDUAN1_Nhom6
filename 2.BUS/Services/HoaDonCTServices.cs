@@ -16,11 +16,13 @@ namespace _2.BUS.Services
         private IHoaDonCTRepository _IHoaDonCTRepository;
         private IHoaDonRepository _IHoaDonRepository;
         private ISanPhamRepository _ISanPhamRepository;
+        private ILoaiSPRepository _ILoaiSPRepository;
         public HoaDonCTServices()
         {
             _IHoaDonCTRepository= new HoaDonCTRepository();
             _IHoaDonRepository = new HoaDonRepository();
             _ISanPhamRepository = new SanPhamRepository();
+            _ILoaiSPRepository = new LoaiSPRepository();
         }
         public string Add(HoaDonCTView obj)
         {
@@ -61,7 +63,7 @@ namespace _2.BUS.Services
                 from a in _IHoaDonCTRepository.GetAll()
                 join b in _IHoaDonRepository.GetAll() on a.IdHD equals b.Id
                 join c in _ISanPhamRepository.GetAll() on a.IdSP equals c.Id
-
+                //join d in _ILoaiSPRepository.GetAll() on c.IdLoaiSP equals d.Id
                 select new HoaDonCTView()
                 {
 

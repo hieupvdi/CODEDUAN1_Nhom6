@@ -197,6 +197,7 @@
             this.dgrid_Hoadonct.RowTemplate.Height = 28;
             this.dgrid_Hoadonct.Size = new System.Drawing.Size(627, 261);
             this.dgrid_Hoadonct.TabIndex = 0;
+            this.dgrid_Hoadonct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_Hoadonct_CellClick);
             // 
             // groupBox4
             // 

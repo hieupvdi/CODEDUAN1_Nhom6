@@ -58,7 +58,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(186, 732);
+            this.panel1.Size = new System.Drawing.Size(186, 795);
             this.panel1.TabIndex = 1;
             // 
             // btn_DangXuat
@@ -69,7 +69,7 @@
             this.btn_DangXuat.Font = new System.Drawing.Font("Nirmala UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_DangXuat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btn_DangXuat.Image = ((System.Drawing.Image)(resources.GetObject("btn_DangXuat.Image")));
-            this.btn_DangXuat.Location = new System.Drawing.Point(0, 690);
+            this.btn_DangXuat.Location = new System.Drawing.Point(0, 753);
             this.btn_DangXuat.Name = "btn_DangXuat";
             this.btn_DangXuat.Size = new System.Drawing.Size(186, 42);
             this.btn_DangXuat.TabIndex = 8;
@@ -200,7 +200,7 @@
             this.pn_frmchuyen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_frmchuyen.Location = new System.Drawing.Point(186, 0);
             this.pn_frmchuyen.Name = "pn_frmchuyen";
-            this.pn_frmchuyen.Size = new System.Drawing.Size(1082, 732);
+            this.pn_frmchuyen.Size = new System.Drawing.Size(1303, 795);
             this.pn_frmchuyen.TabIndex = 2;
             // 
             // frmMani
@@ -208,7 +208,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1268, 732);
+            this.ClientSize = new System.Drawing.Size(1489, 795);
             this.Controls.Add(this.pn_frmchuyen);
             this.Controls.Add(this.panel1);
             this.Name = "frmMani";

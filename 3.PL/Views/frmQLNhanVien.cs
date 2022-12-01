@@ -172,11 +172,6 @@ namespace _3.PL.Views
 
         private void btn_Themanh_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void pb_Anh_Click(object sender, EventArgs e)
-        {
             OpenFileDialog op = new OpenFileDialog();
             if (op.ShowDialog() == DialogResult.OK)
             {
@@ -184,6 +179,11 @@ namespace _3.PL.Views
                 pb_Anh.Image = Image.FromFile(op.FileName);
                 pb_Anh.SizeMode = PictureBoxSizeMode.StretchImage;
             }
+        }
+
+        private void pb_Anh_Click(object sender, EventArgs e)
+        {
+          
         }
     }
     }

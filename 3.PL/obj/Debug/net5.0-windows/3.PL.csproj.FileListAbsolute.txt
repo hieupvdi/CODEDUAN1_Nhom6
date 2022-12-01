@@ -254,3 +254,4 @@ C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\DUAn1\3.PL\obj\Debug\net5.0-windows\r
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\DUAN1_Nhom6\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.frmQLHoaDon.resources
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\DUAN1_Nhom6\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.frmBanHang.resources
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\DUAN1_Nhom6\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.frmSize.resources
+C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\DUAN1_Nhom6\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.frmDangNhap.resources

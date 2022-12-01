@@ -134,7 +134,6 @@
             this.pb_Anh.Size = new System.Drawing.Size(324, 337);
             this.pb_Anh.TabIndex = 29;
             this.pb_Anh.TabStop = false;
-            this.pb_Anh.Click += new System.EventHandler(this.pb_Anh_Click);
             // 
             // btn_Themanh
             // 

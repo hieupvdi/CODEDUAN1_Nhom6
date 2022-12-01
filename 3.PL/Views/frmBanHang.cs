@@ -27,6 +27,8 @@ namespace _3.PL.Views
 
         private Guid _idWhenClick;
         private Guid _idHD;
+        private Guid u;
+  
         public frmBanHang()
         {
             InitializeComponent();
@@ -109,8 +111,10 @@ namespace _3.PL.Views
             float ThanhTien;
             int stt = 1;
             dgrid_Hoadonct.ColumnCount = 10;
-            dgrid_Hoadonct.Columns[0].Name = "STT";    
-            dgrid_Hoadonct.Columns[1].Name = "Mã sp";
+            dgrid_Hoadonct.Columns[0].Name = "STT";
+            dgrid_Hoadonct.Columns[1].Name = "ID";
+            dgrid_Hoadonct.Columns[1].Visible = false;
+           dgrid_Hoadonct.Columns[1].Name = "Mã sp";
             dgrid_Hoadonct.Columns[2].Name = "Tên sp";
             dgrid_Hoadonct.Columns[3].Name = "Số Lượng";
             dgrid_Hoadonct.Columns[4].Name = "Đơn Gía";
@@ -132,38 +136,54 @@ namespace _3.PL.Views
 
         private void dgrid_QLSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int RowIndex = e.RowIndex;
-            if (e.RowIndex == -1)
-            {
-                return;
-            }
-            if (RowIndex == _IQLSanPhamServices.GetAll().Count)
-            {
-                return;
-            }
-            _idWhenClick = Guid.Parse(dgrid_QLSanPham.Rows[RowIndex].Cells[1].Value.ToString());
-            var obj = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == _idWhenClick);
+            //int RowIndex = e.RowIndex;
+            //if (e.RowIndex == -1)
+            //{
+            //    return;
+            //}
+            //if (RowIndex == _IQLSanPhamServices.GetAll().Count)
+            //{
+            //    return;
+            //}
+            //_idWhenClick = Guid.Parse(dgrid_QLSanPham.Rows[RowIndex].Cells[1].Value.ToString());
+            //var obj = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.MaSP == _idWhenClick);
+
             // add Vào dgrid_Hoadonct 
             //dgrid_Hoadonct.Columns[1].Name = obj.MaSP;
             //dgrid_Hoadonct.Columns[2].Name = obj.TenSP;
             //dgrid_Hoadonct.Columns[4].Name = Convert.ToString(obj.GiaBan);
             //bj.GiaBan = dgrid_Hoadonct.Columns[4].Name = "Đơn Gía";
-            _idHD = Guid.Parse(dgrid_QLHoaDon.Rows[RowIndex].Cells[1].Value.ToString());
-            var abj = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idHD);
-            HoaDonCTView nvv = new HoaDonCTView()
-            {
+            //_idHD = Guid.Parse(dgrid_QLHoaDon.Rows[RowIndex].Cells[1].Value.ToString());
+            //var abj = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idHD);
+            //HoaDonCTView nvv = new HoaDonCTView()
+            //{
 
-                IdHD = abj.Id,
-                IdSP = obj.Id,
-                //SoLuong = sl,
-                 GiaBan =  Convert.ToDecimal(obj.GiaBan),
-            };
-            _IHoaDonCTServices.Add(nvv);
+            //    IdHD = abj.Id,
+            //    IdSP = obj.Id,
+            //    //SoLuong = sl,
+            //     GiaBan =  Convert.ToDecimal(obj.GiaBan),
+            //};
+            //_IHoaDonCTServices.Add(nvv);
+            DataGridViewRow r = dgrid_QLSanPham.Rows[e.RowIndex];
+            //pID = Convert.ToInt32(r.Cells[0].Value.ToString());
+            u = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.MaSP == r.Cells[1].Value.ToString()).Id;
+            AddGioHang(u);
 
         }
-        private void LoadGioHang()
+        private void AddGioHang(Guid u)
         {
-
+           // FirstOrDefault
+            var p = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == u);
+            var data = _IHoaDonCTServices.GetAll().FirstOrDefault(x => x.IdSP == p.Id);
+            HoaDonCTView add = new HoaDonCTView()
+            {
+                IdSP = p.Id,
+                TenSP = p.TenSP,
+                GiaBan = p.GiaBan,
+                SoLuong = 1,
+                //MaSp = p.MaSp
+            };
+            _IHoaDonCTServices.Add(add);
         }
         private HoaDonCTView AddvaoGH()
         {
@@ -189,11 +209,29 @@ namespace _3.PL.Views
 
         private void btn_Xoagh_Click(object sender, EventArgs e)
         {
-            
-            //var temp = GetDataFromGui();
+
+            //var temp = add();
             //temp.Id = _idWhenClick;
             //MessageBox.Show(_IKhachHangServices.Delete(temp));
-            //LoadKH(null);
+            //LoadQLCTHD();
+        }
+
+        private void dgrid_Hoadonct_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int RowIndex = e.RowIndex;
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
+            if (RowIndex == _IHoaDonCTServices.GetAll().Count)
+            {
+                return;
+            }
+            _idWhenClick = Guid.Parse(dgrid_Hoadonct.Rows[RowIndex].Cells[1].Value.ToString());
+            var obj = _IHoaDonCTServices.GetAll().FirstOrDefault(x => x.IdSP == _idWhenClick);
+
+
+
         }
     }
 }
