@@ -78,7 +78,7 @@ namespace _3.PL.Views
                 IdKH = _IKhachHangServices.GetAll()[cmb_Khachhang.SelectedIndex].Id,
                 ThoiGianTao = date_TGtao.Value,
                 ThoiGianThanhToan = date_TGTT.Value,
-                SDT=txt_Sdt.Text,
+                SDT =txt_Sdt.Text,
                 DiaChi=txt_Diachi.Text,
                 TrangThai=rbtn_ChuaTT.Checked ? 0:1,
                 

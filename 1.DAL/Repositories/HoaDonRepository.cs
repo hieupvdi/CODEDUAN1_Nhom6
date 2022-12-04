@@ -59,6 +59,7 @@ namespace _1.DAL.Repositories
             HD.ThoiGianThanhToan = obj.ThoiGianThanhToan;
             HD.SDT = obj.SDT;
             HD.DiaChi = obj.DiaChi;
+            HD.TongTien = obj.TongTien;
             HD.TrangThai = obj.TrangThai;
            
 

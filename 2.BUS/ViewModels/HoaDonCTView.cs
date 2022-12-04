@@ -29,6 +29,7 @@ namespace _2.BUS.ViewModels
         public DateTime ThoiGianThanhToan { get; set; }
         public string SDT { get; set; }
         public string DiaChi { get; set; }
+        public decimal TongTien { get; set; }
         public int TrangThai { get; set; }
 
         //Bảng  Sản Phẩm

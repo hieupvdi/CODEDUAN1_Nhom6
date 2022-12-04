@@ -84,6 +84,7 @@
             this.btn_Inhd.TabStop = false;
             this.btn_Inhd.Text = "In Hóa Đơn";
             this.btn_Inhd.UseVisualStyleBackColor = true;
+            this.btn_Inhd.Click += new System.EventHandler(this.btn_Inhd_Click);
             // 
             // btn_Xoa
             // 

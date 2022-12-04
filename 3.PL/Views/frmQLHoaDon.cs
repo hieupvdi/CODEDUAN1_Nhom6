@@ -118,5 +118,10 @@ namespace _3.PL.Views
                 LoadQLCTHD(Convert.ToInt32(r.Cells[0].Value));
             }
         }
+
+        private void btn_Inhd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

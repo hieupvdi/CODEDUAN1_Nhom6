@@ -36,6 +36,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Dangnhap = new System.Windows.Forms.Button();
+            this.cb_Hienmk = new System.Windows.Forms.CheckBox();
+            this.cb_Luumk = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -104,12 +106,36 @@
             this.btn_Dangnhap.UseVisualStyleBackColor = true;
             this.btn_Dangnhap.Click += new System.EventHandler(this.btn_Dangnhap_Click);
             // 
+            // cb_Hienmk
+            // 
+            this.cb_Hienmk.AutoSize = true;
+            this.cb_Hienmk.Location = new System.Drawing.Point(631, 247);
+            this.cb_Hienmk.Name = "cb_Hienmk";
+            this.cb_Hienmk.Size = new System.Drawing.Size(126, 24);
+            this.cb_Hienmk.TabIndex = 19;
+            this.cb_Hienmk.Text = "Hiện Mật Khẩu";
+            this.cb_Hienmk.UseVisualStyleBackColor = true;
+            this.cb_Hienmk.CheckedChanged += new System.EventHandler(this.cb_Hienmk_CheckedChanged);
+            // 
+            // cb_Luumk
+            // 
+            this.cb_Luumk.AutoSize = true;
+            this.cb_Luumk.Location = new System.Drawing.Point(444, 247);
+            this.cb_Luumk.Name = "cb_Luumk";
+            this.cb_Luumk.Size = new System.Drawing.Size(119, 24);
+            this.cb_Luumk.TabIndex = 20;
+            this.cb_Luumk.Text = "Lưu Mật Khẩu";
+            this.cb_Luumk.UseVisualStyleBackColor = true;
+            this.cb_Luumk.CheckedChanged += new System.EventHandler(this.cb_Luumk_CheckedChanged);
+            // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(857, 511);
+            this.Controls.Add(this.cb_Luumk);
+            this.Controls.Add(this.cb_Hienmk);
             this.Controls.Add(this.btn_Dangnhap);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txt_pass);
@@ -134,5 +160,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_Dangnhap;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox cb_Hienmk;
+        private System.Windows.Forms.CheckBox cb_Luumk;
     }
 }

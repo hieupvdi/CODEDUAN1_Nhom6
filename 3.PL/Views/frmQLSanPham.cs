@@ -83,7 +83,7 @@ namespace _3.PL.Views
                 IdLoaiSP = _ILoaiSPServices.GetAll()[cmb_Loaisp.SelectedIndex].Id,
                 IdSize = _ISizeServices.GetAll()[cmb_Size.SelectedIndex].Id,
                 GiaBan = Convert.ToDecimal(txt_Giaban.Text),
-                TrangThai = rbtn_ConBan.Checked ? 1 : 0,
+                TrangThai = rbtn_ConBan.Checked ? 0 : 1,
             };
             return spv;
         }
@@ -114,7 +114,7 @@ namespace _3.PL.Views
                 pb_Anh.Image = null;
             }
             txt_Giaban.Text =Convert.ToString(obj.GiaBan);
-            if (obj.TrangThai==1)
+            if (obj.TrangThai==0)
             {
                 rbtn_ConBan.Checked = true;
             }

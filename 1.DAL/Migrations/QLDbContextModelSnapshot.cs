@@ -27,14 +27,10 @@ namespace _1.DAL.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("MaCV")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("MaCV");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TenCV")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("TenCV");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -57,9 +53,7 @@ namespace _1.DAL.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("DiaChi")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("DiaChi");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("IdKH")
                         .IsRequired()
@@ -70,26 +64,22 @@ namespace _1.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("MaHD")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("MaHD");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SDT")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)")
-                        .HasColumnName("SDT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ThoiGianTao")
-                        .HasColumnType("Datetime")
-                        .HasColumnName("ThoiGianTao");
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("ThoiGianThanhToan")
-                        .HasColumnType("Datetime")
-                        .HasColumnName("ThoiGianThanhToan");
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("TongTien")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("TrangThai")
-                        .HasColumnType("int")
-                        .HasColumnName("TrangThai");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -109,12 +99,10 @@ namespace _1.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("DonGia")
-                        .HasColumnType("decimal")
-                        .HasColumnName("DonGia");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("SoLuong")
-                        .HasColumnType("int")
-                        .HasColumnName("SoLuong");
+                        .HasColumnType("int");
 
                     b.HasKey("IdSP", "IdHD");
 
@@ -131,24 +119,16 @@ namespace _1.DAL.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("DiaChi")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("DiaChi");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MaKH")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("MaKH");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SDT")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)")
-                        .HasColumnName("SDT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TenKH")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("TenKH");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -173,14 +153,10 @@ namespace _1.DAL.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("MaLoaiSP")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("MaLoaiSP");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TenLoaiSP")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("TenLoaiSP");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -203,35 +179,35 @@ namespace _1.DAL.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("DiaChi")
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GioiTinh")
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("IdCV")
                         .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("LinkAnh")
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MaNV")
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MatKhau")
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("NgaySinh")
-                        .HasColumnType("Datetime");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("SDT")
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TenNV")
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Trangthai")
                         .HasColumnType("int");
@@ -251,8 +227,7 @@ namespace _1.DAL.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<decimal>("GiaBan")
-                        .HasColumnType("decimal")
-                        .HasColumnName("GiaBan");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("IdLoaiSP")
                         .IsRequired()
@@ -263,23 +238,16 @@ namespace _1.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("LinkAnh")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("LinkAnh");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MaSP")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("MaSP");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TenSP")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("TenSP");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TrangThai")
-                        .HasColumnType("int")
-                        .HasColumnName("Trangthai");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -298,22 +266,16 @@ namespace _1.DAL.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<decimal>("Gia")
-                        .HasColumnType("decimal")
-                        .HasColumnName("Gia");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("MaSize")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("MaSize");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TenSize")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("TenSize");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TrangThai")
-                        .HasColumnType("int")
-                        .HasColumnName("TrangThai");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

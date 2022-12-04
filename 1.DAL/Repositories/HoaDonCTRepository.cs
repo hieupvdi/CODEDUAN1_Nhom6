@@ -52,7 +52,8 @@ namespace _1.DAL.Repositories
 
             var HDCT = _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdSP == obj.IdSP);
 
-            HDCT.IdSP = obj.IdSP;
+            //HDCT.IdSP = obj.IdSP;
+            HDCT.IdHD = obj.IdHD;
             HDCT.SoLuong = obj.SoLuong;
             HDCT.DonGia = obj.DonGia;
             _DbContext.HoaDonCTs.Update(HDCT);

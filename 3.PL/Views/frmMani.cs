@@ -13,6 +13,7 @@ namespace _3.PL.Views
     public partial class frmMani : Form
     {
         private Form frmchinh;
+        bool isThoat = true;
         public frmMani()
         {
             InitializeComponent();
@@ -60,12 +61,17 @@ namespace _3.PL.Views
 
         private void btn_ThongKe_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Chưa có frm Thống kê");
+            frmThongKe f = new frmThongKe();
+            f.ShowDialog();
         }
 
         private void btn_DangXuat_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Chưa có frm đăng nhập");
+            isThoat = false;
+            this.Close();
+            frmDangNhap f = new frmDangNhap();
+            f.Show();
+            this.Hide();
         }
     }
 }

@@ -38,6 +38,7 @@ namespace _2.BUS.Services
                 ThoiGianThanhToan = obj.ThoiGianThanhToan,
                 SDT = obj.SDT,
                 DiaChi = obj.DiaChi,
+                TongTien = obj.TongTien,
                 TrangThai = obj.TrangThai,
 
             };
@@ -80,6 +81,7 @@ namespace _2.BUS.Services
                     ThoiGianThanhToan = a.ThoiGianThanhToan,
                     SDT = a.SDT,
                     DiaChi = a.DiaChi,
+                    TongTien=a.TongTien,
                     TrangThai = a.TrangThai,
                     //nhân viên
                     IdCV=b.IdCV,
@@ -141,6 +143,7 @@ namespace _2.BUS.Services
             HD.ThoiGianThanhToan = obj.ThoiGianThanhToan;
             HD.SDT = obj.SDT;
             HD.DiaChi = obj.DiaChi;
+            HD.TongTien = obj.TongTien;
             HD.TrangThai = obj.TrangThai;
 
             if (_IHoaDonRepository.Update(HD))

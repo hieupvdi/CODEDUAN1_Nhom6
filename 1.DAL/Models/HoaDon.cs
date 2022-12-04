@@ -22,7 +22,9 @@ namespace _1.DAL.Models
         public DateTime ThoiGianThanhToan { get; set; }
         public string SDT { get; set; }
         public string DiaChi { get; set; }
+        public decimal TongTien { get; set; }
         public int TrangThai { get; set; }
+
         //
         public virtual NhanVien? NhanVien { get; set; }
         public virtual KhachHang? KhachHang { get; set; }

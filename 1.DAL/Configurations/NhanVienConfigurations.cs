@@ -18,16 +18,16 @@ namespace _1.DAL.Configurations
 
             builder.Property(k => k.IdCV).IsRequired();
 
-            builder.Property(k => k.MaNV).HasColumnType("nvarchar(100)");
-            builder.Property(k => k.TenNV).HasColumnType("nvarchar(100)");
-            builder.Property(k => k.LinkAnh).HasColumnType("nvarchar(100)");
-            builder.Property(k => k.GioiTinh).HasColumnType("nvarchar(100)");
-            builder.Property(k => k.NgaySinh).HasColumnType("Datetime");
-            builder.Property(k => k.Email).HasColumnType("nvarchar(100)");
-            builder.Property(k => k.SDT).HasColumnType("nvarchar(100)");
-            builder.Property(k => k.DiaChi).HasColumnType("nvarchar(100)");
-            builder.Property(k => k.MatKhau).HasColumnType("nvarchar(100)");
-            builder.Property(k => k.Trangthai).HasColumnType("int");
+            //builder.Property(k => k.MaNV).HasColumnType("nvarchar(100)");
+            //builder.Property(k => k.TenNV).HasColumnType("nvarchar(100)");
+            //builder.Property(k => k.LinkAnh).HasColumnType("nvarchar(100)");
+            //builder.Property(k => k.GioiTinh).HasColumnType("nvarchar(100)");
+            //builder.Property(k => k.NgaySinh).HasColumnType("Datetime");
+            //builder.Property(k => k.Email).HasColumnType("nvarchar(100)");
+            //builder.Property(k => k.SDT).HasColumnType("nvarchar(100)");
+            //builder.Property(k => k.DiaChi).HasColumnType("nvarchar(100)");
+            //builder.Property(k => k.MatKhau).HasColumnType("nvarchar(100)");
+            //builder.Property(k => k.Trangthai).HasColumnType("int");
 
             //builder.Property(p => p.MaNV).HasColumnName("MaNV").
             //   HasColumnType("nvarchar(100)").IsRequired();

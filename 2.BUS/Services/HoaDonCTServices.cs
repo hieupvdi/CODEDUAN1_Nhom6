@@ -123,7 +123,7 @@ namespace _2.BUS.Services
             var HDCT = _IHoaDonCTRepository.GetAll().FirstOrDefault(c => c.IdSP == obj.IdSP);
 
             HDCT.IdHD = obj.IdHD;
-            HDCT.IdSP = obj.IdSP;
+           // HDCT.IdSP = obj.IdSP;
             HDCT.SoLuong = obj.SoLuong;
             HDCT.DonGia = obj.DonGia;
 

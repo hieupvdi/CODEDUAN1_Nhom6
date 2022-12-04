@@ -17,29 +17,30 @@ namespace _3.PL.Views
     {
         //gọi sv ql sp
         private IQLSanPhamServices _IQLSanPhamServices;
-        private ILoaiSPServices _ILoaiSPServices;
+
         private ISizeServices _ISizeServices;
         //Gọi sv hóa đơn chờ
         private IKhachHangServices _IKhachHangServices;
         //Gọi sv hóa đơn ct-giỏ hàng
         private IHoaDonCTServices _IHoaDonCTServices;
         private IHoaDonServices _IHoaDonServices;
+        private IQLNhanVienServices _IQLNhanVienServices;
 
-        private int _idQLSP;
-        private int _idHD;
-        private int _idHDCT;
+
         public int u;
         public List<HoaDonCTView> _lstHoaDonCTView;
+
         public frmBanHang()
         {
             InitializeComponent();
             _IQLSanPhamServices = new QLSanPhamServices();
-            _ILoaiSPServices = new LoaiSPServices();
+            _IQLNhanVienServices = new QLNhanVienServices();
             _ISizeServices = new SizeServices();
             _IHoaDonServices = new HoaDonServices();
-            _IHoaDonCTServices =new HoaDonCTServices();
+            _IHoaDonCTServices = new HoaDonCTServices();
             _IKhachHangServices = new KhachHangServices();
             _lstHoaDonCTView = new List<HoaDonCTView>();
+
             LoadDSSanPham();
             LoadGioHang();
             LoadHDCho();
@@ -47,13 +48,18 @@ namespace _3.PL.Views
         }
         public void LoadCmb()
         {
+            foreach (var x in _IQLNhanVienServices.GetAll())
+            {
+                cmb_Nhanvien.Items.Add(x.MaNV);
+            }
+            cmb_Nhanvien.SelectedIndex = 0;
             foreach (var x in _IKhachHangServices.GetAll())
             {
                 cmb_Khachhang.Items.Add(x.TenKH);
             }
             cmb_Khachhang.SelectedIndex = 0;
 
-        
+
 
         }
         //bảng hóa đơn -hóa đơn chờ
@@ -111,23 +117,7 @@ namespace _3.PL.Views
         public void LoadGioHang()
         {
 
-            //int stt = 1;
-            //dgrid_Hoadonct.ColumnCount = 10;
-            //dgrid_Hoadonct.Columns[0].Name = "STT";
-            //dgrid_Hoadonct.Columns[1].Name = "ID";
-            //dgrid_Hoadonct.Columns[1].Visible = false;
-            //dgrid_Hoadonct.Columns[2].Name = "Mã sp";
-            //dgrid_Hoadonct.Columns[3].Name = "Tên sp";
-            //dgrid_Hoadonct.Columns[4].Name = "Số Lượng";
-            //dgrid_Hoadonct.Columns[5].Name = "Đơn Gía";
-            ////dgrid_Hoadonct.Columns[5].Name = "Thành Tiền";
 
-            //dgrid_Hoadonct.Rows.Clear();
-
-            //foreach (var x in _IHoaDonCTServices.GetAll())
-            //{
-            //    dgrid_Hoadonct.Rows.Add(stt++,x.IdSP, x.MaSP, x.TenSP, x.SoLuong, x.DonGia);
-            //}
             int stt = 1;
             dgrid_Hoadonct.ColumnCount = 10;
             dgrid_Hoadonct.Columns[0].Name = "STT";
@@ -150,7 +140,7 @@ namespace _3.PL.Views
 
         private void btn_Themgh_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void dgrid_QLSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -170,22 +160,22 @@ namespace _3.PL.Views
         {
 
             var sp = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == u);
-      
+
             var data = _lstHoaDonCTView.FirstOrDefault(x => x.IdSP == sp.Id);
             if (data == null)
             {
                 HoaDonCTView ghct = new HoaDonCTView()
                 {
 
-                   
+
                     IdSP = sp.Id,
                     TenSP = sp.TenSP,
                     DonGia = sp.GiaBan,
                     SoLuong = 1,
-                    MaSP =sp.MaSP,
+                    MaSP = sp.MaSP,
                 };
                 _lstHoaDonCTView.Add(ghct);
-             
+
             }
             else
             {
@@ -193,19 +183,19 @@ namespace _3.PL.Views
             }
             LoadGioHang();
 
-  
+
         }
 
 
 
-    
+
 
         private void btn_Xoagh_Click(object sender, EventArgs e)
         {
 
             var item = _lstHoaDonCTView.FirstOrDefault(x => x.IdSP == u);
             _lstHoaDonCTView.Remove(item);
-     
+
 
             LoadGioHang();
 
@@ -238,61 +228,85 @@ namespace _3.PL.Views
 
         private void btn_Taohdcho_Click(object sender, EventArgs e)
         {
-            if (_lstOrderDetail.Any())
+            if (_lstHoaDonCTView.Any())//check có sp trong bảng tạm k
             {
-                decimal total = 0;
-                foreach (var item in _lstOrderDetail)
+                decimal Tien = 0;
+                foreach (var item in _lstHoaDonCTView)
                 {
-                    total += item.Price * item.Quantity;
+                    Tien += item.DonGia * item.SoLuong;
                 }
-                int eID = _employee.GetEmployeeFromDB().FirstOrDefault(x => x.Email == Properties.Settings.Default.TKdaLogin).ID;
-                c = _customer.GetCustomerFromDB().FirstOrDefault(x => x.Phone == tb_sdt.Text);
-                if (c != null)
-                {
-                    Order o = new Order()
-                    {
-                        dateCreate = DateTime.Now,
-                        EmployeeID = eID,
-                        CustomerID = c.ID,
-                        TotalPrice = total,
-                        Status = false,
-                        Note = ""
-                    };
-                    _order.AddOder(o);
-                    foreach (var item in _lstOrderDetail)
-                    {
-                        OrderDetail od = new OrderDetail()
-                        {
-                            OderID = o.Id,
-                            ProducID = item.ProductID,
-                            Price = item.Price,
-                            Quantity = item.Quantity
-                        };
-                        _orderDetail.AddOderDetail(od);
-                        var p = _product.GetProductFromDB().FirstOrDefault(x => x.Id == item.ProductID);
-                        p.Stock -= item.Quantity;
-                        _product.UpdateProduct(p);
-                    }
+                //lấy id nv / id kh
+                //int eID = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Email == Properties.Settings.Default.TKdaLogin).ID;
+                //c = _IKhachHangServices.GetAll().FirstOrDefault(x => x.Phone == tb_sdt.Text);
+                var idhd = _IHoaDonServices.GetAll().Max(x => x.Id);
+                //if (idhd != null)
+                //{
 
-                    tbt_mahd.Text = o.Id.ToString();
-                    lb_tongtien.Text = o.TotalPrice.ToString();
-                    tb_sdt.Text = "";
-                    lb_totalcart.Text = "";
-                    MessageBox.Show($"Tạo hóa đơn thành công. ID: {o.Id}");
-                    loadSanPham();
-                    loadHDcho();
-                    _lstOrderDetail = new List<OrderDetailVM>();
-                    dtg_giohang.Rows.Clear();
-                }
-                else
+                var HoaDonView = new HoaDonView()
                 {
-                    MessageBox.Show("Vui lòng nhập khách hàng");
+                    //MaHD = txt_Mahd.Text,
+                    Id = Convert.ToInt32(idhd) + 1,
+                    MaHD = "HD0000" + _IHoaDonServices.GetAll().Select(x => x.Id).LastOrDefault(),
+                    ThoiGianTao = DateTime.Now,
+                    IdNV = _IQLNhanVienServices.GetAll()[cmb_Nhanvien.SelectedIndex].Id,
+                    IdKH = _IKhachHangServices.GetAll()[cmb_Khachhang.SelectedIndex].Id,
+                    TongTien = Tien,
+                    TrangThai = 0,
+
+                };
+                _IHoaDonServices.Add(HoaDonView);
+
+                foreach (var item in _lstHoaDonCTView)
+                {
+                    var HoaDonCTView = new HoaDonCTView()
+                    {
+                        IdHD = HoaDonView.Id,
+                        IdSP = item.IdSP,
+                        GiaBan = item.GiaBan,
+                        SoLuong = item.SoLuong
+                    };
+                    _IHoaDonCTServices.Add(HoaDonCTView);
+                    //var p = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == item.IdSP);
+                    // p.Stock -= item.Quantity;
+                    // _IQLSanPhamServices.Update(p);
                 }
+
+                //tbt_mahd.Text = o.Id.ToString();
+                //lb_TongTien.Text = o.TotalPrice.ToString();
+                //lb_TongTien = Convert.ToDecimal(Tien);
+                //tb_sdt.Text = "";
+                //lb_totalcart.Text = "";
+                MessageBox.Show($"Tạo hóa đơn thành công. ID: ");
+                //{ o.Id}
+                LoadDSSanPham();
+                LoadHDCho();
+                LoadGioHang();
+                _lstHoaDonCTView = new List<HoaDonCTView>();
+                dgrid_Hoadonct.Rows.Clear();
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Vui lòng nhập khách hàng");
+                //}
             }
             else
             {
                 MessageBox.Show("Chưa có sản phẩm nào trong giỏ hàng");
             }
+
+
+
+
+
+
+
+
+        }
+
+        private void btn_Themkhachhang_Click(object sender, EventArgs e)
+        {
+            frmKhachHang f = new frmKhachHang();
+            f.ShowDialog();
         }
     }
 }
