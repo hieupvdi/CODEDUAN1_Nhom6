@@ -37,7 +37,7 @@
             this.btn_BanHang = new System.Windows.Forms.Button();
             this.btn_QLSanPham = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lb_Tenvschuvu = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pn_frmchuyen = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -165,7 +165,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.lb_Tenvschuvu);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -173,16 +173,16 @@
             this.panel2.Size = new System.Drawing.Size(186, 144);
             this.panel2.TabIndex = 1;
             // 
-            // label1
+            // lb_Tenvschuvu
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.886957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(149)))));
-            this.label1.Location = new System.Drawing.Point(11, 98);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Tên Tài Khoản + Chức Vụ";
+            this.lb_Tenvschuvu.AutoSize = true;
+            this.lb_Tenvschuvu.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.886957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_Tenvschuvu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(149)))));
+            this.lb_Tenvschuvu.Location = new System.Drawing.Point(11, 98);
+            this.lb_Tenvschuvu.Name = "lb_Tenvschuvu";
+            this.lb_Tenvschuvu.Size = new System.Drawing.Size(168, 15);
+            this.lb_Tenvschuvu.TabIndex = 1;
+            this.lb_Tenvschuvu.Text = "Tên Tài Khoản + Chức Vụ";
             // 
             // pictureBox1
             // 
@@ -232,7 +232,7 @@
         private System.Windows.Forms.Button btn_BanHang;
         private System.Windows.Forms.Button btn_QLSanPham;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_Tenvschuvu;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pn_frmchuyen;
     }

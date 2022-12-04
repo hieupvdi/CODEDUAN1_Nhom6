@@ -24,6 +24,8 @@ namespace _1.DAL.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("MaCV")
@@ -50,6 +52,8 @@ namespace _1.DAL.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("DiaChi")
@@ -116,6 +120,8 @@ namespace _1.DAL.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("DiaChi")
@@ -150,6 +156,8 @@ namespace _1.DAL.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("MaLoaiSP")
@@ -176,6 +184,8 @@ namespace _1.DAL.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("DiaChi")
@@ -224,6 +234,8 @@ namespace _1.DAL.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<decimal>("GiaBan")
@@ -263,6 +275,8 @@ namespace _1.DAL.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<decimal>("Gia")

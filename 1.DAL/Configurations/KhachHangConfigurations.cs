@@ -15,7 +15,8 @@ namespace _1.DAL.Configurations
         {
             builder.ToTable("KhachHang"); // Đặt tên bảng (Nếu ko thì lấy mặc định của class)
             builder.HasKey(x => x.Id); // Set khóa chính
-                                       // Cấu hình dữ liệu
+            builder.Property(x => x.Id).UseIdentityColumn(1, 1);
+            // Cấu hình dữ liệu
             //builder.Property(p => p.MaKH).HasColumnName("MaKH").
             //  HasColumnType("nvarchar(100)").IsRequired();
             //builder.Property(p => p.TenKH).HasColumnName("TenKH").

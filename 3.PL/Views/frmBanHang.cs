@@ -25,7 +25,7 @@ namespace _3.PL.Views
         private IHoaDonCTServices _IHoaDonCTServices;
         private IHoaDonServices _IHoaDonServices;
         private IQLNhanVienServices _IQLNhanVienServices;
-
+        public KhachHangView c;
 
         public int u;
         public List<HoaDonCTView> _lstHoaDonCTView;
@@ -40,7 +40,8 @@ namespace _3.PL.Views
             _IHoaDonCTServices = new HoaDonCTServices();
             _IKhachHangServices = new KhachHangServices();
             _lstHoaDonCTView = new List<HoaDonCTView>();
-
+            c = new KhachHangView();
+     
             LoadDSSanPham();
             LoadGioHang();
             LoadHDCho();
@@ -238,56 +239,66 @@ namespace _3.PL.Views
                 //lấy id nv / id kh
                 //int eID = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Email == Properties.Settings.Default.TKdaLogin).ID;
                 //c = _IKhachHangServices.GetAll().FirstOrDefault(x => x.Phone == tb_sdt.Text);
-                var idhd = _IHoaDonServices.GetAll().Max(x => x.Id);
-                //if (idhd != null)
-                //{
 
-                var HoaDonView = new HoaDonView()
+
+                int h = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Email == Properties.Settings.Default.TaiKhoan).Id;
+                c = _IKhachHangServices.GetAll().FirstOrDefault(x => x.MaKH == txt_Makh.Text);
+             
+                if (c != null)
                 {
-                    //MaHD = txt_Mahd.Text,
-                    Id = Convert.ToInt32(idhd) + 1,
-                    MaHD = "HD0000" + _IHoaDonServices.GetAll().Select(x => x.Id).LastOrDefault(),
-                    ThoiGianTao = DateTime.Now,
-                    IdNV = _IQLNhanVienServices.GetAll()[cmb_Nhanvien.SelectedIndex].Id,
-                    IdKH = _IKhachHangServices.GetAll()[cmb_Khachhang.SelectedIndex].Id,
-                    TongTien = Tien,
-                    TrangThai = 0,
 
-                };
-                _IHoaDonServices.Add(HoaDonView);
-
-                foreach (var item in _lstHoaDonCTView)
-                {
-                    var HoaDonCTView = new HoaDonCTView()
+                    var HoaDonView = new HoaDonView()
                     {
+                        ////MaHD = txt_Mahd.Text,
+                        //Id = Convert.ToInt32(idhd) + 1,
+                        //MaHD = "HD0000" + _IHoaDonServices.GetAll().Select(x => x.Id).LastOrDefault(),
+                        //ThoiGianTao = DateTime.Now,
+                        //IdNV = _IQLNhanVienServices.GetAll()[cmb_Nhanvien.SelectedIndex].Id,
+                        //IdKH = _IKhachHangServices.GetAll()[cmb_Khachhang.SelectedIndex].Id,
+                        //TongTien = Tien,
+                        //TrangThai = 0,
+                        //Id = Convert.ToInt32(hd) + 1,
+                        MaHD = "HD0000" + _IHoaDonServices.GetAll().Select(x => x.Id).LastOrDefault(),
+                        ThoiGianTao = DateTime.Now,
+                        IdNV = h,
+                        IdKH = c.Id,
+                        TongTien = Tien,
+
+                    };
+                    _IHoaDonServices.Add(HoaDonView);
+                    MessageBox.Show($"Tạo hóa đơn thành công. ID: {HoaDonView.Id}");
+                    foreach (var item in _lstHoaDonCTView)
+                    {
+                        var HoaDonCTView = new HoaDonCTView()
+                        {
                         IdHD = HoaDonView.Id,
                         IdSP = item.IdSP,
                         GiaBan = item.GiaBan,
                         SoLuong = item.SoLuong
-                    };
-                    _IHoaDonCTServices.Add(HoaDonCTView);
+                        };
+                         _IHoaDonCTServices.Add(HoaDonCTView);
                     //var p = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == item.IdSP);
                     // p.Stock -= item.Quantity;
                     // _IQLSanPhamServices.Update(p);
-                }
+                    }
 
-                //tbt_mahd.Text = o.Id.ToString();
-                //lb_TongTien.Text = o.TotalPrice.ToString();
-                //lb_TongTien = Convert.ToDecimal(Tien);
-                //tb_sdt.Text = "";
-                //lb_totalcart.Text = "";
-                MessageBox.Show($"Tạo hóa đơn thành công. ID: ");
-                //{ o.Id}
-                LoadDSSanPham();
-                LoadHDCho();
-                LoadGioHang();
-                _lstHoaDonCTView = new List<HoaDonCTView>();
-                dgrid_Hoadonct.Rows.Clear();
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Vui lòng nhập khách hàng");
-                //}
+                    //tbt_mahd.Text = o.Id.ToString();
+                    //lb_TongTien.Text = o.TotalPrice.ToString();
+                    //lb_TongTien = Convert.ToDecimal(Tien);
+                    //tb_sdt.Text = "";
+                    //lb_totalcart.Text = "";
+                    MessageBox.Show($"Tạo hóa đơn thành công. ID: {HoaDonView.Id}");
+                    
+                    LoadDSSanPham();
+                    LoadHDCho();
+                    LoadGioHang();
+                    _lstHoaDonCTView = new List<HoaDonCTView>();
+                    dgrid_Hoadonct.Rows.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập khách hàng");
+                }
             }
             else
             {

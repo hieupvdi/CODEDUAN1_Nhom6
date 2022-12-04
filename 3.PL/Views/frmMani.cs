@@ -1,4 +1,6 @@
-﻿using System;
+﻿using _2.BUS.IServices;
+using _2.BUS.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +14,17 @@ namespace _3.PL.Views
 {
     public partial class frmMani : Form
     {
+        private IQLNhanVienServices _IQLNhanVienServices;
+        private IChucVuServices _IChucVuServices;
         private Form frmchinh;
         bool isThoat = true;
         public frmMani()
         {
             InitializeComponent();
+            _IQLNhanVienServices = new QLNhanVienServices();
+            _IChucVuServices = new ChucVuServices();
         }
+      
         public void ChuyenForm(Form form) //chuyển from
 
         {
@@ -62,7 +69,7 @@ namespace _3.PL.Views
         private void btn_ThongKe_Click(object sender, EventArgs e)
         {
             frmThongKe f = new frmThongKe();
-            f.ShowDialog();
+            ChuyenForm(f);
         }
 
         private void btn_DangXuat_Click(object sender, EventArgs e)

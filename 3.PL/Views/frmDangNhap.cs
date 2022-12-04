@@ -22,8 +22,14 @@ namespace _3.PL.Views
         {
             InitializeComponent();
             _IQLNhanVienServices = new QLNhanVienServices();
-       
-      
+            txt_Email.Text = Properties.Settings.Default.TaiKhoan;
+            txt_pass.Text = Properties.Settings.Default.MK;
+            cb_Luumk.Checked = true;
+            cb_Hienmk.Checked=true;
+           
+
+
+
         }
 
         private void btn_Dangnhap_Click(object sender, EventArgs e)
@@ -46,7 +52,7 @@ namespace _3.PL.Views
                 if (login != null)
                 {
 
-
+                    Luutk();
                     frmMani f = new frmMani();
                     this.Hide();
                     f.ShowDialog();
@@ -67,16 +73,35 @@ namespace _3.PL.Views
         {
             if (cb_Hienmk.Checked)
             {
-                txt_pass.PasswordChar = '\0';
-            }
-            else { 
+                
                 txt_pass.PasswordChar = '*';
             }
+            else {
+                txt_pass.PasswordChar = '\0';
+            }
         }
-
-        private void cb_Luumk_CheckedChanged(object sender, EventArgs e)
+        public void Luutk()
         {
+            if (cb_Luumk.Checked == true)
+            {
+                Properties.Settings.Default.TaiKhoan = txt_Email.Text;
+                Properties.Settings.Default.MK = txt_pass.Text;
+                //Properties.Settings.Default.TKdaLogin = tbt_tk.Text;
+                //Properties.Settings.Default.MKdaLogin = tbt_mk.Text;
+                Properties.Settings.Default.Save();
 
+            }
+            else
+            {
+                Properties.Settings.Default.TaiKhoan = "";
+                Properties.Settings.Default.MK = "";
+                //Properties.Settings.Default.TKdaLogin = tbt_tk.Text;
+                //Properties.Settings.Default.MKdaLogin = tbt_mk.Text;
+                Properties.Settings.Default.Save();
+            }
         }
+      
+
+     
     }
 }

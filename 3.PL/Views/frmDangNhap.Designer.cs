@@ -126,7 +126,6 @@
             this.cb_Luumk.TabIndex = 20;
             this.cb_Luumk.Text = "Lưu Mật Khẩu";
             this.cb_Luumk.UseVisualStyleBackColor = true;
-            this.cb_Luumk.CheckedChanged += new System.EventHandler(this.cb_Luumk_CheckedChanged);
             // 
             // frmDangNhap
             // 
