@@ -28,7 +28,7 @@ namespace _1.DAL.Repositories
         {
             if (obj == null) return false;
 
-            var HDCT = _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdHD == obj.IdHD);
+            var HDCT = _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdSP == obj.IdSP);
 
             _DbContext.HoaDonCTs.Remove(HDCT);
             _DbContext.SaveChanges();
@@ -40,17 +40,17 @@ namespace _1.DAL.Repositories
             return _DbContext.HoaDonCTs.ToList();
         }
 
-        public HoaDonCT GetById(Guid id)
+        public HoaDonCT GetById(int id)
         {
-            if (id == Guid.Empty) return null;
-            return _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdHD == id);
+           // if (id == Guid.Empty) return null;
+            return _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdSP == id);
         }
 
         public bool Update(HoaDonCT obj)
         {
             if (obj == null) return false;
 
-            var HDCT = _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdHD == obj.IdHD);
+            var HDCT = _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdSP == obj.IdSP);
 
             HDCT.IdSP = obj.IdSP;
             HDCT.SoLuong = obj.SoLuong;

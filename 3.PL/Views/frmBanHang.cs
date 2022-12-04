@@ -25,10 +25,11 @@ namespace _3.PL.Views
         private IHoaDonCTServices _IHoaDonCTServices;
         private IHoaDonServices _IHoaDonServices;
 
-        private Guid _idWhenClick;
-        private Guid _idHD;
-        private Guid u;
-  
+        private int _idQLSP;
+        private int _idHD;
+        private int _idHDCT;
+        public int u;
+        public List<HoaDonCTView> _lstHoaDonCTView;
         public frmBanHang()
         {
             InitializeComponent();
@@ -38,9 +39,10 @@ namespace _3.PL.Views
             _IHoaDonServices = new HoaDonServices();
             _IHoaDonCTServices =new HoaDonCTServices();
             _IKhachHangServices = new KhachHangServices();
-            LoadQLSP();
-            LoadQLCTHD();
-            LoadQLHD();
+            _lstHoaDonCTView = new List<HoaDonCTView>();
+            LoadDSSanPham();
+            LoadGioHang();
+            LoadHDCho();
             LoadCmb();
         }
         public void LoadCmb()
@@ -55,7 +57,7 @@ namespace _3.PL.Views
 
         }
         //bảng hóa đơn -hóa đơn chờ
-        public void LoadQLHD()
+        public void LoadHDCho()
         {
             int stt = 1;
             dgrid_QLHoaDon.ColumnCount = 10;
@@ -80,7 +82,7 @@ namespace _3.PL.Views
 
         }
         //Bảng sản phẩm
-        public void LoadQLSP()
+        public void LoadDSSanPham()
         {
             int stt = 1;
             dgrid_QLSanPham.ColumnCount = 9;
@@ -106,25 +108,42 @@ namespace _3.PL.Views
 
 
         //bảng hóa đơn chi tiết hay giỏ hàng
-        public void LoadQLCTHD()
+        public void LoadGioHang()
         {
-            float ThanhTien;
+
+            //int stt = 1;
+            //dgrid_Hoadonct.ColumnCount = 10;
+            //dgrid_Hoadonct.Columns[0].Name = "STT";
+            //dgrid_Hoadonct.Columns[1].Name = "ID";
+            //dgrid_Hoadonct.Columns[1].Visible = false;
+            //dgrid_Hoadonct.Columns[2].Name = "Mã sp";
+            //dgrid_Hoadonct.Columns[3].Name = "Tên sp";
+            //dgrid_Hoadonct.Columns[4].Name = "Số Lượng";
+            //dgrid_Hoadonct.Columns[5].Name = "Đơn Gía";
+            ////dgrid_Hoadonct.Columns[5].Name = "Thành Tiền";
+
+            //dgrid_Hoadonct.Rows.Clear();
+
+            //foreach (var x in _IHoaDonCTServices.GetAll())
+            //{
+            //    dgrid_Hoadonct.Rows.Add(stt++,x.IdSP, x.MaSP, x.TenSP, x.SoLuong, x.DonGia);
+            //}
             int stt = 1;
             dgrid_Hoadonct.ColumnCount = 10;
             dgrid_Hoadonct.Columns[0].Name = "STT";
             dgrid_Hoadonct.Columns[1].Name = "ID";
             dgrid_Hoadonct.Columns[1].Visible = false;
-           dgrid_Hoadonct.Columns[1].Name = "Mã sp";
-            dgrid_Hoadonct.Columns[2].Name = "Tên sp";
-            dgrid_Hoadonct.Columns[3].Name = "Số Lượng";
-            dgrid_Hoadonct.Columns[4].Name = "Đơn Gía";
+            dgrid_Hoadonct.Columns[2].Name = "Mã sp";
+            dgrid_Hoadonct.Columns[3].Name = "Tên sp";
+            dgrid_Hoadonct.Columns[4].Name = "Số Lượng";
+            dgrid_Hoadonct.Columns[5].Name = "Đơn Gía";
             //dgrid_Hoadonct.Columns[5].Name = "Thành Tiền";
 
             dgrid_Hoadonct.Rows.Clear();
 
-            foreach (var x in _IHoaDonCTServices.GetAll())
+            foreach (var x in _lstHoaDonCTView)
             {
-                dgrid_Hoadonct.Rows.Add(stt++, x.MaSP, x.TenSP, x.SoLuong, x.DonGia);
+                dgrid_Hoadonct.Rows.Add(stt++, x.IdSP, x.MaSP, x.TenSP, x.SoLuong, x.DonGia);
             }
 
         }
@@ -136,102 +155,144 @@ namespace _3.PL.Views
 
         private void dgrid_QLSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //int RowIndex = e.RowIndex;
-            //if (e.RowIndex == -1)
-            //{
-            //    return;
-            //}
-            //if (RowIndex == _IQLSanPhamServices.GetAll().Count)
-            //{
-            //    return;
-            //}
-            //_idWhenClick = Guid.Parse(dgrid_QLSanPham.Rows[RowIndex].Cells[1].Value.ToString());
-            //var obj = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.MaSP == _idWhenClick);
 
-            // add Vào dgrid_Hoadonct 
-            //dgrid_Hoadonct.Columns[1].Name = obj.MaSP;
-            //dgrid_Hoadonct.Columns[2].Name = obj.TenSP;
-            //dgrid_Hoadonct.Columns[4].Name = Convert.ToString(obj.GiaBan);
-            //bj.GiaBan = dgrid_Hoadonct.Columns[4].Name = "Đơn Gía";
-            //_idHD = Guid.Parse(dgrid_QLHoaDon.Rows[RowIndex].Cells[1].Value.ToString());
-            //var abj = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idHD);
-            //HoaDonCTView nvv = new HoaDonCTView()
-            //{
 
-            //    IdHD = abj.Id,
-            //    IdSP = obj.Id,
-            //    //SoLuong = sl,
-            //     GiaBan =  Convert.ToDecimal(obj.GiaBan),
-            //};
-            //_IHoaDonCTServices.Add(nvv);
-            DataGridViewRow r = dgrid_QLSanPham.Rows[e.RowIndex];
-            //pID = Convert.ToInt32(r.Cells[0].Value.ToString());
-            u = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.MaSP == r.Cells[1].Value.ToString()).Id;
-            AddGioHang(u);
-
-        }
-        private void AddGioHang(Guid u)
-        {
-           // FirstOrDefault
-            var p = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == u);
-            var data = _IHoaDonCTServices.GetAll().FirstOrDefault(x => x.IdSP == p.Id);
-            HoaDonCTView add = new HoaDonCTView()
+            if (e.RowIndex >= 0)
             {
-                IdSP = p.Id,
-                TenSP = p.TenSP,
-                GiaBan = p.GiaBan,
-                SoLuong = 1,
-                //MaSp = p.MaSp
-            };
-            _IHoaDonCTServices.Add(add);
-        }
-        private HoaDonCTView AddvaoGH()
-        {
-            int sl=1;
-            foreach (var item in _IQLSanPhamServices.GetAll())
-            {
-                sl++;
+                DataGridViewRow r = dgrid_QLSanPham.Rows[e.RowIndex];
+
+                u = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.MaSP == r.Cells[2].Value.ToString()).Id;
+                // u = Convert.ToInt32(r.Cells[2].Value.ToString());
+                AddGioHang(u);
             }
-            var idhd = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == _idHD);
-        
-            HoaDonCTView nvv = new HoaDonCTView()
-            {
-
-                MaSP = idhd.MaSP,
-                TenSP = idhd.TenSP,
-                SoLuong = sl,
-                GiaBan = idhd.GiaBan,
-            };
-            return nvv;
-
-
         }
+        private void AddGioHang(int u)
+        {
+
+            var sp = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == u);
+      
+            var data = _lstHoaDonCTView.FirstOrDefault(x => x.IdSP == sp.Id);
+            if (data == null)
+            {
+                HoaDonCTView ghct = new HoaDonCTView()
+                {
+
+                   
+                    IdSP = sp.Id,
+                    TenSP = sp.TenSP,
+                    DonGia = sp.GiaBan,
+                    SoLuong = 1,
+                    MaSP =sp.MaSP,
+                };
+                _lstHoaDonCTView.Add(ghct);
+             
+            }
+            else
+            {
+                data.SoLuong++;
+            }
+            LoadGioHang();
+
+  
+        }
+
+
+
+    
 
         private void btn_Xoagh_Click(object sender, EventArgs e)
         {
 
-            //var temp = add();
-            //temp.Id = _idWhenClick;
-            //MessageBox.Show(_IKhachHangServices.Delete(temp));
-            //LoadQLCTHD();
+            var item = _lstHoaDonCTView.FirstOrDefault(x => x.IdSP == u);
+            _lstHoaDonCTView.Remove(item);
+     
+
+            LoadGioHang();
+
+
         }
 
         private void dgrid_Hoadonct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int RowIndex = e.RowIndex;
-            if (e.RowIndex == -1)
+            if (e.RowIndex >= 0)
             {
-                return;
+                DataGridViewRow r = dgrid_QLSanPham.Rows[e.RowIndex];
+                //pID = Convert.ToInt32(r.Cells[0].Value.ToString());
+                u = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.MaSP == r.Cells[2].Value.ToString()).Id;
+                //AddGioHang(u);
             }
-            if (RowIndex == _IHoaDonCTServices.GetAll().Count)
+        }
+
+        private void btn_Xoahet_Click(object sender, EventArgs e)
+        {
+            if (_lstHoaDonCTView.Any())
             {
-                return;
+                _lstHoaDonCTView = new List<HoaDonCTView>();
+                LoadGioHang();
             }
-            _idWhenClick = Guid.Parse(dgrid_Hoadonct.Rows[RowIndex].Cells[1].Value.ToString());
-            var obj = _IHoaDonCTServices.GetAll().FirstOrDefault(x => x.IdSP == _idWhenClick);
+            else
+            {
+                MessageBox.Show("Chưa có sản phẩm nào trong giỏ hàng");
+            }
+        }
 
+        private void btn_Taohdcho_Click(object sender, EventArgs e)
+        {
+            if (_lstOrderDetail.Any())
+            {
+                decimal total = 0;
+                foreach (var item in _lstOrderDetail)
+                {
+                    total += item.Price * item.Quantity;
+                }
+                int eID = _employee.GetEmployeeFromDB().FirstOrDefault(x => x.Email == Properties.Settings.Default.TKdaLogin).ID;
+                c = _customer.GetCustomerFromDB().FirstOrDefault(x => x.Phone == tb_sdt.Text);
+                if (c != null)
+                {
+                    Order o = new Order()
+                    {
+                        dateCreate = DateTime.Now,
+                        EmployeeID = eID,
+                        CustomerID = c.ID,
+                        TotalPrice = total,
+                        Status = false,
+                        Note = ""
+                    };
+                    _order.AddOder(o);
+                    foreach (var item in _lstOrderDetail)
+                    {
+                        OrderDetail od = new OrderDetail()
+                        {
+                            OderID = o.Id,
+                            ProducID = item.ProductID,
+                            Price = item.Price,
+                            Quantity = item.Quantity
+                        };
+                        _orderDetail.AddOderDetail(od);
+                        var p = _product.GetProductFromDB().FirstOrDefault(x => x.Id == item.ProductID);
+                        p.Stock -= item.Quantity;
+                        _product.UpdateProduct(p);
+                    }
 
-
+                    tbt_mahd.Text = o.Id.ToString();
+                    lb_tongtien.Text = o.TotalPrice.ToString();
+                    tb_sdt.Text = "";
+                    lb_totalcart.Text = "";
+                    MessageBox.Show($"Tạo hóa đơn thành công. ID: {o.Id}");
+                    loadSanPham();
+                    loadHDcho();
+                    _lstOrderDetail = new List<OrderDetailVM>();
+                    dtg_giohang.Rows.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập khách hàng");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa có sản phẩm nào trong giỏ hàng");
+            }
         }
     }
 }

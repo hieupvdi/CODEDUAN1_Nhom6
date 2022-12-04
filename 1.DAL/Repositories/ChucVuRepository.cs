@@ -19,7 +19,7 @@ namespace _1.DAL.Repositories
         public bool Add(ChucVu obj)
         {
             if (obj == null) return false;
-            obj.Id = Guid.NewGuid();//tu dong generate khoa chinh
+           // obj.Id = Guid.NewGuid();//tu dong generate khoa chinh
             _DbContext.ChucVus.Add(obj);
             _DbContext.SaveChanges();
             return true;
@@ -41,9 +41,11 @@ namespace _1.DAL.Repositories
             return _DbContext.ChucVus.ToList();
         }
 
-        public ChucVu GetById(Guid id)
+        public ChucVu GetById(int id)
         {
-            if (id == Guid.Empty) return null;
+            //if (id == Guid.Empty) return null;
+            //return _DbContext.ChucVus.FirstOrDefault(c => c.Id == id);
+        
             return _DbContext.ChucVus.FirstOrDefault(c => c.Id == id);
         }
 

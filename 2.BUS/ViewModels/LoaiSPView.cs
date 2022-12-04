@@ -8,7 +8,7 @@ namespace _2.BUS.ViewModels
 {
     public class LoaiSPView
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string MaLoaiSP { get; set; }
         public string TenLoaiSP { get; set; }
     }

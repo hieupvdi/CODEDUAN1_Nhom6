@@ -9,8 +9,8 @@ namespace _2.BUS.ViewModels
 {
     public class QLNhanVienView
     {
-        public Guid Id { get; set; }
-        public Guid? IdCV { get; set; }
+        public int Id { get; set; }
+        public int? IdCV { get; set; }
         public string MaNV { get; set; }
         public string TenNV { get; set; }
         public string LinkAnh { get; set; }
@@ -24,7 +24,7 @@ namespace _2.BUS.ViewModels
 
 
         //bảng chức vụ
-        // public Guid ? IdCV { get; set; }
+        // public int ? IdCV { get; set; }
         public string MaCV { get; set; }
         public string TenCV { get; set; }
 

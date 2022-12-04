@@ -8,7 +8,7 @@ namespace _2.BUS.ViewModels
 {
     public class SizeView
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string MaSize { get; set; }
         public string TenSize { get; set; }
         public decimal Gia { get; set; }

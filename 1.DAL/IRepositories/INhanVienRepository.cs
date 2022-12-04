@@ -13,7 +13,7 @@ namespace _1.DAL.IRepositories
         bool Update(NhanVien obj);
         bool Delete(NhanVien obj);
 
-        NhanVien GetById(Guid id);//Phuong thuc tim san pham theo id
+        NhanVien GetById(int id);//Phuong thuc tim san pham theo id
         List<NhanVien> GetAll();
     }
 }

@@ -13,7 +13,7 @@ namespace _1.DAL.IRepositories
         bool Update(HoaDonCT obj);
         bool Delete(HoaDonCT obj);
 
-        HoaDonCT GetById(Guid id);//Phuong thuc tim san pham theo id
+        HoaDonCT GetById(int id);//Phuong thuc tim san pham theo id
         List<HoaDonCT> GetAll();
     }
 }

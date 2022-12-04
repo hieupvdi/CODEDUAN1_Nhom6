@@ -16,13 +16,13 @@ namespace _2.BUS.Services
         private IHoaDonCTRepository _IHoaDonCTRepository;
         private IHoaDonRepository _IHoaDonRepository;
         private ISanPhamRepository _ISanPhamRepository;
-        private ILoaiSPRepository _ILoaiSPRepository;
+       // private ILoaiSPRepository _ILoaiSPRepository;
         public HoaDonCTServices()
         {
             _IHoaDonCTRepository= new HoaDonCTRepository();
             _IHoaDonRepository = new HoaDonRepository();
             _ISanPhamRepository = new SanPhamRepository();
-            _ILoaiSPRepository = new LoaiSPRepository();
+            //_ILoaiSPRepository = new LoaiSPRepository();
         }
         public string Add(HoaDonCTView obj)
         {
@@ -46,7 +46,7 @@ namespace _2.BUS.Services
         public string Delete(HoaDonCTView obj)
         {
             if (obj == null) return "Xoa that bai";
-            var HDCT = _IHoaDonCTRepository.GetAll().FirstOrDefault(c => c.IdHD == obj.IdHD);
+            var HDCT = _IHoaDonCTRepository.GetAll().FirstOrDefault(c => c.IdSP == obj.IdSP);
 
             if (_IHoaDonCTRepository.Delete(HDCT))
             {
@@ -67,7 +67,7 @@ namespace _2.BUS.Services
                 select new HoaDonCTView()
                 {
 
-                    IdHD = a.IdHD,
+                    //IdHD = a.IdHD,
                     IdSP = a.IdSP,
                     SoLuong = a.SoLuong,
                     DonGia = a.DonGia,
@@ -104,23 +104,23 @@ namespace _2.BUS.Services
                 return GetAll();
             }
 
-            return GetAll().Where(c => c.MaHD.ToLower().StartsWith(input.ToLower()) || c.TenSP.ToLower().StartsWith(input.ToLower())).ToList();
+            return GetAll().Where(c => c.MaSP.ToLower().StartsWith(input.ToLower()) || c.TenSP.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
-        public HoaDonCT GetById(Guid id)
+        public HoaDonCT GetById(int id)
         {
-            return _IHoaDonCTRepository.GetAll().FirstOrDefault(c => c.IdHD == id);
+            return _IHoaDonCTRepository.GetAll().FirstOrDefault(c => c.IdSP == id);
         }
 
-        public Guid GetIdByName(string name)
+        public int GetIdByName(string name)
         {
-            return GetAll().FirstOrDefault(c => c.TenSP == name).IdHD;
+            return GetAll().FirstOrDefault(c => c.TenSP == name).IdSP;
         }
 
         public string Update(HoaDonCTView obj)
         {
             if (obj == null) return "Sua that bai";
-            var HDCT = _IHoaDonCTRepository.GetAll().FirstOrDefault(c => c.IdHD == obj.IdHD);
+            var HDCT = _IHoaDonCTRepository.GetAll().FirstOrDefault(c => c.IdSP == obj.IdSP);
 
             HDCT.IdHD = obj.IdHD;
             HDCT.IdSP = obj.IdSP;

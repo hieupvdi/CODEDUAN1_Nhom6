@@ -15,7 +15,7 @@ namespace _2.BUS.IServices
         string Delete(SizeView obj);
         List<SizeView> GetAll();
         List<SizeView> GetAll(string input);
-        Size GetById(Guid id);
-        Guid GetIdByName(string name);
+        Size GetById(int id);
+        int GetIdByName(string name);
     }
 }

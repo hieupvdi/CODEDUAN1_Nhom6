@@ -18,7 +18,7 @@ namespace _3.PL.Views
         private IHoaDonServices _IHoaDonServices;
         private IQLNhanVienServices _IQLNhanVienServices;
         private IKhachHangServices _IKhachHangServices;
-        private Guid _idWhenClick;
+        private int _idWhenClick;
         public frmHoaDon()
         {
             InitializeComponent();
@@ -72,7 +72,7 @@ namespace _3.PL.Views
         {
             HoaDonView HD = new HoaDonView()
             {
-                Id = Guid.Empty,
+               // Id = Guid.Empty,
                 MaHD = txt_Mahd.Text,
                 IdNV = _IQLNhanVienServices.GetAll()[cmb_Nhanvien.SelectedIndex].Id,
                 IdKH = _IKhachHangServices.GetAll()[cmb_Khachhang.SelectedIndex].Id,
@@ -100,7 +100,7 @@ namespace _3.PL.Views
             {
                 return;
             }
-            _idWhenClick = Guid.Parse(dgrid_HoaDon.Rows[RowIndex].Cells[1].Value.ToString());
+            _idWhenClick = Convert.ToInt32(dgrid_HoaDon.Rows[RowIndex].Cells[1].Value.ToString());
             var obj = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idWhenClick);
             txt_Mahd.Text = obj.MaHD;
             txt_Sdt.Text = obj.SDT;
@@ -127,6 +127,14 @@ namespace _3.PL.Views
             var temp = GetDataFromGui();
             temp.Id = _idWhenClick;
             MessageBox.Show(_IHoaDonServices.Update(temp));
+            LoadHD();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var temp = GetDataFromGui();
+            temp.Id = _idWhenClick;
+            MessageBox.Show(_IHoaDonServices.Delete(temp));
             LoadHD();
         }
     }

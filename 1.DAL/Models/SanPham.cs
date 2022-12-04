@@ -8,10 +8,10 @@ namespace _1.DAL.Models
 {
     public class SanPham
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
-        public Guid? IdLoaiSP { get; set; }
-        public Guid? IdSize { get; set; }
+        public int? IdLoaiSP { get; set; }
+        public int? IdSize { get; set; }
         public string MaSP { get; set; }
         public string TenSP { get; set; }
         public string LinkAnh { get; set; }

@@ -54,7 +54,7 @@ namespace _1.DAL.Context
             modelBuilder.ApplyConfiguration(new SizeConfigurations());
 
             // dùng để áp dữ liệu từ thư mục Extensions đang lỗi
-           // modelBuilder.Seed();
+            modelBuilder.Seed();
 
             // Apply cac config cho cac model
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

@@ -12,7 +12,7 @@ namespace _1.DAL.Models
     public class LoaiSP
     {
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string MaLoaiSP { get; set; }
         public string TenLoaiSP { get; set; }
         //public List<CTSanPham> CTSanPham { get; set; }

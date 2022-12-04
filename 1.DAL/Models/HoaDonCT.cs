@@ -14,9 +14,9 @@ namespace _1.DAL.Models
 
 
     
-        public Guid IdHD { get; set; }
+        public int IdHD { get; set; }
 
-        public Guid IdSP { get; set; }
+        public int IdSP { get; set; }
    
         public int SoLuong { get; set; }
   

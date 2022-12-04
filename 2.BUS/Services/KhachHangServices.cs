@@ -79,12 +79,12 @@ namespace _2.BUS.Services
             return GetAll().Where(c => c.MaKH.ToLower().StartsWith(input.ToLower()) || c.TenKH.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
-        public KhachHang GetById(Guid id)
+        public KhachHang GetById(int id)
         {
             return _IKhachHangRepository.GetAll().FirstOrDefault(c => c.Id == id);
         }
 
-        public Guid GetIdByName(string name)
+        public int GetIdByName(string name)
         {
             return GetAll().FirstOrDefault(c => c.MaKH == name).Id;
         }

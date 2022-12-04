@@ -102,12 +102,12 @@ namespace _2.BUS.Services
             return GetAll().Where(c => c.MaNV.ToLower().StartsWith(input.ToLower()) || c.TenNV.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
-        public NhanVien GetById(Guid id)
+        public NhanVien GetById(int id)
         {
             return _INhanVienRepository.GetAll().FirstOrDefault(c => c.Id == id);
         }
 
-        public Guid GetIdByName(string name)
+        public int GetIdByName(string name)
         {
             return GetAll().FirstOrDefault(c => c.TenNV == name).Id;
         }

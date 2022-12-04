@@ -8,11 +8,11 @@ namespace _2.BUS.ViewModels
 {
     public class HoaDonView
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
-        public Guid? IdNV { get; set; }
+        public int? IdNV { get; set; }
 
-        public Guid? IdKH { get; set; }
+        public int? IdKH { get; set; }
         public string MaHD { get; set; }
         public DateTime ThoiGianTao { get; set; }
         public DateTime ThoiGianThanhToan { get; set; }
@@ -21,8 +21,8 @@ namespace _2.BUS.ViewModels
         public int TrangThai { get; set; }
 
         //bảng Nhân viên
-        //public Guid Id { get; set; }
-         public Guid? IdCV { get; set; }
+        //public int Id { get; set; }
+        public int? IdCV { get; set; }
         public string MaNV { get; set; }
         public string TenNV { get; set; }
         public string LinkAnh { get; set; }
@@ -35,7 +35,7 @@ namespace _2.BUS.ViewModels
         public int Trangthai { get; set; }
 
         //bảng Khách hàng
-        //public Guid Id { get; set; }
+        //public int Id { get; set; }
         public string MaKH { get; set; }
         public string TenKH { get; set; }
         public string SDTKH { get; set; }

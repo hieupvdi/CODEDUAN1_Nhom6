@@ -118,12 +118,12 @@ namespace _2.BUS.Services
             return GetAll().Where(c => c.MaHD.ToLower().StartsWith(input.ToLower()) || c.TenKH.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
-        public HoaDon GetById(Guid id)
+        public HoaDon GetById(int id)
         {
             return _IHoaDonRepository.GetAll().FirstOrDefault(c => c.Id == id);
         }
 
-        public Guid GetIdByName(string name)
+        public int GetIdByName(string name)
         {
             return GetAll().FirstOrDefault(c => c.TenKH == name).Id;
         }

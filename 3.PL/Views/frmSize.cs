@@ -16,7 +16,7 @@ namespace _3.PL.Views
     public partial class frmSize : Form
     {
         private ISizeServices _ISizeServices;
-        private Guid _idWhenClick;
+        private int _idWhenClick;
         public frmSize()
         {
             InitializeComponent();
@@ -46,7 +46,7 @@ namespace _3.PL.Views
         {
             return new SizeView()
             {
-                Id = Guid.Empty,
+                //Id = Guid.Empty,
                 MaSize = txt_Masize.Text,
                 TenSize = txt_Tensize.Text,
                 Gia=Convert.ToDecimal(txt_Giaban.Text),
@@ -66,7 +66,7 @@ namespace _3.PL.Views
             {
                 return;
             }
-            _idWhenClick = Guid.Parse(dgrid_Size.Rows[RowIndex].Cells[1].Value.ToString());
+            _idWhenClick = Convert.ToInt32(dgrid_Size.Rows[RowIndex].Cells[1].Value.ToString());
             var obj = _ISizeServices.GetAll().FirstOrDefault(x => x.Id == _idWhenClick);
             txt_Masize.Text = obj.MaSize;
             txt_Tensize.Text = obj.TenSize;

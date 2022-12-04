@@ -19,7 +19,7 @@ namespace _3.PL.Views
         private IQLNhanVienServices _IQLNhanVienServices;
         private IChucVuServices _IChucVuServices;
         string Imagename;
-        private Guid _idWhenClick;
+        private int _idWhenClick;
         
     
 
@@ -73,7 +73,7 @@ namespace _3.PL.Views
         {
             QLNhanVienView nvv = new QLNhanVienView()           
             {
-                Id = Guid.Empty,
+                //Id = Guid.Empty,
             
                 MaNV = txt_Manv.Text,
                 TenNV = txt_Tennv.Text,
@@ -127,7 +127,7 @@ namespace _3.PL.Views
             {
                 return;
             }
-            _idWhenClick = Guid.Parse(dgrid_QLNhanvien.Rows[RowIndex].Cells[1].Value.ToString());
+            _idWhenClick = Convert.ToInt32(dgrid_QLNhanvien.Rows[RowIndex].Cells[1].Value.ToString());
             var obj = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Id == _idWhenClick);
             txt_Manv.Text = obj.MaNV;
             txt_Tennv.Text = obj.TenNV;

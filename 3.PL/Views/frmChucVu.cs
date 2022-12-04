@@ -16,7 +16,7 @@ namespace _3.PL.Views
     public partial class frmChucVu : Form
     {
         private IChucVuServices _IChucVuServices;
-        private Guid _idWhenClick;
+        private int _idWhenClick;
         public frmChucVu()
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace _3.PL.Views
         {
             return new ChucVuView()
             {
-                Id = Guid.Empty,
+               // Id = Guid.Empty,
                 MaCV = txt_Macv.Text,
                 TenCV = txt_Tencv.Text,
 
@@ -81,7 +81,7 @@ namespace _3.PL.Views
             {
                 return;
             }
-            _idWhenClick = Guid.Parse(dgrid_ChucVu.Rows[RowIndex].Cells[1].Value.ToString());
+            _idWhenClick = Convert.ToInt32(dgrid_ChucVu.Rows[RowIndex].Cells[1].Value.ToString());
             var obj = _IChucVuServices.GetAll().FirstOrDefault(x => x.Id == _idWhenClick);
             txt_Macv.Text = obj.MaCV;
             txt_Tencv.Text = obj.TenCV;

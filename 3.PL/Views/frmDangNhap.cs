@@ -22,18 +22,7 @@ namespace _3.PL.Views
 
         private void btn_Dangnhap_Click(object sender, EventArgs e)
         {
-            if (_QLNhanVienServices.GetAll().Where(c => c.Email = txt_Email && c.MatKhau = txt_pass).Count() > 0)
-            {
-
-                MessageBox.Show("Đăng nhập thành công");
-                frmMani f = new frmMani();
-                f.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Nhập mk  sai ");
-
-            }
+          
 
         }
     }

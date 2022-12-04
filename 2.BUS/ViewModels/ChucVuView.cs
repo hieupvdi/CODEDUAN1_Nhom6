@@ -8,7 +8,7 @@ namespace _2.BUS.ViewModels
 {
     public class ChucVuView
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string MaCV { get; set; }
         public string TenCV { get; set; }
     }

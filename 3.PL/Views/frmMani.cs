@@ -17,7 +17,8 @@ namespace _3.PL.Views
         {
             InitializeComponent();
         }
-        public void ChuyenForm(Form form)
+        public void ChuyenForm(Form form) //chuyển from
+
         {
             if (frmchinh != null)
             {

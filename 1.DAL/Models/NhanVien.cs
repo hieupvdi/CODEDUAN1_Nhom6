@@ -12,8 +12,8 @@ namespace _1.DAL.Models
     public class NhanVien
     {
 
-        public Guid Id { get; set; }
-        public Guid? IdCV { get; set; }
+        public int Id { get; set; }
+        public int? IdCV { get; set; }
         public string MaNV { get; set; }
         public string TenNV { get; set; }
         public string LinkAnh { get; set; }

@@ -30,8 +30,8 @@
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgrid_QLSanPham = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_clre = new System.Windows.Forms.Button();
             this.btn_Xóa = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
@@ -64,9 +64,9 @@
             // 
             this.groupBox2.Controls.Add(this.dgrid_QLSanPham);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Location = new System.Drawing.Point(0, 385);
+            this.groupBox2.Location = new System.Drawing.Point(0, 430);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1435, 372);
+            this.groupBox2.Size = new System.Drawing.Size(1435, 327);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh Sách";
@@ -82,28 +82,31 @@
             this.dgrid_QLSanPham.TabIndex = 0;
             this.dgrid_QLSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_QLSanPham_CellClick);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(788, 403);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(203, 28);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Thêm Chức Vụ";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox3.Controls.Add(this.btn_clre);
             this.groupBox3.Controls.Add(this.btn_Xóa);
             this.groupBox3.Controls.Add(this.btn_Sua);
             this.groupBox3.Controls.Add(this.btn_Them);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox3.Location = new System.Drawing.Point(1223, 22);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(209, 360);
+            this.groupBox3.Size = new System.Drawing.Size(209, 405);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chức Vụ";
+            // 
+            // btn_clre
+            // 
+            this.btn_clre.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_clre.Location = new System.Drawing.Point(3, 106);
+            this.btn_clre.Name = "btn_clre";
+            this.btn_clre.Size = new System.Drawing.Size(203, 28);
+            this.btn_clre.TabIndex = 3;
+            this.btn_clre.Text = "crlee";
+            this.btn_clre.UseVisualStyleBackColor = true;
+            this.btn_clre.Click += new System.EventHandler(this.btn_clre_Click);
             // 
             // btn_Xóa
             // 
@@ -158,12 +161,11 @@
             this.groupBox1.Controls.Add(this.txt_Giaban);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox1.Size = new System.Drawing.Size(1435, 385);
+            this.groupBox1.Size = new System.Drawing.Size(1435, 430);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin";
@@ -186,6 +188,7 @@
             this.btn_ThemSize.TabIndex = 41;
             this.btn_ThemSize.Text = "Thêm Size";
             this.btn_ThemSize.UseVisualStyleBackColor = true;
+            this.btn_ThemSize.Click += new System.EventHandler(this.btn_ThemSize_Click);
             // 
             // btn_Themloaisp
             // 
@@ -195,6 +198,7 @@
             this.btn_Themloaisp.TabIndex = 2;
             this.btn_Themloaisp.Text = "Thêm Loại SP";
             this.btn_Themloaisp.UseVisualStyleBackColor = true;
+            this.btn_Themloaisp.Click += new System.EventHandler(this.btn_Themloaisp_Click);
             // 
             // txt_Masp
             // 
@@ -342,7 +346,6 @@
 
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgrid_QLSanPham;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btn_Sua;
         private System.Windows.Forms.Button btn_Them;
@@ -365,5 +368,6 @@
         private System.Windows.Forms.Button btn_Themloaisp;
         private System.Windows.Forms.Button btn_Xóa;
         private System.Windows.Forms.Button btn_Themanh;
+        private System.Windows.Forms.Button btn_clre;
     }
 }

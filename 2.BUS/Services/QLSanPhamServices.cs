@@ -107,12 +107,12 @@ namespace _2.BUS.Services
             return GetAll().Where(c => c.MaSP.ToLower().StartsWith(input.ToLower()) || c.TenSP.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
-        public SanPham GetById(Guid id)
+        public SanPham GetById(int id)
         {
             return _ISanPhamRepository.GetAll().FirstOrDefault(c => c.Id == id);
         }
 
-        public Guid GetIdByName(string name)
+        public int GetIdByName(string name)
         {
             return GetAll().FirstOrDefault(c => c.MaSP == name).Id;
         }

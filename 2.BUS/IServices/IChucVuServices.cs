@@ -15,7 +15,7 @@ namespace _2.BUS.IServices
         string Delete(ChucVuView obj);
         List<ChucVuView> GetAll();
         List<ChucVuView> GetAll(string input);
-        ChucVu GetById(Guid id);
-        Guid GetIdByName(string name);
+        ChucVu GetById(int id);
+        int GetIdByName(string name);
     }
 }

@@ -12,7 +12,7 @@ namespace _1.DAL.Models
     public class KhachHang
     {
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string MaKH { get; set; }
         public string TenKH { get; set; }
         public string SDT { get; set; }

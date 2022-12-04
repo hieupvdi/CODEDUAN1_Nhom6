@@ -22,7 +22,7 @@ namespace _3.PL.Views
 
         //
         private IHoaDonCTServices _IHoaDonCTServices;
-        private Guid _idWhenClick;
+        private int _idWhenClick;
         public int oID;
         public frmQLHoaDon()
         {
@@ -72,15 +72,17 @@ namespace _3.PL.Views
             dgrid_Hoadonct.Columns[1].Visible = false;
             dgrid_Hoadonct.Columns[2].Name = "IDCTSP";
             dgrid_Hoadonct.Columns[2].Visible = false;
-            dgrid_Hoadonct.Columns[3].Name = "Số Lượng";
-            dgrid_Hoadonct.Columns[4].Name = "Đơn Gía";
+            dgrid_Hoadonct.Columns[3].Name = "Mã sp";
+            dgrid_Hoadonct.Columns[4].Name = "Tên sp";
+            dgrid_Hoadonct.Columns[5].Name = "Số Lượng";
+            dgrid_Hoadonct.Columns[6].Name = "Đơn Gía";
       
 
             dgrid_Hoadonct.Rows.Clear();
 
             foreach (var x in _IHoaDonCTServices.GetAll())
             {
-                dgrid_Hoadonct.Rows.Add(stt++, x.IdHD, x.IdSP, x.SoLuong, x.DonGia);
+                dgrid_Hoadonct.Rows.Add(stt++, /*x.IdHD,*/ x.IdSP,x.MaSP,x.TenSP, x.SoLuong, x.DonGia);
             }
 
         }

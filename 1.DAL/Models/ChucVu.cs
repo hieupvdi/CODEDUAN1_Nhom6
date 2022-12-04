@@ -12,7 +12,7 @@ namespace _1.DAL.Models
     public class ChucVu
     {
         
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string MaCV { get; set; }
         public string TenCV { get; set; }
 

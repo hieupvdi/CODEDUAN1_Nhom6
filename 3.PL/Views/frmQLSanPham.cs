@@ -22,7 +22,7 @@ namespace _3.PL.Views
         private ILoaiSPServices _ILoaiSPServices;
         private ISizeServices _ISizeServices;
         string Imagename;
-        private Guid _idWhenClick;
+        private int _idWhenClick;
         public frmQLSanPham()
         {
             InitializeComponent();
@@ -76,7 +76,7 @@ namespace _3.PL.Views
         {
             QLSanPhamView spv = new QLSanPhamView()             
             {
-                Id = Guid.Empty,  
+              //  Id = Guid.Empty,  
                 MaSP = txt_Masp.Text,
                 TenSP=txt_Tensp.Text,
                 LinkAnh = Imagename,
@@ -99,7 +99,7 @@ namespace _3.PL.Views
             {
                 return;
             }
-            _idWhenClick = Guid.Parse(dgrid_QLSanPham.Rows[RowIndex].Cells[1].Value.ToString());
+            _idWhenClick = Convert.ToInt32(dgrid_QLSanPham.Rows[RowIndex].Cells[1].Value.ToString());
             var obj = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == _idWhenClick);
             txt_Masp.Text = obj.MaSP;
             txt_Tensp.Text = obj.TenSP;
@@ -156,6 +156,30 @@ namespace _3.PL.Views
                 pb_Anh.Image = Image.FromFile(op.FileName);
                 pb_Anh.SizeMode = PictureBoxSizeMode.StretchImage;
             }
+        }
+
+        private void btn_clre_Click(object sender, EventArgs e)
+        {
+
+            txt_Masp.Text = null;
+            txt_Tensp.Text = null;
+            pb_Anh.Image = null;
+            cmb_Loaisp.SelectedIndex = 0;
+            cmb_Size.SelectedIndex = 0;
+            txt_Giaban.Text = null;
+            rbtn_ConBan.Checked = true;
+        }
+
+        private void btn_ThemSize_Click(object sender, EventArgs e)
+        {
+            frmSize f = new frmSize();
+            f.ShowDialog();
+        }
+
+        private void btn_Themloaisp_Click(object sender, EventArgs e)
+        {
+            frmLoai f =new frmLoai();
+            f.ShowDialog();
         }
     }
 }

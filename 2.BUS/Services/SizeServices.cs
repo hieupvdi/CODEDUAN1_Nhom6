@@ -78,12 +78,12 @@ namespace _2.BUS.Services
             return GetAll().Where(c => c.MaSize.ToLower().StartsWith(input.ToLower()) || c.TenSize.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
-        public Size GetById(Guid id)
+        public Size GetById(int id)
         {
             return _ISizeRepository.GetAll().FirstOrDefault(c => c.Id == id);
         }
 
-        public Guid GetIdByName(string name)
+        public int GetIdByName(string name)
         {
             return GetAll().FirstOrDefault(c => c.TenSize == name).Id;
         }

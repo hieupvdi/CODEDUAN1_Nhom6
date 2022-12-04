@@ -112,6 +112,7 @@
             this.btn_Xoahet.TabIndex = 55;
             this.btn_Xoahet.Text = "Xóa Hết";
             this.btn_Xoahet.UseVisualStyleBackColor = true;
+            this.btn_Xoahet.Click += new System.EventHandler(this.btn_Xoahet_Click);
             // 
             // btn_Xoagh
             // 
@@ -187,6 +188,7 @@
             this.btn_Taohdcho.TabIndex = 52;
             this.btn_Taohdcho.Text = "Tạo Hóa Đơn chờ";
             this.btn_Taohdcho.UseVisualStyleBackColor = false;
+            this.btn_Taohdcho.Click += new System.EventHandler(this.btn_Taohdcho_Click);
             // 
             // dgrid_Hoadonct
             // 

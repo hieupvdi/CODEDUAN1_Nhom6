@@ -13,7 +13,7 @@ namespace _1.DAL.IRepositories
         bool Update(LoaiSP obj);
         bool Delete(LoaiSP obj);
 
-        LoaiSP GetById(Guid id);//Phuong thuc tim san pham theo id
+        LoaiSP GetById(int id);//Phuong thuc tim san pham theo id
         List<LoaiSP> GetAll();
     }
 }

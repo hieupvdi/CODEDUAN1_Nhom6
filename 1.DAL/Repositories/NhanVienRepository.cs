@@ -19,7 +19,7 @@ namespace _1.DAL.Repositories
         public bool Add(NhanVien obj)
         {
             if (obj == null) return false;
-            obj.Id = Guid.NewGuid();//tu dong generate khoa chinh
+           // obj.Id = Guid.NewGuid();//tu dong generate khoa chinh
             _DbContext.NhanViens.Add(obj);
             _DbContext.SaveChanges();
             return true;
@@ -41,9 +41,9 @@ namespace _1.DAL.Repositories
             return _DbContext.NhanViens.ToList();
         }
 
-        public NhanVien GetById(Guid id)
+        public NhanVien GetById(int id)
         {
-            if (id == Guid.Empty) return null;
+            //if (id == Guid.Empty) return null;
             return _DbContext.NhanViens.FirstOrDefault(c => c.Id == id);
         }
 

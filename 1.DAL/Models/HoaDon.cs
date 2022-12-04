@@ -12,11 +12,11 @@ namespace _1.DAL.Models
     public class HoaDon
     {
       
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
-        public Guid? IdNV { get; set; }
+        public int? IdNV { get; set; }
 
-        public Guid? IdKH { get; set; }
+        public int? IdKH { get; set; }
         public string MaHD { get; set; }
         public DateTime ThoiGianTao { get; set; }
         public DateTime ThoiGianThanhToan { get; set; }
