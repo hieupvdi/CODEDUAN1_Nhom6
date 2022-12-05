@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -79,6 +80,23 @@ namespace _3.PL.Views
             frmDangNhap f = new frmDangNhap();
             f.Show();
             this.Hide();
+        }
+
+        private void frmMani_Load(object sender, EventArgs e)
+        {
+            var layEmail = Properties.Settings.Default.TaiKhoan;
+            var nhanvien = _IQLNhanVienServices.GetAll().FirstOrDefault(p => p.Email == layEmail);
+            if (nhanvien.LinkAnh != null)
+            {
+                string linkanh = nhanvien.LinkAnh.Replace(@"\", @"/");
+                if (File.Exists(linkanh))
+                {
+                    pb_Anhdn.Image = Image.FromFile(linkanh);
+                    pb_Anhdn.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+            }
+            var role = _IChucVuServices.GetAll().FirstOrDefault(x => x.Id == nhanvien.IdCV);
+            lb_Tenvschuvu.Text = role.TenCV + ": " + nhanvien.TenNV;
         }
     }
 }

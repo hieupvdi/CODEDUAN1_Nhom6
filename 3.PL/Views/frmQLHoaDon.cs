@@ -17,26 +17,27 @@ namespace _3.PL.Views
     {
        
         private IHoaDonServices _IHoaDonServices;
-        private IQLNhanVienServices _IQLNhanVienServices;
-        private IKhachHangServices _IKhachHangServices;
+        private IQLSanPhamServices _IQLSanPhamServices;
 
         //
         private IHoaDonCTServices _IHoaDonCTServices;
         private Guid _idWhenClick;
-        public int oID;
+        public Guid oID;
+        public Guid u;
         public frmQLHoaDon()
         {
             InitializeComponent();
             _IHoaDonServices = new HoaDonServices();
             _IHoaDonCTServices = new HoaDonCTServices();
-            _IQLNhanVienServices = new QLNhanVienServices();
-            _IKhachHangServices = new KhachHangServices();
-            oID = 0;
-            LoadQLHD();
-           
+            _IQLSanPhamServices = new QLSanPhamServices();
+         
+            LoadHoaDon();
+       
+
+
         }
         //bảng  hóa đơn
-        public void LoadQLHD()
+        public void LoadHoaDon()
         {
             int stt = 1;
             dgrid_QLHoaDon.ColumnCount = 10;
@@ -62,9 +63,9 @@ namespace _3.PL.Views
         }
 
         //bảng chi tiết hóa đơn
-        public void LoadQLCTHD(int orderID)
+        public void LoadHoaDonCT(Guid idhd)
         {
-            oID = orderID;
+            oID = idhd;
             int stt = 1;
             dgrid_Hoadonct.ColumnCount = 10;
             dgrid_Hoadonct.Columns[0].Name = "STT";
@@ -82,47 +83,58 @@ namespace _3.PL.Views
 
             foreach (var x in _IHoaDonCTServices.GetAll())
             {
-                dgrid_Hoadonct.Rows.Add(stt++, /*x.IdHD,*/ x.IdSP,x.MaSP,x.TenSP, x.SoLuong, x.DonGia);
+                dgrid_Hoadonct.Rows.Add(stt++, x.IdHD, x.IdSP,x.MaSP,x.TenSP, x.SoLuong, x.DonGia);
             }
 
         }
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            //HoaDonView HD = new HoaDonView()
-            //{
-            //    Id = Guid.Empty,
-            //    MaHD = txt_Mahd.Text,
-            //    IdNV = _IQLNhanVienServices.GetAll()[cmb_Nhanvien.SelectedIndex].Id,
-            //    IdKH = _IKhachHangServices.GetAll()[cmb_Khachhang.SelectedIndex].Id,
-            //    ThoiGianTao = date_TGtao.Value,
-            //    ThoiGianThanhToan = date_TGTT.Value,
-            //    SDT = txt_Sdt.Text,
-            //    DiaChi = txt_Diachi.Text,
-            //    TrangThai = rbtn_ChuaTT.Checked ? 0 : 1,
-
-
-            //};
-            //return HD;
-            //var temp = GetDataFromGui();
-            //HoaDonView u = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idHoad);
-            //MessageBox.Show(_IHoaDonServices.Delete(u));
-            //LoadQLHD();
+            if (oID == null)
+            {
+                MessageBox.Show("Vui lòng chọn hóa đơn cần xóa");
+            }
+            else
+            {
+                HoaDonView hd = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == oID);
+                if (hd.Trangthai == 0)
+                {
+                    MessageBox.Show("Chỉ có hóa đơn chưa thanh toán mới được xóa : Định Trộm Tiền của quán à");
+                }
+                else
+                {
+                    var _lshd = _IHoaDonCTServices.GetAll().Where(x => x.IdHD == oID);
+                    foreach (var a in _lshd)
+                    {
+                        var p = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == a.IdSP);
+                     
+                        _IHoaDonCTServices.Delete(a);
+                    }
+                    _IHoaDonServices.Delete(hd);
+                  
+                    MessageBox.Show("Xóa thành công");
+                    LoadHoaDon();
+                    dgrid_Hoadonct.Rows.Clear();
+                }
+            }
         }
 
         private void dgrid_QLHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.RowIndex >= 0)
-            //{
-            //    DataGridViewRow r = dgrid_QLHoaDon.Rows[e.RowIndex];
-            //    u = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(r.Cells[1].Value.ToString())).Id;
-            //    AddGioHang(u);
-            //}
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow r = dgrid_QLHoaDon.Rows[e.RowIndex];
+                u = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(r.Cells[1].Value.ToString())).Id;
+                LoadHoaDonCT(u);
+            }
+
+    
         }
 
         private void btn_Inhd_Click(object sender, EventArgs e)
         {
-
+            frmInHoaDon f = new frmInHoaDon();
+            f.ShowDialog();
         }
     }
 }

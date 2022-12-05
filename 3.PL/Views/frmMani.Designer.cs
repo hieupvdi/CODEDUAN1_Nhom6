@@ -38,11 +38,11 @@
             this.btn_QLSanPham = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lb_Tenvschuvu = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pb_Anhdn = new System.Windows.Forms.PictureBox();
             this.pn_frmchuyen = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Anhdn)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -166,7 +166,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.lb_Tenvschuvu);
-            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.pb_Anhdn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -184,16 +184,16 @@
             this.lb_Tenvschuvu.TabIndex = 1;
             this.lb_Tenvschuvu.Text = "Tên Tài Khoản + Chức Vụ";
             // 
-            // pictureBox1
+            // pb_Anhdn
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(212, 107);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pb_Anhdn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pb_Anhdn.Image = ((System.Drawing.Image)(resources.GetObject("pb_Anhdn.Image")));
+            this.pb_Anhdn.Location = new System.Drawing.Point(0, 0);
+            this.pb_Anhdn.Name = "pb_Anhdn";
+            this.pb_Anhdn.Size = new System.Drawing.Size(212, 107);
+            this.pb_Anhdn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Anhdn.TabIndex = 1;
+            this.pb_Anhdn.TabStop = false;
             // 
             // pn_frmchuyen
             // 
@@ -216,10 +216,11 @@
             this.Name = "frmMani";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMani";
+            this.Load += new System.EventHandler(this.frmMani_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Anhdn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -235,7 +236,7 @@
         private System.Windows.Forms.Button btn_QLSanPham;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lb_Tenvschuvu;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pb_Anhdn;
         private System.Windows.Forms.Panel pn_frmchuyen;
     }
 }

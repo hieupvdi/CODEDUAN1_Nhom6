@@ -123,6 +123,7 @@ namespace _3.PL.Views
             {
                 dgrid_Hoadonct.Rows.Add(stt++, x.IdSP, x.MaSP, x.TenSP, x.SoLuong, x.DonGia);
             }
+            TinhTienGH();
 
         }
 
@@ -176,7 +177,7 @@ namespace _3.PL.Views
                 {
                     tien += Convert.ToInt32(item.DonGia) * item.SoLuong;
                 }
-                lb_TongTiengh.Text = tien.ToString();
+                lb_TongTiengh.Text = tien.ToString()+"VNĐ";
             }
             else
             {
@@ -377,7 +378,7 @@ namespace _3.PL.Views
                         _IHoaDonServices.Update(hoadon);
 
                         txt_Mahd.Text = nu.ToString();
-                        lb_Tongtientt.Text = tien.ToString();
+                        lb_Tongtientt.Text = tien.ToString()+"VNĐ";
                         txt_Makh.Text = "";
                         lb_TongTiengh.Text = "";
                         MessageBox.Show($"Cập nhật hóa đơn thành công. ID: {nu}");

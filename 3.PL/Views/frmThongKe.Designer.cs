@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgrid_QLHoaDon = new System.Windows.Forms.DataGridView();
+            this.dgrid_Thongke = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrid_QLHoaDon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrid_Thongke)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dgrid_QLHoaDon);
+            this.groupBox2.Controls.Add(this.dgrid_Thongke);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox2.Location = new System.Drawing.Point(0, 416);
             this.groupBox2.Name = "groupBox2";
@@ -46,15 +46,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hóa Đơn";
             // 
-            // dgrid_QLHoaDon
+            // dgrid_Thongke
             // 
-            this.dgrid_QLHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_QLHoaDon.Location = new System.Drawing.Point(30, 56);
-            this.dgrid_QLHoaDon.Name = "dgrid_QLHoaDon";
-            this.dgrid_QLHoaDon.RowHeadersWidth = 49;
-            this.dgrid_QLHoaDon.RowTemplate.Height = 28;
-            this.dgrid_QLHoaDon.Size = new System.Drawing.Size(1148, 268);
-            this.dgrid_QLHoaDon.TabIndex = 0;
+            this.dgrid_Thongke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrid_Thongke.Location = new System.Drawing.Point(30, 56);
+            this.dgrid_Thongke.Name = "dgrid_Thongke";
+            this.dgrid_Thongke.RowHeadersWidth = 49;
+            this.dgrid_Thongke.RowTemplate.Height = 28;
+            this.dgrid_Thongke.Size = new System.Drawing.Size(1148, 268);
+            this.dgrid_Thongke.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -77,7 +77,7 @@
             this.Name = "frmThongKe";
             this.Text = "frmThongKe";
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgrid_QLHoaDon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrid_Thongke)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -85,7 +85,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dgrid_QLHoaDon;
+        private System.Windows.Forms.DataGridView dgrid_Thongke;
         private System.Windows.Forms.GroupBox groupBox1;
     }
 }
