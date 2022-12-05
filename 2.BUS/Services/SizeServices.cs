@@ -27,7 +27,7 @@ namespace _2.BUS.Services
                 Id = obj.Id,
                 MaSize = obj.MaSize,
                 TenSize = obj.TenSize,
-                Gia=obj.Gia,
+                //Gia=obj.Gia,
                 TrangThai=obj.TrangThai,    
 
             };
@@ -61,7 +61,7 @@ namespace _2.BUS.Services
                     Id = a.Id,
                     MaSize = a.MaSize,
                     TenSize = a.TenSize,
-                    Gia = a.Gia,
+                    //Gia = a.Gia,
                     TrangThai = a.TrangThai,
                 }
                 ).ToList();
@@ -78,12 +78,12 @@ namespace _2.BUS.Services
             return GetAll().Where(c => c.MaSize.ToLower().StartsWith(input.ToLower()) || c.TenSize.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
-        public Size GetById(int id)
+        public Size GetById(Guid id)
         {
             return _ISizeRepository.GetAll().FirstOrDefault(c => c.Id == id);
         }
 
-        public int GetIdByName(string name)
+        public Guid GetIdByName(string name)
         {
             return GetAll().FirstOrDefault(c => c.TenSize == name).Id;
         }
@@ -96,7 +96,7 @@ namespace _2.BUS.Services
             SI.Id = obj.Id;
             SI.MaSize = obj.MaSize;
             SI.TenSize = obj.TenSize;
-            SI.Gia = obj.Gia;
+            //SI.Gia = obj.Gia;
             SI.TrangThai = obj.TrangThai;
             if (_ISizeRepository.Update(SI))
             {

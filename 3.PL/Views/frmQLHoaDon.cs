@@ -22,7 +22,7 @@ namespace _3.PL.Views
 
         //
         private IHoaDonCTServices _IHoaDonCTServices;
-        private int _idWhenClick;
+        private Guid _idWhenClick;
         public int oID;
         public frmQLHoaDon()
         {
@@ -105,18 +105,19 @@ namespace _3.PL.Views
             //};
             //return HD;
             //var temp = GetDataFromGui();
-           // HoaDonView u = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idHoad);
+            //HoaDonView u = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idHoad);
             //MessageBox.Show(_IHoaDonServices.Delete(u));
-            LoadQLHD();
+            //LoadQLHD();
         }
 
         private void dgrid_QLHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow r = dgrid_QLHoaDon.Rows[e.RowIndex];
-                LoadQLCTHD(Convert.ToInt32(r.Cells[0].Value));
-            }
+            //if (e.RowIndex >= 0)
+            //{
+            //    DataGridViewRow r = dgrid_QLHoaDon.Rows[e.RowIndex];
+            //    u = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(r.Cells[1].Value.ToString())).Id;
+            //    AddGioHang(u);
+            //}
         }
 
         private void btn_Inhd_Click(object sender, EventArgs e)

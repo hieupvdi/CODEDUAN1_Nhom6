@@ -14,17 +14,18 @@ namespace _1.DAL.Models
 
 
     
-        public int IdHD { get; set; }
+        public Guid IdHD { get; set; }
 
-        public int IdSP { get; set; }
+        public Guid IdSP { get; set; }
    
         public int SoLuong { get; set; }
   
         public decimal  DonGia{ get; set; }
 
         //
-        public virtual HoaDon? HoaDon { get; set; }
-        public virtual SanPham? SanPham { get; set; }
+    
+        public virtual HoaDon? HoaDon { get; set; } = null!;
+        public virtual SanPham? SanPham { get; set; } = null!;
         ///
         //public HoaDon HoaDon { get; set; }
         //public SanPham SanPham { get; set; }

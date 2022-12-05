@@ -19,7 +19,7 @@ namespace _1.DAL.Repositories
         public bool Add(Size obj)
         {
             if (obj == null) return false;
-           // obj.Id = Guid.NewGuid();//tu dong generate khoa chinh
+             obj.Id = Guid.NewGuid();//tu dong generate khoa chinh
             _DbContext.Sizes.Add(obj);
             _DbContext.SaveChanges();
             return true;
@@ -41,9 +41,9 @@ namespace _1.DAL.Repositories
             return _DbContext.Sizes.ToList();
         }
 
-        public Size GetById(int id)
+        public Size GetById(Guid id)
         {
-            //if (id == Guid.Empty) return null;
+            if (id == Guid.Empty) return null;
             return _DbContext.Sizes.FirstOrDefault(c => c.Id == id);
         }
 
@@ -55,7 +55,7 @@ namespace _1.DAL.Repositories
 
             SI.MaSize = obj.MaSize;
             SI.TenSize = obj.TenSize;
-            SI.Gia = obj.Gia;
+            //SI.Gia = obj.Gia;
             SI.TrangThai = obj.TrangThai;
 
             _DbContext.Sizes.Update(SI);

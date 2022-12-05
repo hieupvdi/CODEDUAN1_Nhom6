@@ -15,7 +15,7 @@ namespace _2.BUS.IServices
         string Delete(HoaDonCTView obj);
         List<HoaDonCTView> GetAll();
         List<HoaDonCTView> GetAll(string input);
-        HoaDonCT GetById(int id);
-        int GetIdByName(string name);
+        HoaDonCT GetById(Guid id);
+        Guid GetIdByName(string name);
     }
 }

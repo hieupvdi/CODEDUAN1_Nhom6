@@ -60,6 +60,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.btn_Nghiviec = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_QLNhanvien)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -196,6 +197,7 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox3.Controls.Add(this.btn_Nghiviec);
             this.groupBox3.Controls.Add(this.btn_Sua);
             this.groupBox3.Controls.Add(this.btn_Them);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
@@ -392,6 +394,17 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Ngày Sinh";
             // 
+            // btn_Nghiviec
+            // 
+            this.btn_Nghiviec.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Nghiviec.Location = new System.Drawing.Point(3, 78);
+            this.btn_Nghiviec.Name = "btn_Nghiviec";
+            this.btn_Nghiviec.Size = new System.Drawing.Size(203, 28);
+            this.btn_Nghiviec.TabIndex = 2;
+            this.btn_Nghiviec.Text = "Nghỉ Việc";
+            this.btn_Nghiviec.UseVisualStyleBackColor = true;
+            this.btn_Nghiviec.Click += new System.EventHandler(this.btn_Nghiviec_Click);
+            // 
             // frmQLNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -448,5 +461,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_Themanh;
         private System.Windows.Forms.PictureBox pb_Anh;
+        private System.Windows.Forms.Button btn_Nghiviec;
     }
 }

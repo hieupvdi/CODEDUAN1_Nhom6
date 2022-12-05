@@ -16,7 +16,7 @@ namespace _3.PL.Views
     public partial class frmSize : Form
     {
         private ISizeServices _ISizeServices;
-        private int _idWhenClick;
+        private Guid _idWhenClick;
         public frmSize()
         {
             InitializeComponent();
@@ -34,22 +34,22 @@ namespace _3.PL.Views
             dgrid_Size.Columns[1].Visible = false;
             dgrid_Size.Columns[2].Name = "Mã Size";
             dgrid_Size.Columns[3].Name = "Tên Size";
-            dgrid_Size.Columns[4].Name = "Gía Bán";
-            dgrid_Size.Columns[5].Name = "Trạng Thái";
+            //dgrid_Size.Columns[4].Name = "Gía Bán";
+            dgrid_Size.Columns[4].Name = "Trạng Thái";
             dgrid_Size.Rows.Clear();
             foreach (var x in _ISizeServices.GetAll())
             {
-                dgrid_Size.Rows.Add(stt++, x.Id, x.MaSize, x.TenSize,x.Gia,x.TrangThai == 0 ? "Còn Bán" : "Nghỉ Bán");
+                dgrid_Size.Rows.Add(stt++, x.Id, x.MaSize, x.TenSize,/*x.Gia,*/x.TrangThai == 0 ? "Còn Bán" : "Nghỉ Bán");
             }
         }
         public SizeView GetDataFromGui()
         {
             return new SizeView()
             {
-                //Id = Guid.Empty,
+                Id = Guid.Empty,
                 MaSize = txt_Masize.Text,
                 TenSize = txt_Tensize.Text,
-                Gia=Convert.ToDecimal(txt_Giaban.Text),
+               // Gia=Convert.ToDecimal(txt_Giaban.Text),
                 TrangThai=rbtn_ConBan.Checked ? 0:1,
 
             };
@@ -66,11 +66,11 @@ namespace _3.PL.Views
             {
                 return;
             }
-            _idWhenClick = Convert.ToInt32(dgrid_Size.Rows[RowIndex].Cells[1].Value.ToString());
+            _idWhenClick = Guid.Parse(dgrid_Size.Rows[RowIndex].Cells[1].Value.ToString());
             var obj = _ISizeServices.GetAll().FirstOrDefault(x => x.Id == _idWhenClick);
             txt_Masize.Text = obj.MaSize;
             txt_Tensize.Text = obj.TenSize;
-            txt_Giaban.Text = Convert.ToString(obj.Gia);
+            //txt_Giaban.Text = Convert.ToString(obj.Gia);
             if (obj.TrangThai == 0)
             {
                 rbtn_ConBan.Checked = true;

@@ -152,9 +152,9 @@
             // 
             // txt_Makh
             // 
-            this.txt_Makh.Location = new System.Drawing.Point(22, 425);
+            this.txt_Makh.Location = new System.Drawing.Point(22, 418);
             this.txt_Makh.Name = "txt_Makh";
-            this.txt_Makh.Size = new System.Drawing.Size(256, 26);
+            this.txt_Makh.Size = new System.Drawing.Size(355, 26);
             this.txt_Makh.TabIndex = 52;
             // 
             // btn_Themkhachhang
@@ -176,8 +176,9 @@
             this.dgrid_QLHoaDon.Name = "dgrid_QLHoaDon";
             this.dgrid_QLHoaDon.RowHeadersWidth = 49;
             this.dgrid_QLHoaDon.RowTemplate.Height = 28;
-            this.dgrid_QLHoaDon.Size = new System.Drawing.Size(355, 302);
+            this.dgrid_QLHoaDon.Size = new System.Drawing.Size(355, 358);
             this.dgrid_QLHoaDon.TabIndex = 1;
+            this.dgrid_QLHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_QLHoaDon_CellClick);
             // 
             // btn_Taohdcho
             // 

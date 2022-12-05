@@ -16,7 +16,7 @@ namespace _3.PL.Views
     public partial class frmLoai : Form
     {
         private ILoaiSPServices _ILoaiSPServices;
-        private int _idWhenClick;
+        private Guid _idWhenClick;
         public frmLoai()
         {
             InitializeComponent();
@@ -43,7 +43,7 @@ namespace _3.PL.Views
         {
             return new LoaiSPView()
             {
-               // Id = Guid.Empty,
+                Id = Guid.Empty,
                 MaLoaiSP = txt_Malsp.Text,
                 TenLoaiSP = txt_Tenlsp.Text,
 
@@ -61,7 +61,7 @@ namespace _3.PL.Views
             {
                 return;
             }
-            _idWhenClick = Convert.ToInt32(dggrid_LoaisanPham.Rows[RowIndex].Cells[1].Value.ToString());
+            _idWhenClick = Guid.Parse(dggrid_LoaisanPham.Rows[RowIndex].Cells[1].Value.ToString());
             var obj = _ILoaiSPServices.GetAll().FirstOrDefault(x => x.Id == _idWhenClick);
             txt_Malsp.Text = obj.MaLoaiSP;
             txt_Tenlsp.Text = obj.TenLoaiSP;

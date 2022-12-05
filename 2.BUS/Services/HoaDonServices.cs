@@ -27,7 +27,7 @@ namespace _2.BUS.Services
         public string Add(HoaDonView obj)
         {
             if (obj == null)
-                return "Them that bai";
+            return "Them that bai";
             var HD = new HoaDon()
             {
                 Id = obj.Id,
@@ -120,12 +120,12 @@ namespace _2.BUS.Services
             return GetAll().Where(c => c.MaHD.ToLower().StartsWith(input.ToLower()) || c.TenKH.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
-        public HoaDon GetById(int id)
+        public HoaDon GetById(Guid id)
         {
             return _IHoaDonRepository.GetAll().FirstOrDefault(c => c.Id == id);
         }
 
-        public int GetIdByName(string name)
+        public Guid GetIdByName(string name)
         {
             return GetAll().FirstOrDefault(c => c.TenKH == name).Id;
         }

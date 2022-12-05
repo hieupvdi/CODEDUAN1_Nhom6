@@ -19,7 +19,7 @@ namespace _1.DAL.Repositories
         public bool Add(LoaiSP obj)
         {
             if (obj == null) return false;
-           // obj.Id = Guid.NewGuid();//tu dong generate khoa chinh
+             obj.Id = Guid.NewGuid();//tu dong generate khoa chinh
             _DbContext.LoaiSPs.Add(obj);
             _DbContext.SaveChanges();
             return true;
@@ -42,9 +42,9 @@ namespace _1.DAL.Repositories
             return _DbContext.LoaiSPs.ToList();
         }
 
-        public LoaiSP GetById(int id)
+        public LoaiSP GetById(Guid id)
         {
-           // if (id == Guid.Empty) return null;
+            if (id == Guid.Empty) return null;
             return _DbContext.LoaiSPs.FirstOrDefault(c => c.Id == id);
         }
 

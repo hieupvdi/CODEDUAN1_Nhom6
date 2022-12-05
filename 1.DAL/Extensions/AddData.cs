@@ -13,21 +13,22 @@ namespace _1.DAL.Extensions
         public static void Seed(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ChucVu>().HasData(
-             new ChucVu() { Id =  1, MaCV = "CV1" , TenCV = "Anh nhân viên May Mắn" }
-           
+             new ChucVu() { Id = Guid.Parse("e26fa84e-3019-4a14-862f-9fafc6014dfe"), MaCV = "CV1", TenCV = "Nhân Viên" }
+
              );
             modelBuilder.Entity<LoaiSP>().HasData(
-             new LoaiSP() { Id = 1, MaLoaiSP = "LSP1", TenLoaiSP = "CAPE" }
-          
+             new LoaiSP() { Id = Guid.Parse("222265ab-a78d-435e-af41-d0e61033ede1"), MaLoaiSP = "LSP1", TenLoaiSP = "CAPE" }
+
             );
             modelBuilder.Entity<Size>().HasData(
-             new Size() { Id = 1 , MaSize = "S1", TenSize = "Size Lớn" }
-          
+             new Size() { Id = Guid.Parse("98917e72-9634-401d-b5f4-6a30b1741b82"), MaSize = "S1", TenSize = "Size Lớn" }
+
             );
             modelBuilder.Entity<KhachHang>().HasData(
-             new KhachHang() { Id = 1, MaKH = "KH1", TenKH = "hiếu", SDT="0337019932", DiaChi="Thanh Hóa" }
-           
-        );
+             new KhachHang() { Id = Guid.Parse("6e735591-ec79-4cf9-bc37-c376a498aa30"), MaKH = "KH1", TenKH = "hiếu", SDT = "0337019932", DiaChi = "Thanh Hóa" }
+
+             );
+         
         }
     }
 }

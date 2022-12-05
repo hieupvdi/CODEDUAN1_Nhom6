@@ -16,7 +16,7 @@ namespace _2.BUS.IServices
         List<KhachHangView> GetAll();
         List<KhachHangView> GetAll(string input);
 
-        KhachHang GetById(int id);
-        int GetIdByName(string name);
+        KhachHang GetById(Guid id);
+        Guid GetIdByName(string name);
     }
 }

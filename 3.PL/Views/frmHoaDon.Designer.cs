@@ -49,9 +49,9 @@
             this.cmb_Nhanvien = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_HoaDon)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -271,6 +271,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chức Vụ";
             // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.Location = new System.Drawing.Point(3, 78);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(203, 28);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Xóa";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btn_Sua
             // 
             this.btn_Sua.Dock = System.Windows.Forms.DockStyle.Top;
@@ -292,17 +303,6 @@
             this.btn_Them.Text = "Thêm Hóa Đơn";
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.Location = new System.Drawing.Point(3, 78);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(203, 28);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Cập Nhật";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmHoaDon
             // 

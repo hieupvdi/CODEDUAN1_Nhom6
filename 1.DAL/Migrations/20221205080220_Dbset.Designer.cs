@@ -10,7 +10,7 @@ using _1.DAL.Context;
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(QLDbContext))]
-    [Migration("20221204141649_Dbset")]
+    [Migration("20221205080220_Dbset")]
     partial class Dbset
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,12 +23,9 @@ namespace _1.DAL.Migrations
 
             modelBuilder.Entity("_1.DAL.Models.ChucVu", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
-                        .HasAnnotation("SqlServer:IdentitySeed", 1)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MaCV")
                         .HasColumnType("nvarchar(max)");
@@ -43,31 +40,28 @@ namespace _1.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = new Guid("e26fa84e-3019-4a14-862f-9fafc6014dfe"),
                             MaCV = "CV1",
-                            TenCV = "Anh nhân viên May Mắn"
+                            TenCV = "Nhân Viên"
                         });
                 });
 
             modelBuilder.Entity("_1.DAL.Models.HoaDon", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
-                        .HasAnnotation("SqlServer:IdentitySeed", 1)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("DiaChi")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("IdKH")
+                    b.Property<Guid?>("IdKH")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("IdNV")
+                    b.Property<Guid?>("IdNV")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MaHD")
                         .HasColumnType("nvarchar(max)");
@@ -98,11 +92,11 @@ namespace _1.DAL.Migrations
 
             modelBuilder.Entity("_1.DAL.Models.HoaDonCT", b =>
                 {
-                    b.Property<int>("IdSP")
-                        .HasColumnType("int");
+                    b.Property<Guid>("IdSP")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("IdHD")
-                        .HasColumnType("int");
+                    b.Property<Guid>("IdHD")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("DonGia")
                         .HasColumnType("decimal(18,2)");
@@ -119,12 +113,9 @@ namespace _1.DAL.Migrations
 
             modelBuilder.Entity("_1.DAL.Models.KhachHang", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
-                        .HasAnnotation("SqlServer:IdentitySeed", 1)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("DiaChi")
                         .HasColumnType("nvarchar(max)");
@@ -145,7 +136,7 @@ namespace _1.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = new Guid("6e735591-ec79-4cf9-bc37-c376a498aa30"),
                             DiaChi = "Thanh Hóa",
                             MaKH = "KH1",
                             SDT = "0337019932",
@@ -155,12 +146,9 @@ namespace _1.DAL.Migrations
 
             modelBuilder.Entity("_1.DAL.Models.LoaiSP", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
-                        .HasAnnotation("SqlServer:IdentitySeed", 1)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MaLoaiSP")
                         .HasColumnType("nvarchar(max)");
@@ -175,7 +163,7 @@ namespace _1.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = new Guid("222265ab-a78d-435e-af41-d0e61033ede1"),
                             MaLoaiSP = "LSP1",
                             TenLoaiSP = "CAPE"
                         });
@@ -183,12 +171,9 @@ namespace _1.DAL.Migrations
 
             modelBuilder.Entity("_1.DAL.Models.NhanVien", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
-                        .HasAnnotation("SqlServer:IdentitySeed", 1)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("DiaChi")
                         .HasColumnType("nvarchar(max)");
@@ -199,9 +184,9 @@ namespace _1.DAL.Migrations
                     b.Property<string>("GioiTinh")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("IdCV")
+                    b.Property<Guid?>("IdCV")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LinkAnh")
                         .HasColumnType("nvarchar(max)");
@@ -233,23 +218,20 @@ namespace _1.DAL.Migrations
 
             modelBuilder.Entity("_1.DAL.Models.SanPham", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
-                        .HasAnnotation("SqlServer:IdentitySeed", 1)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("GiaBan")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("IdLoaiSP")
+                    b.Property<Guid?>("IdLoaiSP")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("IdSize")
+                    b.Property<Guid?>("IdSize")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LinkAnh")
                         .HasColumnType("nvarchar(max)");
@@ -274,15 +256,9 @@ namespace _1.DAL.Migrations
 
             modelBuilder.Entity("_1.DAL.Models.Size", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
-                        .HasAnnotation("SqlServer:IdentitySeed", 1)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<decimal>("Gia")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MaSize")
                         .HasColumnType("nvarchar(max)");
@@ -300,8 +276,7 @@ namespace _1.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            Gia = 0m,
+                            Id = new Guid("98917e72-9634-401d-b5f4-6a30b1741b82"),
                             MaSize = "S1",
                             TenSize = "Size Lớn",
                             TrangThai = 0

@@ -19,7 +19,7 @@ namespace _3.PL.Views
         private IQLNhanVienServices _IQLNhanVienServices;
         private IChucVuServices _IChucVuServices;
         string Imagename;
-        private int _idWhenClick;
+        private Guid _idWhenClick;
         
     
 
@@ -52,20 +52,20 @@ namespace _3.PL.Views
             dgrid_QLNhanvien.Columns[1].Visible = false;
             dgrid_QLNhanvien.Columns[2].Name = "Mã Nhân Viên";
             dgrid_QLNhanvien.Columns[3].Name = "Tên Nhân Viên";
-            dgrid_QLNhanvien.Columns[4].Name = "Link Ảnh Nhân Viên";
-            dgrid_QLNhanvien.Columns[5].Name = "Chức Vụ";
-            dgrid_QLNhanvien.Columns[6].Name = "Giới Tính";
-            dgrid_QLNhanvien.Columns[7].Name = "Ngày Sinh";
-            dgrid_QLNhanvien.Columns[8].Name = "Email";
-            dgrid_QLNhanvien.Columns[9].Name = "SĐT";
-            dgrid_QLNhanvien.Columns[10].Name = "Địa Chỉ";
-            dgrid_QLNhanvien.Columns[11].Name = "Mật Khẩu";
-            dgrid_QLNhanvien.Columns[12].Name = "Trang Thái";
+            //dgrid_QLNhanvien.Columns[4].Name = "Link Ảnh Nhân Viên";
+            dgrid_QLNhanvien.Columns[4].Name = "Chức Vụ";
+            dgrid_QLNhanvien.Columns[5].Name = "Giới Tính";
+            dgrid_QLNhanvien.Columns[6].Name = "Ngày Sinh";
+            dgrid_QLNhanvien.Columns[7].Name = "Email";
+            dgrid_QLNhanvien.Columns[8].Name = "SĐT";
+            dgrid_QLNhanvien.Columns[9].Name = "Địa Chỉ";
+            dgrid_QLNhanvien.Columns[10].Name = "Mật Khẩu";
+            dgrid_QLNhanvien.Columns[11].Name = "Trang Thái";
             dgrid_QLNhanvien.Rows.Clear();
 
             foreach (var x in _IQLNhanVienServices.GetAll(input))
             {
-                dgrid_QLNhanvien.Rows.Add(stt++, x.Id, x.MaNV, x.TenNV,x.LinkAnh, x.TenCV, (x.GioiTinh == "Nam" ? "Nam" : "Nữ"), x.NgaySinh, x.Email, x.SDT, x.DiaChi, x.MatKhau, x.Trangthai == 0 ? "Đang Làm" : "Nghỉ Việc");
+                dgrid_QLNhanvien.Rows.Add(stt++, x.Id, x.MaNV, x.TenNV,/*x.LinkAnh,*/ x.TenCV, (x.GioiTinh == "Nam" ? "Nam" : "Nữ"), x.NgaySinh, x.Email, x.SDT, x.DiaChi, x.MatKhau, x.Trangthai == 0 ? "Đang Làm" : "Nghỉ Việc");
             }
 
         }
@@ -73,7 +73,7 @@ namespace _3.PL.Views
         {
             QLNhanVienView nvv = new QLNhanVienView()           
             {
-                //Id = Guid.Empty,
+                Id = Guid.Empty,
             
                 MaNV = txt_Manv.Text,
                 TenNV = txt_Tennv.Text,
@@ -127,7 +127,7 @@ namespace _3.PL.Views
             {
                 return;
             }
-            _idWhenClick = Convert.ToInt32(dgrid_QLNhanvien.Rows[RowIndex].Cells[1].Value.ToString());
+            _idWhenClick = Guid.Parse(dgrid_QLNhanvien.Rows[RowIndex].Cells[1].Value.ToString());
             var obj = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Id == _idWhenClick);
             txt_Manv.Text = obj.MaNV;
             txt_Tennv.Text = obj.TenNV;
@@ -181,9 +181,11 @@ namespace _3.PL.Views
             }
         }
 
-        private void pb_Anh_Click(object sender, EventArgs e)
+    
+
+        private void btn_Nghiviec_Click(object sender, EventArgs e)
         {
-          
+
         }
     }
     }

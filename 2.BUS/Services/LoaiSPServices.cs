@@ -73,12 +73,12 @@ namespace _2.BUS.Services
             return GetAll().Where(c => c.MaLoaiSP.ToLower().StartsWith(input.ToLower()) || c.TenLoaiSP.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
-        public LoaiSP GetById(int id)
+        public LoaiSP GetById(Guid id)
         {
             return _ILoaiSPRepository.GetAll().FirstOrDefault(c => c.Id == id);
         }
 
-        public int GetIdByName(string name)
+        public Guid GetIdByName(string name)
         {
             return GetAll().FirstOrDefault(c => c.TenLoaiSP == name).Id;
         }

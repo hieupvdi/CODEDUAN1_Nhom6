@@ -17,7 +17,7 @@ namespace _3.PL.Views
     public partial class frmDangNhap : Form
     {
         private IQLNhanVienServices _IQLNhanVienServices;
-        private int _ID;
+        private Guid _ID;
         public frmDangNhap()
         {
             InitializeComponent();

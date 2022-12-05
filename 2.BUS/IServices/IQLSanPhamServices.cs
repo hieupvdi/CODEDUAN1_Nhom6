@@ -15,7 +15,7 @@ namespace _2.BUS.IServices
         string Delete(QLSanPhamView obj);
         List<QLSanPhamView> GetAll();
         List<QLSanPhamView> GetAll(string input);
-        SanPham GetById(int id);
-        int GetIdByName(string name);
+        SanPham GetById(Guid id);
+        Guid GetIdByName(string name);
     }
 }

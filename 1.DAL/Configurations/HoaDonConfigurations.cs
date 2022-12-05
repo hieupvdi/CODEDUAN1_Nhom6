@@ -15,7 +15,7 @@ namespace _1.DAL.Configurations
         {
             builder.ToTable("HoaDon"); // Đặt tên bảng (Nếu ko thì lấy mặc định của class)
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).UseIdentityColumn(1, 1);
+ 
             //builder.Property(p => p.MaHD).HasColumnName("MaHD").
             //    HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(k => k.IdNV).IsRequired();

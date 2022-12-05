@@ -12,11 +12,11 @@ namespace _1.DAL.Models
     public class HoaDon
     {
       
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
-        public int? IdNV { get; set; }
+        public Guid? IdNV { get; set; }
 
-        public int? IdKH { get; set; }
+        public Guid? IdKH { get; set; }
         public string MaHD { get; set; }
         public DateTime ThoiGianTao { get; set; }
         public DateTime ThoiGianThanhToan { get; set; }
@@ -25,7 +25,8 @@ namespace _1.DAL.Models
         public decimal TongTien { get; set; }
         public int TrangThai { get; set; }
 
-        //
+        //trong hóa đơn có nhiều hóa đơn chi tiết
+       // public List<HoaDonCT> HoaDonCTs { get; set; }
         public virtual NhanVien? NhanVien { get; set; }
         public virtual KhachHang? KhachHang { get; set; }
 

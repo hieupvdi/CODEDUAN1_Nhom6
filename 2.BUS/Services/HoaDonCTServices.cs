@@ -67,12 +67,12 @@ namespace _2.BUS.Services
                 select new HoaDonCTView()
                 {
 
-                    //IdHD = a.IdHD,
+                    IdHD = a.IdHD,
                     IdSP = a.IdSP,
                     SoLuong = a.SoLuong,
                     DonGia = a.DonGia,
                     //Hóa Đơn
-                    // Id = a.Id,
+                    //Id = a.Id,
                     IdNV = b.IdNV,
                     IdKH = b.IdKH,
                     MaHD = b.MaHD,
@@ -107,12 +107,12 @@ namespace _2.BUS.Services
             return GetAll().Where(c => c.MaSP.ToLower().StartsWith(input.ToLower()) || c.TenSP.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
-        public HoaDonCT GetById(int id)
+        public HoaDonCT GetById(Guid id)
         {
             return _IHoaDonCTRepository.GetAll().FirstOrDefault(c => c.IdSP == id);
         }
 
-        public int GetIdByName(string name)
+        public Guid GetIdByName(string name)
         {
             return GetAll().FirstOrDefault(c => c.TenSP == name).IdSP;
         }

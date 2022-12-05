@@ -22,7 +22,7 @@ namespace _3.PL.Views
         private ILoaiSPServices _ILoaiSPServices;
         private ISizeServices _ISizeServices;
         string Imagename;
-        private int _idWhenClick;
+        private Guid _idWhenClick;
         public frmQLSanPham()
         {
             InitializeComponent();
@@ -76,7 +76,7 @@ namespace _3.PL.Views
         {
             QLSanPhamView spv = new QLSanPhamView()             
             {
-              //  Id = Guid.Empty,  
+                Id = Guid.Empty,  
                 MaSP = txt_Masp.Text,
                 TenSP=txt_Tensp.Text,
                 LinkAnh = Imagename,
@@ -99,7 +99,7 @@ namespace _3.PL.Views
             {
                 return;
             }
-            _idWhenClick = Convert.ToInt32(dgrid_QLSanPham.Rows[RowIndex].Cells[1].Value.ToString());
+            _idWhenClick = Guid.Parse(dgrid_QLSanPham.Rows[RowIndex].Cells[1].Value.ToString());
             var obj = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == _idWhenClick);
             txt_Masp.Text = obj.MaSP;
             txt_Tensp.Text = obj.TenSP;

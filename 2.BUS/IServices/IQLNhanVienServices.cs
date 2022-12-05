@@ -15,7 +15,7 @@ namespace _2.BUS.IServices
         string Delete(QLNhanVienView obj);
         List<QLNhanVienView> GetAll();
         List<QLNhanVienView> GetAll(string input);
-        NhanVien GetById(int id);
-        int GetIdByName(string name);
+        NhanVien GetById(Guid id);
+        Guid GetIdByName(string name);
     }
 }

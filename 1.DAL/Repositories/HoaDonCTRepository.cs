@@ -28,9 +28,9 @@ namespace _1.DAL.Repositories
         {
             if (obj == null) return false;
 
-            var HDCT = _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdSP == obj.IdSP);
+            //var HDCT = _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdSP == obj.IdSP);
 
-            _DbContext.HoaDonCTs.Remove(HDCT);
+            _DbContext.HoaDonCTs.Remove(obj);
             _DbContext.SaveChanges();
             return true;
         }
@@ -40,9 +40,9 @@ namespace _1.DAL.Repositories
             return _DbContext.HoaDonCTs.ToList();
         }
 
-        public HoaDonCT GetById(int id)
+        public HoaDonCT GetById(Guid id)
         {
-           // if (id == Guid.Empty) return null;
+            if (id == Guid.Empty) return null;
             return _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdSP == id);
         }
 
@@ -50,13 +50,13 @@ namespace _1.DAL.Repositories
         {
             if (obj == null) return false;
 
-            var HDCT = _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdSP == obj.IdSP);
+            //var HDCT = _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdSP == obj.IdSP);
 
             //HDCT.IdSP = obj.IdSP;
-            HDCT.IdHD = obj.IdHD;
-            HDCT.SoLuong = obj.SoLuong;
-            HDCT.DonGia = obj.DonGia;
-            _DbContext.HoaDonCTs.Update(HDCT);
+            //HDCT.IdHD = obj.IdHD;
+            //HDCT.SoLuong = obj.SoLuong;
+            //HDCT.DonGia = obj.DonGia;
+            _DbContext.HoaDonCTs.Update(obj);
             _DbContext.SaveChanges();
             return true;
         }

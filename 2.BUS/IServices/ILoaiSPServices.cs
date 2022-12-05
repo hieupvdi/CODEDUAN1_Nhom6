@@ -16,7 +16,7 @@ namespace _2.BUS.IServices
         List<LoaiSPView> GetAll();
         List<LoaiSPView> GetAll(string input);
 
-        LoaiSP GetById(int id);
-        int GetIdByName(string name);
+        LoaiSP GetById(Guid id);
+        Guid GetIdByName(string name);
     }
 }

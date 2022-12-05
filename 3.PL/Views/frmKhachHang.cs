@@ -16,7 +16,7 @@ namespace _3.PL.Views
     public partial class frmKhachHang : Form
     {
         private IKhachHangServices _IKhachHangServices;
-        private int _idWhenClick;
+        private Guid _idWhenClick;
         public frmKhachHang()
         {
             InitializeComponent();
@@ -29,6 +29,7 @@ namespace _3.PL.Views
             dggrid_Khachhang.ColumnCount = 11;
             dggrid_Khachhang.Columns[0].Name = "STT";
             dggrid_Khachhang.Columns[1].Name = "ID";
+            dggrid_Khachhang.Columns[1].Visible = false;
             dggrid_Khachhang.Columns[2].Name = "Mã Khách Hàng";
             dggrid_Khachhang.Columns[3].Name = "Tên Khách Hàng";
             dggrid_Khachhang.Columns[4].Name = "SĐT";
@@ -46,7 +47,7 @@ namespace _3.PL.Views
         {        
             return new KhachHangView()
             {
-                //Id = Guid.Empty,
+                Id = Guid.Empty,
                 MaKH=txt_Makh.Text,
                 TenKH=txt_Tenkh.Text,
                 SDT=txt_Sdt.Text,
@@ -87,7 +88,7 @@ namespace _3.PL.Views
             {
                 return;
             }
-            _idWhenClick = Convert.ToInt32(dggrid_Khachhang.Rows[RowIndex].Cells[1].Value.ToString());
+            _idWhenClick = Guid.Parse(dggrid_Khachhang.Rows[RowIndex].Cells[1].Value.ToString());
             var obj = _IKhachHangServices.GetAll().FirstOrDefault(x => x.Id == _idWhenClick);
             txt_Makh.Text = obj.MaKH;
             txt_Tenkh.Text = obj.TenKH;

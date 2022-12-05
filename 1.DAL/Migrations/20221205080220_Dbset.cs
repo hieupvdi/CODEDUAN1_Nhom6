@@ -11,8 +11,7 @@ namespace _1.DAL.Migrations
                 name: "ChucVu",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MaCV = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TenCV = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -25,8 +24,7 @@ namespace _1.DAL.Migrations
                 name: "KhachHang",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MaKH = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TenKH = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SDT = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -41,8 +39,7 @@ namespace _1.DAL.Migrations
                 name: "LoaiSP",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MaLoaiSP = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TenLoaiSP = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -55,11 +52,9 @@ namespace _1.DAL.Migrations
                 name: "Size",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MaSize = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TenSize = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Gia = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     TrangThai = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -71,9 +66,8 @@ namespace _1.DAL.Migrations
                 name: "NhanVien",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    IdCV = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdCV = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MaNV = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TenNV = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LinkAnh = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -100,10 +94,9 @@ namespace _1.DAL.Migrations
                 name: "SanPham",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    IdLoaiSP = table.Column<int>(type: "int", nullable: false),
-                    IdSize = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdLoaiSP = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdSize = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MaSP = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TenSP = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LinkAnh = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -131,10 +124,9 @@ namespace _1.DAL.Migrations
                 name: "HoaDon",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    IdNV = table.Column<int>(type: "int", nullable: false),
-                    IdKH = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdNV = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdKH = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MaHD = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ThoiGianTao = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ThoiGianThanhToan = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -164,8 +156,8 @@ namespace _1.DAL.Migrations
                 name: "HoaDonCT",
                 columns: table => new
                 {
-                    IdHD = table.Column<int>(type: "int", nullable: false),
-                    IdSP = table.Column<int>(type: "int", nullable: false),
+                    IdHD = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdSP = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SoLuong = table.Column<int>(type: "int", nullable: false),
                     DonGia = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
@@ -189,22 +181,22 @@ namespace _1.DAL.Migrations
             migrationBuilder.InsertData(
                 table: "ChucVu",
                 columns: new[] { "Id", "MaCV", "TenCV" },
-                values: new object[] { 1, "CV1", "Anh nhân viên May Mắn" });
+                values: new object[] { new Guid("e26fa84e-3019-4a14-862f-9fafc6014dfe"), "CV1", "Nhân Viên" });
 
             migrationBuilder.InsertData(
                 table: "KhachHang",
                 columns: new[] { "Id", "DiaChi", "MaKH", "SDT", "TenKH" },
-                values: new object[] { 1, "Thanh Hóa", "KH1", "0337019932", "hiếu" });
+                values: new object[] { new Guid("6e735591-ec79-4cf9-bc37-c376a498aa30"), "Thanh Hóa", "KH1", "0337019932", "hiếu" });
 
             migrationBuilder.InsertData(
                 table: "LoaiSP",
                 columns: new[] { "Id", "MaLoaiSP", "TenLoaiSP" },
-                values: new object[] { 1, "LSP1", "CAPE" });
+                values: new object[] { new Guid("222265ab-a78d-435e-af41-d0e61033ede1"), "LSP1", "CAPE" });
 
             migrationBuilder.InsertData(
                 table: "Size",
-                columns: new[] { "Id", "Gia", "MaSize", "TenSize", "TrangThai" },
-                values: new object[] { 1, 0m, "S1", "Size Lớn", 0 });
+                columns: new[] { "Id", "MaSize", "TenSize", "TrangThai" },
+                values: new object[] { new Guid("98917e72-9634-401d-b5f4-6a30b1741b82"), "S1", "Size Lớn", 0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_HoaDon_IdKH",

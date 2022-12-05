@@ -15,7 +15,7 @@ namespace _1.DAL.Configurations
         {
             builder.ToTable("SanPham"); // Đặt tên bảng (Nếu ko thì lấy mặc định của class)
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).UseIdentityColumn(1, 1);
+        
 
             builder.Property(k => k.IdLoaiSP).IsRequired();
             builder.Property(k => k.IdSize).IsRequired();

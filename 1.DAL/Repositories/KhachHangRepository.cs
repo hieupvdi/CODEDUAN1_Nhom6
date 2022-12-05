@@ -19,7 +19,7 @@ namespace _1.DAL.Repositories
         public bool Add(KhachHang obj)
         {
             if (obj == null) return false;
-           // obj.Id = Guid.NewGuid();//tu dong generate khoa chinh
+             obj.Id = Guid.NewGuid();//tu dong generate khoa chinh
             _DbContext.KhachHangs.Add(obj);
             _DbContext.SaveChanges();
             return true;
@@ -41,10 +41,10 @@ namespace _1.DAL.Repositories
             return _DbContext.KhachHangs.ToList();
         }
 
-        public KhachHang GetById(int id)
+        public KhachHang GetById(Guid id)
         {
 
-           // if (id == Guid.Empty) return null;
+            if (id == Guid.Empty) return null;
             return _DbContext.KhachHangs.FirstOrDefault(c => c.Id == id);
         }
 

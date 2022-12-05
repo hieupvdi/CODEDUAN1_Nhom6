@@ -87,7 +87,7 @@ namespace _2.BUS.Services
                     //IdSize=c.IdSize,
                     MaSize=c.MaSize,
                     TenSize=c.TenSize,
-                    Gia=c.Gia,
+                    //Gia=c.Gia,
                     TrangThaiSize=c.TrangThai,
 
 
@@ -107,12 +107,12 @@ namespace _2.BUS.Services
             return GetAll().Where(c => c.MaSP.ToLower().StartsWith(input.ToLower()) || c.TenSP.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
-        public SanPham GetById(int id)
+        public SanPham GetById(Guid id)
         {
             return _ISanPhamRepository.GetAll().FirstOrDefault(c => c.Id == id);
         }
 
-        public int GetIdByName(string name)
+        public Guid GetIdByName(string name)
         {
             return GetAll().FirstOrDefault(c => c.MaSP == name).Id;
         }

@@ -74,12 +74,12 @@ namespace _2.BUS.Services
             return GetAll().Where(c => c.MaCV.ToLower().StartsWith(input.ToLower()) || c.TenCV.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
-        public ChucVu GetById(int id)
+        public ChucVu GetById(Guid id)
         {
             return _IChucVuRepository.GetAll().FirstOrDefault(c => c.Id == id);
         }
 
-        public int GetIdByName(string name)
+        public Guid GetIdByName(string name)
         {
             return GetAll().FirstOrDefault(c => c.TenCV == name).Id;
         }
