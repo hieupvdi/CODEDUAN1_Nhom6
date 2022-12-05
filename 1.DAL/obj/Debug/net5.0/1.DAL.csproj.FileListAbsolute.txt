@@ -58,3 +58,18 @@ C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\DUAn1\1.DAL\obj\Debug\net5.0\refint\1
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\DUAn1\1.DAL\obj\Debug\net5.0\1.DAL.pdb
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\DUAn1\1.DAL\obj\Debug\net5.0\1.DAL.genruntimeconfig.cache
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\DUAn1\1.DAL\obj\Debug\net5.0\ref\1.DAL.dll
+C:\Users\hungt\Desktop\DuAn1_Nhom6\1.DAL\bin\Debug\net5.0\1.DAL.deps.json
+C:\Users\hungt\Desktop\DuAn1_Nhom6\1.DAL\bin\Debug\net5.0\1.DAL.runtimeconfig.json
+C:\Users\hungt\Desktop\DuAn1_Nhom6\1.DAL\bin\Debug\net5.0\1.DAL.runtimeconfig.dev.json
+C:\Users\hungt\Desktop\DuAn1_Nhom6\1.DAL\bin\Debug\net5.0\1.DAL.dll
+C:\Users\hungt\Desktop\DuAn1_Nhom6\1.DAL\bin\Debug\net5.0\1.DAL.pdb
+C:\Users\hungt\Desktop\DuAn1_Nhom6\1.DAL\obj\Debug\net5.0\1.DAL.csproj.AssemblyReference.cache
+C:\Users\hungt\Desktop\DuAn1_Nhom6\1.DAL\obj\Debug\net5.0\1.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hungt\Desktop\DuAn1_Nhom6\1.DAL\obj\Debug\net5.0\1.DAL.AssemblyInfoInputs.cache
+C:\Users\hungt\Desktop\DuAn1_Nhom6\1.DAL\obj\Debug\net5.0\1.DAL.AssemblyInfo.cs
+C:\Users\hungt\Desktop\DuAn1_Nhom6\1.DAL\obj\Debug\net5.0\1.DAL.csproj.CoreCompileInputs.cache
+C:\Users\hungt\Desktop\DuAn1_Nhom6\1.DAL\obj\Debug\net5.0\1.DAL.dll
+C:\Users\hungt\Desktop\DuAn1_Nhom6\1.DAL\obj\Debug\net5.0\refint\1.DAL.dll
+C:\Users\hungt\Desktop\DuAn1_Nhom6\1.DAL\obj\Debug\net5.0\1.DAL.pdb
+C:\Users\hungt\Desktop\DuAn1_Nhom6\1.DAL\obj\Debug\net5.0\1.DAL.genruntimeconfig.cache
+C:\Users\hungt\Desktop\DuAn1_Nhom6\1.DAL\obj\Debug\net5.0\ref\1.DAL.dll

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\DUAN1_Nhom6\\2.BUS\\2.BUS.csproj": {}
+    "C:\\Users\\hungt\\Desktop\\DuAn1_Nhom6\\2.BUS\\2.BUS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\DUAN1_Nhom6\\1.DAL\\1.DAL.csproj": {
+    "C:\\Users\\hungt\\Desktop\\DuAn1_Nhom6\\1.DAL\\1.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\DUAN1_Nhom6\\1.DAL\\1.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\hungt\\Desktop\\DuAn1_Nhom6\\1.DAL\\1.DAL.csproj",
         "projectName": "1.DAL",
-        "projectPath": "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\DUAN1_Nhom6\\1.DAL\\1.DAL.csproj",
-        "packagesPath": "C:\\Users\\hieup\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\DUAN1_Nhom6\\1.DAL\\obj\\",
+        "projectPath": "C:\\Users\\hungt\\Desktop\\DuAn1_Nhom6\\1.DAL\\1.DAL.csproj",
+        "packagesPath": "C:\\Users\\hungt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hungt\\Desktop\\DuAn1_Nhom6\\1.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hieup\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hungt\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -80,24 +80,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\DUAN1_Nhom6\\2.BUS\\2.BUS.csproj": {
+    "C:\\Users\\hungt\\Desktop\\DuAn1_Nhom6\\2.BUS\\2.BUS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\DUAN1_Nhom6\\2.BUS\\2.BUS.csproj",
+        "projectUniqueName": "C:\\Users\\hungt\\Desktop\\DuAn1_Nhom6\\2.BUS\\2.BUS.csproj",
         "projectName": "2.BUS",
-        "projectPath": "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\DUAN1_Nhom6\\2.BUS\\2.BUS.csproj",
-        "packagesPath": "C:\\Users\\hieup\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\DUAN1_Nhom6\\2.BUS\\obj\\",
+        "projectPath": "C:\\Users\\hungt\\Desktop\\DuAn1_Nhom6\\2.BUS\\2.BUS.csproj",
+        "packagesPath": "C:\\Users\\hungt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hungt\\Desktop\\DuAn1_Nhom6\\2.BUS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hieup\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hungt\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -112,8 +112,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\DUAN1_Nhom6\\1.DAL\\1.DAL.csproj": {
-                "projectPath": "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\DUAN1_Nhom6\\1.DAL\\1.DAL.csproj"
+              "C:\\Users\\hungt\\Desktop\\DuAn1_Nhom6\\1.DAL\\1.DAL.csproj": {
+                "projectPath": "C:\\Users\\hungt\\Desktop\\DuAn1_Nhom6\\1.DAL\\1.DAL.csproj"
               }
             }
           }
@@ -142,7 +142,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

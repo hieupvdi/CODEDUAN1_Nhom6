@@ -35,7 +35,7 @@ namespace _1.DAL.Context
             
                 // Thực hiện các ràng buộc kết nối
                 base.OnConfiguring(optionsBuilder.
-                UseSqlServer("Data Source=HIEUPHAMVAN\\SQLEXPRESS;Initial Catalog=DUAN1-Nhom6;" + "Persist Security Info=True;User ID=hieupvph27565;Password=hieupvph27565"));
+                UseSqlServer("Data Source=DESKTOP-CNC5A0H\\SQLEXPRESS;Initial Catalog=DuAn1_Nhom6;Persist Security Info=True;User ID=hungphph27359;Password=240803"));
                 //Data Source=HIEUPHAMVAN\SQLEXPRESS;Initial Catalog=DUAN1;Persist Security Info=True;User ID=hieupvph27565;Password=hieupvph27565"
             
         }
