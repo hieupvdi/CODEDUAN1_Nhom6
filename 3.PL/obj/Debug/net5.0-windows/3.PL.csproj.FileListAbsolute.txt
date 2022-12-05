@@ -184,7 +184,6 @@ C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\DUAN1_Nhom6\3.PL\obj\Debug\net5.0-win
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\DUAN1_Nhom6\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.frmKhachHang.resources
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\DUAN1_Nhom6\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.frmLoai.resources
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\DUAN1_Nhom6\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.frmQLSanPham.resources
-C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\DUAN1_Nhom6\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.frmHoaDon.resources
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\DUAn1\3.PL\bin\Debug\net5.0-windows\3.PL.exe
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\DUAn1\3.PL\bin\Debug\net5.0-windows\3.PL.deps.json
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\DUAn1\3.PL\bin\Debug\net5.0-windows\3.PL.runtimeconfig.json

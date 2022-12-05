@@ -95,8 +95,9 @@ namespace _3.PL.Views
                     pb_Anhdn.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
             }
-            var role = _IChucVuServices.GetAll().FirstOrDefault(x => x.Id == nhanvien.IdCV);
-            lb_Tenvschuvu.Text = role.TenCV + ": " + nhanvien.TenNV;
+            var chucVu = _IChucVuServices.GetAll().FirstOrDefault(x => x.Id == nhanvien.IdCV);
+            lb_Tennv.Text = "Tên nhân viên : " + nhanvien.TenNV;
+            lb_Chucvu.Text = "Chức vụ : " + chucVu.TenCV;
         }
     }
 }

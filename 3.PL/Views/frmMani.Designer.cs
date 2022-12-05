@@ -37,7 +37,8 @@
             this.btn_BanHang = new System.Windows.Forms.Button();
             this.btn_QLSanPham = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lb_Tenvschuvu = new System.Windows.Forms.Label();
+            this.lb_Chucvu = new System.Windows.Forms.Label();
+            this.lb_Tennv = new System.Windows.Forms.Label();
             this.pb_Anhdn = new System.Windows.Forms.PictureBox();
             this.pn_frmchuyen = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -86,7 +87,7 @@
             this.btn_ThongKe.Font = new System.Drawing.Font("Nirmala UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThongKe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btn_ThongKe.Image = ((System.Drawing.Image)(resources.GetObject("btn_ThongKe.Image")));
-            this.btn_ThongKe.Location = new System.Drawing.Point(0, 312);
+            this.btn_ThongKe.Location = new System.Drawing.Point(0, 324);
             this.btn_ThongKe.Name = "btn_ThongKe";
             this.btn_ThongKe.Size = new System.Drawing.Size(212, 42);
             this.btn_ThongKe.TabIndex = 9;
@@ -103,7 +104,7 @@
             this.btn_QLNhanVien.Font = new System.Drawing.Font("Nirmala UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_QLNhanVien.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btn_QLNhanVien.Image = ((System.Drawing.Image)(resources.GetObject("btn_QLNhanVien.Image")));
-            this.btn_QLNhanVien.Location = new System.Drawing.Point(0, 270);
+            this.btn_QLNhanVien.Location = new System.Drawing.Point(0, 282);
             this.btn_QLNhanVien.Name = "btn_QLNhanVien";
             this.btn_QLNhanVien.Size = new System.Drawing.Size(212, 42);
             this.btn_QLNhanVien.TabIndex = 7;
@@ -120,7 +121,7 @@
             this.btn_HoaDon.Font = new System.Drawing.Font("Nirmala UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_HoaDon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btn_HoaDon.Image = ((System.Drawing.Image)(resources.GetObject("btn_HoaDon.Image")));
-            this.btn_HoaDon.Location = new System.Drawing.Point(0, 228);
+            this.btn_HoaDon.Location = new System.Drawing.Point(0, 240);
             this.btn_HoaDon.Name = "btn_HoaDon";
             this.btn_HoaDon.Size = new System.Drawing.Size(212, 42);
             this.btn_HoaDon.TabIndex = 6;
@@ -137,7 +138,7 @@
             this.btn_BanHang.Font = new System.Drawing.Font("Nirmala UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_BanHang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btn_BanHang.Image = ((System.Drawing.Image)(resources.GetObject("btn_BanHang.Image")));
-            this.btn_BanHang.Location = new System.Drawing.Point(0, 186);
+            this.btn_BanHang.Location = new System.Drawing.Point(0, 198);
             this.btn_BanHang.Name = "btn_BanHang";
             this.btn_BanHang.Size = new System.Drawing.Size(212, 42);
             this.btn_BanHang.TabIndex = 5;
@@ -154,7 +155,7 @@
             this.btn_QLSanPham.Font = new System.Drawing.Font("Nirmala UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_QLSanPham.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btn_QLSanPham.Image = ((System.Drawing.Image)(resources.GetObject("btn_QLSanPham.Image")));
-            this.btn_QLSanPham.Location = new System.Drawing.Point(0, 144);
+            this.btn_QLSanPham.Location = new System.Drawing.Point(0, 156);
             this.btn_QLSanPham.Name = "btn_QLSanPham";
             this.btn_QLSanPham.Size = new System.Drawing.Size(212, 42);
             this.btn_QLSanPham.TabIndex = 3;
@@ -165,24 +166,38 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.lb_Tenvschuvu);
+            this.panel2.Controls.Add(this.lb_Chucvu);
+            this.panel2.Controls.Add(this.lb_Tennv);
             this.panel2.Controls.Add(this.pb_Anhdn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(212, 144);
+            this.panel2.Size = new System.Drawing.Size(212, 156);
             this.panel2.TabIndex = 1;
             // 
-            // lb_Tenvschuvu
+            // lb_Chucvu
             // 
-            this.lb_Tenvschuvu.AutoSize = true;
-            this.lb_Tenvschuvu.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.886957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_Tenvschuvu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(149)))));
-            this.lb_Tenvschuvu.Location = new System.Drawing.Point(22, 110);
-            this.lb_Tenvschuvu.Name = "lb_Tenvschuvu";
-            this.lb_Tenvschuvu.Size = new System.Drawing.Size(168, 15);
-            this.lb_Tenvschuvu.TabIndex = 1;
-            this.lb_Tenvschuvu.Text = "Tên Tài Khoản + Chức Vụ";
+            this.lb_Chucvu.AutoSize = true;
+            this.lb_Chucvu.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lb_Chucvu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_Chucvu.ForeColor = System.Drawing.Color.Red;
+            this.lb_Chucvu.Location = new System.Drawing.Point(0, 138);
+            this.lb_Chucvu.Name = "lb_Chucvu";
+            this.lb_Chucvu.Size = new System.Drawing.Size(71, 18);
+            this.lb_Chucvu.TabIndex = 2;
+            this.lb_Chucvu.Text = "Chức Vụ";
+            // 
+            // lb_Tennv
+            // 
+            this.lb_Tennv.AutoSize = true;
+            this.lb_Tennv.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_Tennv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_Tennv.ForeColor = System.Drawing.Color.Red;
+            this.lb_Tennv.Location = new System.Drawing.Point(0, 107);
+            this.lb_Tennv.Name = "lb_Tennv";
+            this.lb_Tennv.Size = new System.Drawing.Size(117, 18);
+            this.lb_Tennv.TabIndex = 1;
+            this.lb_Tennv.Text = "Tên Tài Khoản";
             // 
             // pb_Anhdn
             // 
@@ -235,8 +250,9 @@
         private System.Windows.Forms.Button btn_BanHang;
         private System.Windows.Forms.Button btn_QLSanPham;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label lb_Tenvschuvu;
+        private System.Windows.Forms.Label lb_Tennv;
         private System.Windows.Forms.PictureBox pb_Anhdn;
         private System.Windows.Forms.Panel pn_frmchuyen;
+        private System.Windows.Forms.Label lb_Chucvu;
     }
 }
