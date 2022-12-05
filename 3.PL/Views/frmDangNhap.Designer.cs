@@ -44,34 +44,38 @@
             // 
             // txt_pass
             // 
-            this.txt_pass.Location = new System.Drawing.Point(444, 192);
+            this.txt_pass.Location = new System.Drawing.Point(555, 212);
+            this.txt_pass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txt_pass.Name = "txt_pass";
             this.txt_pass.PasswordChar = '*';
-            this.txt_pass.Size = new System.Drawing.Size(313, 26);
+            this.txt_pass.Size = new System.Drawing.Size(390, 29);
             this.txt_pass.TabIndex = 16;
             // 
             // txt_Email
             // 
-            this.txt_Email.Location = new System.Drawing.Point(444, 116);
+            this.txt_Email.Location = new System.Drawing.Point(555, 128);
+            this.txt_Email.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txt_Email.Name = "txt_Email";
-            this.txt_Email.Size = new System.Drawing.Size(313, 26);
+            this.txt_Email.Size = new System.Drawing.Size(390, 29);
             this.txt_Email.TabIndex = 15;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(339, 198);
+            this.label2.Location = new System.Drawing.Point(424, 219);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 20);
+            this.label2.Size = new System.Drawing.Size(43, 21);
             this.label2.TabIndex = 14;
             this.label2.Text = "Pass";
             // 
             // T
             // 
             this.T.AutoSize = true;
-            this.T.Location = new System.Drawing.Point(339, 122);
+            this.T.Location = new System.Drawing.Point(424, 135);
+            this.T.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.T.Name = "T";
-            this.T.Size = new System.Drawing.Size(46, 20);
+            this.T.Size = new System.Drawing.Size(53, 21);
             this.T.TabIndex = 13;
             this.T.Text = "Email";
             // 
@@ -80,8 +84,9 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(308, 511);
+            this.panel1.Size = new System.Drawing.Size(385, 565);
             this.panel1.TabIndex = 17;
             // 
             // pictureBox1
@@ -90,17 +95,19 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(308, 511);
+            this.pictureBox1.Size = new System.Drawing.Size(385, 565);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
             // btn_Dangnhap
             // 
-            this.btn_Dangnhap.Location = new System.Drawing.Point(502, 295);
+            this.btn_Dangnhap.Location = new System.Drawing.Point(628, 326);
+            this.btn_Dangnhap.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btn_Dangnhap.Name = "btn_Dangnhap";
-            this.btn_Dangnhap.Size = new System.Drawing.Size(164, 59);
+            this.btn_Dangnhap.Size = new System.Drawing.Size(205, 65);
             this.btn_Dangnhap.TabIndex = 18;
             this.btn_Dangnhap.Text = "Đăng Nhập";
             this.btn_Dangnhap.UseVisualStyleBackColor = true;
@@ -109,9 +116,10 @@
             // cb_Hienmk
             // 
             this.cb_Hienmk.AutoSize = true;
-            this.cb_Hienmk.Location = new System.Drawing.Point(631, 247);
+            this.cb_Hienmk.Location = new System.Drawing.Point(789, 273);
+            this.cb_Hienmk.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cb_Hienmk.Name = "cb_Hienmk";
-            this.cb_Hienmk.Size = new System.Drawing.Size(126, 24);
+            this.cb_Hienmk.Size = new System.Drawing.Size(142, 25);
             this.cb_Hienmk.TabIndex = 19;
             this.cb_Hienmk.Text = "Hiện Mật Khẩu";
             this.cb_Hienmk.UseVisualStyleBackColor = true;
@@ -120,19 +128,20 @@
             // cb_Luumk
             // 
             this.cb_Luumk.AutoSize = true;
-            this.cb_Luumk.Location = new System.Drawing.Point(444, 247);
+            this.cb_Luumk.Location = new System.Drawing.Point(555, 273);
+            this.cb_Luumk.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cb_Luumk.Name = "cb_Luumk";
-            this.cb_Luumk.Size = new System.Drawing.Size(119, 24);
+            this.cb_Luumk.Size = new System.Drawing.Size(135, 25);
             this.cb_Luumk.TabIndex = 20;
             this.cb_Luumk.Text = "Lưu Mật Khẩu";
             this.cb_Luumk.UseVisualStyleBackColor = true;
             // 
             // frmDangNhap
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(857, 511);
+            this.ClientSize = new System.Drawing.Size(1071, 565);
             this.Controls.Add(this.cb_Luumk);
             this.Controls.Add(this.cb_Hienmk);
             this.Controls.Add(this.btn_Dangnhap);
@@ -141,6 +150,8 @@
             this.Controls.Add(this.txt_Email);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.T);
+            this.Font = new System.Drawing.Font("Segoe UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmDangNhap";
             this.Text = "frmDangNhap";
             this.panel1.ResumeLayout(false);

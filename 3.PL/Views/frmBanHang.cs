@@ -42,28 +42,14 @@ namespace _3.PL.Views
             _IKhachHangServices = new KhachHangServices();
             _lstHoaDonCTView = new List<HoaDonCTView>();
             c = new KhachHangView();
-     
+         
             LoadDSSanPham();
             LoadGioHang();
             LoadHDCho();
-            LoadCmb();
+
+           
         }
-        public void LoadCmb()
-        {
-            foreach (var x in _IQLNhanVienServices.GetAll())
-            {
-                cmb_Nhanvien.Items.Add(x.MaNV);
-            }
-            cmb_Nhanvien.SelectedIndex = 0;
-            foreach (var x in _IKhachHangServices.GetAll())
-            {
-                cmb_Khachhang.Items.Add(x.TenKH);
-            }
-            cmb_Khachhang.SelectedIndex = 0;
 
-
-
-        }
         //bảng hóa đơn -hóa đơn chờ
         public void LoadHDCho()
         {
@@ -140,17 +126,10 @@ namespace _3.PL.Views
 
         }
 
-        private void btn_Themgh_Click(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void dgrid_QLSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
-
-
-
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow r = dgrid_QLSanPham.Rows[e.RowIndex];
@@ -188,7 +167,22 @@ namespace _3.PL.Views
 
 
         }
-
+        public void TinhTienGH()
+        {
+            if (_lstHoaDonCTView != null)
+            {
+                int tien = 0;
+                foreach (var item in _lstHoaDonCTView)
+                {
+                    tien += Convert.ToInt32(item.DonGia) * item.SoLuong;
+                }
+                lb_TongTiengh.Text = tien.ToString();
+            }
+            else
+            {
+                lb_TongTiengh.Text = "";
+            }
+        }
         private void btn_Xoagh_Click(object sender, EventArgs e)
         {
 
@@ -229,10 +223,10 @@ namespace _3.PL.Views
         {
             if (_lstHoaDonCTView.Any())//check có sp trong bảng tạm có k
             {
-                decimal Tien = 0;
+                decimal tien = 0;
                 foreach (var item in _lstHoaDonCTView)
                 {
-                    Tien += item.DonGia * item.SoLuong;
+                    tien += item.DonGia * item.SoLuong;
                 }
                 //lấy id nv / id kh
 
@@ -246,23 +240,20 @@ namespace _3.PL.Views
                     {
                     
                         Id = Guid.Empty,
-                        MaHD = "HD" + _IHoaDonServices.GetAll().Select(x => x.Id).LastOrDefault(),
+                        MaHD = "HD" + _IHoaDonServices.GetAll().Select(x => x.Id).FirstOrDefault(),
                         ThoiGianTao = DateTime.Now,
                         IdNV = h,
                         IdKH = c.Id,
-                        TongTien = Tien,
+                        TongTien = tien,
 
 
                     };
                     _IHoaDonServices.Add(HoaDonView);
                     //tìm lại id hóa đơn trong sql      
-
-                    MessageBox.Show($"Mã hóa đơn : {HoaDonView.MaHD}");
-     
-                    UH = _IHoaDonServices.GetAll().Select(x => x.Id ).LastOrDefault();
-
-             
-                    MessageBox.Show($"Tạo hóa đơn thành công. ID: {Convert.ToString(UH)}");
+                    
+                    UH = _IHoaDonServices.GetAll().Select(x => x.Id ).FirstOrDefault();
+            
+                    MessageBox.Show($"Tạo hóa đơn thành công IDHD: {Convert.ToString(UH)}");
                     foreach (var item in _lstHoaDonCTView)
                     {
                         var HoaDonCTView = new HoaDonCTView()
@@ -278,13 +269,11 @@ namespace _3.PL.Views
                         // _IQLSanPhamServices.Update(p);
                     }
 
-                    //tbt_mahd.Text = o.Id.ToString();
-                    lb_TongTien.Text = HoaDonView.TongTien.ToString();
-               
-                    //tb_sdt.Text = "";
-                    //lb_totalcart.Text = "";
-                    //MessageBox.Show($"Tạo hóa đơn thành công. ID: {HoaDonView.Id}");
-
+                    txt_Mahd.Text = HoaDonView.Id.ToString();
+                    lb_Tongtientt.Text = HoaDonView.TongTien.ToString();
+                    txt_Makh.Text = "";
+                    lb_TongTiengh.Text = "";
+                    //MessageBox.Show($"Tạo hóa đơn thành công IDHD: {Convert.ToString(UH)}");
                     LoadDSSanPham();
                     LoadHDCho();
                     LoadGioHang();
@@ -335,7 +324,7 @@ namespace _3.PL.Views
                         IdSP = p.Id,
                         MaSP = p.MaSP,
                         TenSP = p.TenSP,
-                        GiaBan = p.GiaBan,
+                        DonGia = p.GiaBan,
                         SoLuong = od.FirstOrDefault(x => x.IdSP == p.Id).SoLuong
                     };
                     _lstHoaDonCTView.Add(HoaDonCTView);
@@ -343,6 +332,96 @@ namespace _3.PL.Views
                     LoadGioHang();
                 }
             }
+        }
+
+        private void btn_Capnhatsp_Click(object sender, EventArgs e)
+        {
+            //if (nu != -1)
+            //{
+                if (_lstHoaDonCTView.Any())
+                {
+                    int tien = 0;
+                    c = _IKhachHangServices.GetAll().FirstOrDefault(x => x.MaKH == txt_Makh.Text);
+                    if (c != null)
+                    {
+                        var hoadon = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == nu);
+                        var hoadonct = _IHoaDonCTServices.GetAll().Where(x => x.IdHD == nu);
+                        foreach (var x in hoadonct)
+                        {
+                            _IHoaDonCTServices.Delete(x);
+                        }
+
+
+                        foreach (var item in _lstHoaDonCTView)
+                        {
+                            var HoaDonCTView  = new HoaDonCTView()
+                            {
+                                IdHD = nu,
+                                IdSP = item.IdSP,
+                                DonGia = item.GiaBan,
+                                SoLuong = item.SoLuong
+                            };
+                            tien += Convert.ToInt32(item.DonGia * item.SoLuong);
+                            _IHoaDonCTServices.Add(HoaDonCTView);
+                            //var p = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == item.IdSP);
+
+                            //_IQLSanPhamServices.Update(p);
+                        }
+
+
+                        Guid h = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Email == Properties.Settings.Default.TaiKhoan).Id;
+                        hoadon.ThoiGianTao = DateTime.Now;
+                        hoadon.IdNV = h;
+                        hoadon.IdKH = c.Id;
+                        hoadon.TongTien = tien;
+                        _IHoaDonServices.Update(hoadon);
+
+                        txt_Mahd.Text = nu.ToString();
+                        lb_Tongtientt.Text = tien.ToString();
+                        txt_Makh.Text = "";
+                        lb_TongTiengh.Text = "";
+                        MessageBox.Show($"Cập nhật hóa đơn thành công. ID: {nu}");
+                       // oID = -1;
+                        LoadDSSanPham();         
+                        LoadHDCho();
+                        dgrid_Hoadonct.Rows.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng nhập khách hàng");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Chưa có sản phẩm nào trong giỏ hàng");
+                }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Vui lòng chọn hóa đơn chưa thanh toán");
+            //}
+        }
+
+        private void btn_Sua_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_Makh_TextChanged(object sender, EventArgs e)
+        {
+           
+                c = _IKhachHangServices.GetAll().FirstOrDefault(x => x.MaKH == txt_Makh.Text);
+                if (c != null)
+                {
+                    lb_Tenkh.Text = c.TenKH;
+                   
+                }
+                else
+                {
+                    lb_Tenkh.Text = "Chưa nhập mã kh";
+               
+                }
+         
         }
     }
 }

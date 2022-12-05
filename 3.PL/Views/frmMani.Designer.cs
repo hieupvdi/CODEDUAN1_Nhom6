@@ -58,7 +58,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(186, 888);
+            this.panel1.Size = new System.Drawing.Size(212, 888);
             this.panel1.TabIndex = 1;
             // 
             // btn_DangXuat
@@ -71,7 +71,7 @@
             this.btn_DangXuat.Image = ((System.Drawing.Image)(resources.GetObject("btn_DangXuat.Image")));
             this.btn_DangXuat.Location = new System.Drawing.Point(0, 846);
             this.btn_DangXuat.Name = "btn_DangXuat";
-            this.btn_DangXuat.Size = new System.Drawing.Size(186, 42);
+            this.btn_DangXuat.Size = new System.Drawing.Size(212, 42);
             this.btn_DangXuat.TabIndex = 8;
             this.btn_DangXuat.Text = "Đăng Xuất";
             this.btn_DangXuat.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -88,7 +88,7 @@
             this.btn_ThongKe.Image = ((System.Drawing.Image)(resources.GetObject("btn_ThongKe.Image")));
             this.btn_ThongKe.Location = new System.Drawing.Point(0, 312);
             this.btn_ThongKe.Name = "btn_ThongKe";
-            this.btn_ThongKe.Size = new System.Drawing.Size(186, 42);
+            this.btn_ThongKe.Size = new System.Drawing.Size(212, 42);
             this.btn_ThongKe.TabIndex = 9;
             this.btn_ThongKe.Text = "Thông Kê";
             this.btn_ThongKe.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -105,7 +105,7 @@
             this.btn_QLNhanVien.Image = ((System.Drawing.Image)(resources.GetObject("btn_QLNhanVien.Image")));
             this.btn_QLNhanVien.Location = new System.Drawing.Point(0, 270);
             this.btn_QLNhanVien.Name = "btn_QLNhanVien";
-            this.btn_QLNhanVien.Size = new System.Drawing.Size(186, 42);
+            this.btn_QLNhanVien.Size = new System.Drawing.Size(212, 42);
             this.btn_QLNhanVien.TabIndex = 7;
             this.btn_QLNhanVien.Text = "QL Nhân Viên";
             this.btn_QLNhanVien.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -122,7 +122,7 @@
             this.btn_HoaDon.Image = ((System.Drawing.Image)(resources.GetObject("btn_HoaDon.Image")));
             this.btn_HoaDon.Location = new System.Drawing.Point(0, 228);
             this.btn_HoaDon.Name = "btn_HoaDon";
-            this.btn_HoaDon.Size = new System.Drawing.Size(186, 42);
+            this.btn_HoaDon.Size = new System.Drawing.Size(212, 42);
             this.btn_HoaDon.TabIndex = 6;
             this.btn_HoaDon.Text = "Hóa Đơn";
             this.btn_HoaDon.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -139,7 +139,7 @@
             this.btn_BanHang.Image = ((System.Drawing.Image)(resources.GetObject("btn_BanHang.Image")));
             this.btn_BanHang.Location = new System.Drawing.Point(0, 186);
             this.btn_BanHang.Name = "btn_BanHang";
-            this.btn_BanHang.Size = new System.Drawing.Size(186, 42);
+            this.btn_BanHang.Size = new System.Drawing.Size(212, 42);
             this.btn_BanHang.TabIndex = 5;
             this.btn_BanHang.Text = "Bán Hàng";
             this.btn_BanHang.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -156,7 +156,7 @@
             this.btn_QLSanPham.Image = ((System.Drawing.Image)(resources.GetObject("btn_QLSanPham.Image")));
             this.btn_QLSanPham.Location = new System.Drawing.Point(0, 144);
             this.btn_QLSanPham.Name = "btn_QLSanPham";
-            this.btn_QLSanPham.Size = new System.Drawing.Size(186, 42);
+            this.btn_QLSanPham.Size = new System.Drawing.Size(212, 42);
             this.btn_QLSanPham.TabIndex = 3;
             this.btn_QLSanPham.Text = "QL Sản Phẩm";
             this.btn_QLSanPham.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -170,7 +170,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(186, 144);
+            this.panel2.Size = new System.Drawing.Size(212, 144);
             this.panel2.TabIndex = 1;
             // 
             // lb_Tenvschuvu
@@ -178,7 +178,7 @@
             this.lb_Tenvschuvu.AutoSize = true;
             this.lb_Tenvschuvu.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.886957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lb_Tenvschuvu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(149)))));
-            this.lb_Tenvschuvu.Location = new System.Drawing.Point(11, 98);
+            this.lb_Tenvschuvu.Location = new System.Drawing.Point(22, 110);
             this.lb_Tenvschuvu.Name = "lb_Tenvschuvu";
             this.lb_Tenvschuvu.Size = new System.Drawing.Size(168, 15);
             this.lb_Tenvschuvu.TabIndex = 1;
@@ -186,21 +186,23 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(60, 22);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(63, 63);
+            this.pictureBox1.Size = new System.Drawing.Size(212, 107);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
             // pn_frmchuyen
             // 
-            this.pn_frmchuyen.BackColor = System.Drawing.Color.Black;
+            this.pn_frmchuyen.BackColor = System.Drawing.Color.Transparent;
             this.pn_frmchuyen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_frmchuyen.Location = new System.Drawing.Point(186, 0);
+            this.pn_frmchuyen.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pn_frmchuyen.Location = new System.Drawing.Point(212, 0);
             this.pn_frmchuyen.Name = "pn_frmchuyen";
-            this.pn_frmchuyen.Size = new System.Drawing.Size(1656, 888);
+            this.pn_frmchuyen.Size = new System.Drawing.Size(1630, 888);
             this.pn_frmchuyen.TabIndex = 2;
             // 
             // frmMani

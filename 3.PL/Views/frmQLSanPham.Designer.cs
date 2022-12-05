@@ -62,6 +62,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.dgrid_QLSanPham);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox2.Location = new System.Drawing.Point(0, 430);
@@ -84,7 +85,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
             this.groupBox3.Controls.Add(this.btn_clre);
             this.groupBox3.Controls.Add(this.btn_Xóa);
             this.groupBox3.Controls.Add(this.btn_Sua);
@@ -143,6 +144,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.btn_Themanh);
             this.groupBox1.Controls.Add(this.btn_ThemSize);
             this.groupBox1.Controls.Add(this.btn_Themloaisp);

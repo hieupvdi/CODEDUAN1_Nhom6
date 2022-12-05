@@ -54,11 +54,12 @@
             // dgrid_QLHoaDon
             // 
             this.dgrid_QLHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_QLHoaDon.Location = new System.Drawing.Point(35, 96);
+            this.dgrid_QLHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgrid_QLHoaDon.Location = new System.Drawing.Point(3, 22);
             this.dgrid_QLHoaDon.Name = "dgrid_QLHoaDon";
             this.dgrid_QLHoaDon.RowHeadersWidth = 49;
             this.dgrid_QLHoaDon.RowTemplate.Height = 28;
-            this.dgrid_QLHoaDon.Size = new System.Drawing.Size(1148, 268);
+            this.dgrid_QLHoaDon.Size = new System.Drawing.Size(1224, 675);
             this.dgrid_QLHoaDon.TabIndex = 0;
             this.dgrid_QLHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_QLHoaDon_CellClick);
             // 
@@ -77,9 +78,9 @@
             // 
             // btn_Inhd
             // 
-            this.btn_Inhd.Location = new System.Drawing.Point(932, 118);
+            this.btn_Inhd.Location = new System.Drawing.Point(902, 149);
             this.btn_Inhd.Name = "btn_Inhd";
-            this.btn_Inhd.Size = new System.Drawing.Size(228, 28);
+            this.btn_Inhd.Size = new System.Drawing.Size(261, 55);
             this.btn_Inhd.TabIndex = 21;
             this.btn_Inhd.TabStop = false;
             this.btn_Inhd.Text = "In Hóa Đơn";
@@ -88,9 +89,9 @@
             // 
             // btn_Xoa
             // 
-            this.btn_Xoa.Location = new System.Drawing.Point(932, 62);
+            this.btn_Xoa.Location = new System.Drawing.Point(902, 62);
             this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(228, 28);
+            this.btn_Xoa.Size = new System.Drawing.Size(258, 50);
             this.btn_Xoa.TabIndex = 20;
             this.btn_Xoa.TabStop = false;
             this.btn_Xoa.Text = "Xóa Hóa Đơn";
@@ -100,11 +101,11 @@
             // dgrid_Hoadonct
             // 
             this.dgrid_Hoadonct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_Hoadonct.Location = new System.Drawing.Point(35, 62);
+            this.dgrid_Hoadonct.Location = new System.Drawing.Point(36, 51);
             this.dgrid_Hoadonct.Name = "dgrid_Hoadonct";
             this.dgrid_Hoadonct.RowHeadersWidth = 49;
             this.dgrid_Hoadonct.RowTemplate.Height = 28;
-            this.dgrid_Hoadonct.Size = new System.Drawing.Size(658, 220);
+            this.dgrid_Hoadonct.Size = new System.Drawing.Size(658, 241);
             this.dgrid_Hoadonct.TabIndex = 0;
             // 
             // frmQLHoaDon

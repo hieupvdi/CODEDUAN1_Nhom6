@@ -13,9 +13,6 @@
     <Compile Update="Views\frmHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\frmHoaDonCT.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\frmInHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
