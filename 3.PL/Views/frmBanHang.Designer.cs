@@ -39,6 +39,7 @@
             this.btn_Xoagh = new System.Windows.Forms.Button();
             this.dgrid_Hoadonct = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_CNhoadon = new System.Windows.Forms.Button();
             this.lb_Tenkh = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgrid_QLHoaDon = new System.Windows.Forms.DataGridView();
@@ -58,7 +59,6 @@
             this.txt_Makh = new System.Windows.Forms.TextBox();
             this.btn_Themkhachhang = new System.Windows.Forms.Button();
             this.btn_Taohdcho = new System.Windows.Forms.Button();
-            this.btn_CNhoadon = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_QLSanPham)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -196,6 +196,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hóa Đơn chờ";
             // 
+            // btn_CNhoadon
+            // 
+            this.btn_CNhoadon.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_CNhoadon.Font = new System.Drawing.Font("Segoe UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_CNhoadon.Image = ((System.Drawing.Image)(resources.GetObject("btn_CNhoadon.Image")));
+            this.btn_CNhoadon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_CNhoadon.Location = new System.Drawing.Point(158, 473);
+            this.btn_CNhoadon.Name = "btn_CNhoadon";
+            this.btn_CNhoadon.Size = new System.Drawing.Size(178, 56);
+            this.btn_CNhoadon.TabIndex = 62;
+            this.btn_CNhoadon.Text = "Cập nhật HD";
+            this.btn_CNhoadon.UseVisualStyleBackColor = false;
+            this.btn_CNhoadon.Click += new System.EventHandler(this.btn_CNhoadon_Click);
+            // 
             // lb_Tenkh
             // 
             this.lb_Tenkh.AutoSize = true;
@@ -251,9 +265,9 @@
             this.groupBox4.Controls.Add(this.txt_Sdt);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox4.Location = new System.Drawing.Point(3, 560);
+            this.groupBox4.Location = new System.Drawing.Point(3, 597);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(481, 389);
+            this.groupBox4.Size = new System.Drawing.Size(481, 352);
             this.groupBox4.TabIndex = 20;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thanh Toán";
@@ -316,7 +330,7 @@
             // 
             this.btn_Thanhtoan.Image = ((System.Drawing.Image)(resources.GetObject("btn_Thanhtoan.Image")));
             this.btn_Thanhtoan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Thanhtoan.Location = new System.Drawing.Point(132, 319);
+            this.btn_Thanhtoan.Location = new System.Drawing.Point(133, 278);
             this.btn_Thanhtoan.Name = "btn_Thanhtoan";
             this.btn_Thanhtoan.Size = new System.Drawing.Size(245, 64);
             this.btn_Thanhtoan.TabIndex = 51;
@@ -391,20 +405,6 @@
             this.btn_Taohdcho.Text = "Hóa Đơn chờ";
             this.btn_Taohdcho.UseVisualStyleBackColor = false;
             this.btn_Taohdcho.Click += new System.EventHandler(this.btn_Taohdcho_Click);
-            // 
-            // btn_CNhoadon
-            // 
-            this.btn_CNhoadon.BackColor = System.Drawing.Color.IndianRed;
-            this.btn_CNhoadon.Font = new System.Drawing.Font("Segoe UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_CNhoadon.Image = ((System.Drawing.Image)(resources.GetObject("btn_CNhoadon.Image")));
-            this.btn_CNhoadon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_CNhoadon.Location = new System.Drawing.Point(158, 473);
-            this.btn_CNhoadon.Name = "btn_CNhoadon";
-            this.btn_CNhoadon.Size = new System.Drawing.Size(178, 56);
-            this.btn_CNhoadon.TabIndex = 62;
-            this.btn_CNhoadon.Text = "Cập nhật HD";
-            this.btn_CNhoadon.UseVisualStyleBackColor = false;
-            this.btn_CNhoadon.Click += new System.EventHandler(this.btn_CNhoadon_Click);
             // 
             // frmBanHang
             // 

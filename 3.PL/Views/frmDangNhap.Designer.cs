@@ -66,9 +66,9 @@
             this.label2.Location = new System.Drawing.Point(424, 219);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 21);
+            this.label2.Size = new System.Drawing.Size(51, 21);
             this.label2.TabIndex = 14;
-            this.label2.Text = "Pass";
+            this.label2.Text = "Pass :";
             // 
             // T
             // 
@@ -76,9 +76,9 @@
             this.T.Location = new System.Drawing.Point(424, 135);
             this.T.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.T.Name = "T";
-            this.T.Size = new System.Drawing.Size(53, 21);
+            this.T.Size = new System.Drawing.Size(61, 21);
             this.T.TabIndex = 13;
-            this.T.Text = "Email";
+            this.T.Text = "Email :";
             // 
             // panel1
             // 
