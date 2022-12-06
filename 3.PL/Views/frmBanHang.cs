@@ -27,6 +27,7 @@ namespace _3.PL.Views
         private IQLNhanVienServices _IQLNhanVienServices;
         public KhachHangView c;
 
+
         public Guid u;
         public Guid UH;
         public List<HoaDonCTView> _lstHoaDonCTView;
@@ -54,7 +55,7 @@ namespace _3.PL.Views
         public void LoadHDCho()
         {
             int stt = 1;
-            dgrid_QLHoaDon.ColumnCount = 10;
+            dgrid_QLHoaDon.ColumnCount = 7;
             dgrid_QLHoaDon.Columns[0].Name = "STT";
             dgrid_QLHoaDon.Columns[1].Name = "ID";
             dgrid_QLHoaDon.Columns[1].Visible = false;
@@ -62,16 +63,16 @@ namespace _3.PL.Views
             dgrid_QLHoaDon.Columns[3].Name = "Nhân Viên";
             dgrid_QLHoaDon.Columns[4].Name = "Tên Khách Hàng";
             dgrid_QLHoaDon.Columns[5].Name = "Thời Gian Tạo";
-            dgrid_QLHoaDon.Columns[6].Name = "Thời Gian Thanh Toán";
-            dgrid_QLHoaDon.Columns[7].Name = "SĐT";
-            dgrid_QLHoaDon.Columns[8].Name = "Địa Chỉ";
-            dgrid_QLHoaDon.Columns[9].Name = "Trạng Thái";
+            //dgrid_QLHoaDon.Columns[6].Name = "Thời Gian Thanh Toán";
+            //dgrid_QLHoaDon.Columns[7].Name = "SĐT";
+            //dgrid_QLHoaDon.Columns[8].Name = "Địa Chỉ";
+            dgrid_QLHoaDon.Columns[6].Name = "Trạng Thái";
 
             dgrid_QLHoaDon.Rows.Clear();
 
             foreach (var x in _IHoaDonServices.GetAll())
             {
-                dgrid_QLHoaDon.Rows.Add(stt++, x.Id, x.MaHD, x.TenNV, x.TenKH, x.ThoiGianTao, x.ThoiGianThanhToan, x.SDT, x.DiaChi, (x.TrangThai == 0 ? "Chưa Thanh Toán" : "Đã Thanh Toán"));
+                dgrid_QLHoaDon.Rows.Add(stt++, x.Id, x.MaHD, x.TenNV, x.TenKH, x.ThoiGianTao,/* x.ThoiGianThanhToan, x.SDT, x.DiaChi,*/ (x.TrangThai == 0 ? "Đã Thanh Toán" : "Chưa Thanh Toán"));
             }
 
         }
@@ -79,13 +80,12 @@ namespace _3.PL.Views
         public void LoadDSSanPham()
         {
             int stt = 1;
-            dgrid_QLSanPham.ColumnCount = 9;
+            dgrid_QLSanPham.ColumnCount = 8;
             dgrid_QLSanPham.Columns[0].Name = "STT";
             dgrid_QLSanPham.Columns[1].Name = "ID";
             dgrid_QLSanPham.Columns[1].Visible = false;
             dgrid_QLSanPham.Columns[2].Name = "Mã Sản Phẩm";
-            dgrid_QLSanPham.Columns[3].Name = "Tên Sản Phẩm";
-            // dgrid_QLSanPham.Columns[4].Name = "Link Ảnh";
+            dgrid_QLSanPham.Columns[3].Name = "Tên Sản Phẩm";          
             dgrid_QLSanPham.Columns[4].Name = "Loại SP";
             dgrid_QLSanPham.Columns[5].Name = "Size SP";
             dgrid_QLSanPham.Columns[6].Name = "Gía bán";
@@ -107,7 +107,7 @@ namespace _3.PL.Views
 
 
             int stt = 1;
-            dgrid_Hoadonct.ColumnCount = 10;
+            dgrid_Hoadonct.ColumnCount = 6;
             dgrid_Hoadonct.Columns[0].Name = "STT";
             dgrid_Hoadonct.Columns[1].Name = "ID";
             dgrid_Hoadonct.Columns[1].Visible = false;
@@ -115,7 +115,7 @@ namespace _3.PL.Views
             dgrid_Hoadonct.Columns[3].Name = "Tên sp";
             dgrid_Hoadonct.Columns[4].Name = "Số Lượng";
             dgrid_Hoadonct.Columns[5].Name = "Đơn Gía";
-            //dgrid_Hoadonct.Columns[5].Name = "Thành Tiền";
+       
 
             dgrid_Hoadonct.Rows.Clear();
 
@@ -189,10 +189,12 @@ namespace _3.PL.Views
                     tien += Convert.ToInt32(item.DonGia) * item.SoLuong;
                 }
                 lb_TongTiengh.Text = tien.ToString()+"VNĐ";
+                lb_Tongtientt.Text = tien.ToString() + "VNĐ";
             }
             else
             {
                 lb_TongTiengh.Text = "";
+                lb_Tongtientt.Text = "";
             }
         }
         private void btn_Xoagh_Click(object sender, EventArgs e)
@@ -250,13 +252,14 @@ namespace _3.PL.Views
 
                     var HoaDonView = new HoaDonView()
                     {
-                    
+
                         Id = Guid.Empty,
                         MaHD = "HD" + _IHoaDonServices.GetAll().Select(x => x.Id).FirstOrDefault(),
                         ThoiGianTao = DateTime.Now,
                         IdNV = h,
                         IdKH = c.Id,
                         TongTien = tien,
+                        TrangThai = 1,
 
 
                     };
@@ -276,12 +279,10 @@ namespace _3.PL.Views
                             SoLuong = item.SoLuong
                         };
                         _IHoaDonCTServices.Add(HoaDonCTView);
-                        //var p = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == item.IdSP);
-                        // p.Stock -= item.Quantity;
-                        // _IQLSanPhamServices.Update(p);
+                   
                     }
 
-                    txt_Mahd.Text = HoaDonView.Id.ToString();
+                    lb_Mahd.Text = HoaDonView.Id.ToString();
                     lb_Tongtientt.Text = HoaDonView.TongTien.ToString();
                     txt_Makh.Text = "";
                     lb_TongTiengh.Text = "";
@@ -317,7 +318,7 @@ namespace _3.PL.Views
             {
                 DataGridViewRow r = dgrid_QLHoaDon.Rows[e.RowIndex];
                 nu = Guid.Parse(r.Cells[1].Value.ToString());
-                //cmb_Khachhang.SelectedIndex = nu.ToString();
+             
                 //hóa dơn chi tiết
                 var od = _IHoaDonCTServices.GetAll().Where(x => x.IdHD == nu);
                 //hóa đơn
@@ -343,6 +344,14 @@ namespace _3.PL.Views
 
                     LoadGioHang();
                 }
+
+                lb_Mahd.Text = r.Cells[2].Value.ToString();
+                TinhTienGH();
+
+
+
+
+
             }
         }
 
@@ -388,7 +397,7 @@ namespace _3.PL.Views
                         hoadon.TongTien = tien;
                         _IHoaDonServices.Update(hoadon);
 
-                        txt_Mahd.Text = nu.ToString();
+                        lb_Mahd.Text = nu.ToString();
                         lb_Tongtientt.Text = tien.ToString()+"VNĐ";
                         txt_Makh.Text = "";
                         lb_TongTiengh.Text = "";
@@ -430,14 +439,25 @@ namespace _3.PL.Views
                 }
          
         }
+        private void txt_Tienkhdua_TextChanged(object sender, EventArgs e)
+        {
+            //if (txt_Tienkhdua.Text != "")
+            //{
+            //    lb_Tienthua.Text = (Convert.ToDecimal(txt_Tienkhdua.Text) - Convert.ToDecimal(lb_Tongtientt.Text)).ToString();
+            //}
 
+
+        }
+     
         private void btn_Thanhtoan_Click(object sender, EventArgs e)
         {
-            //txt_Mahd.Text = nu.ToString();
-            //lb_Tongtientt.Text = hd.TongTien.ToString() + "VNĐ";
-            if (int.TryParse(txt_Mahd.Text, out int m) && txt_Mahd.Text != "")
+           
+            if (lb_Mahd.Text !=null)
             {
-                HoaDonView hd = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(txt_Mahd.Text) && x.Trangthai == 1);
+
+           
+               
+                HoaDonView hd = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(lb_Mahd.Text) && x.Trangthai == 1);
                 if (hd == null)
                 {
                     MessageBox.Show("Đơn hàng không tồn tại hoặc đã thanh toán");
@@ -447,12 +467,12 @@ namespace _3.PL.Views
                 {
                     var Khachhang = _IKhachHangServices.GetAll().FirstOrDefault(x => x.Id == hd.IdKH);
 
-                    if (Convert.ToDecimal(txt_Tienkhdua.Text) > 0 )
-                    {
-                        MessageBox.Show("Vui lòng nhập đúng số tiền");
-                    }
-                    else
-                    {
+                    //if (Convert.ToDecimal(txt_Tienkhdua.Text) > 0 )
+                    //{
+                    //    MessageBox.Show("Vui lòng nhập đúng số tiền");
+                    //}
+                    //else
+                    //{
                         DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn thanh toán không?", "Thanh toán", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.Yes)
                         {
@@ -468,18 +488,15 @@ namespace _3.PL.Views
                            
 
                         }
-                    }
+                    //}
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập mã hóa đơn");
+                MessageBox.Show("Vui lòng chọn mã hóa đơn");
             }
         }
 
-        private void btn_CNhoadon_Click(object sender, EventArgs e)
-        {
-
-        }
+  
     }
 }

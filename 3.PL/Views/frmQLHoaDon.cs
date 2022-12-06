@@ -57,7 +57,7 @@ namespace _3.PL.Views
 
             foreach (var x in _IHoaDonServices.GetAll())
             {
-                dgrid_QLHoaDon.Rows.Add(stt++, x.Id, x.MaHD, x.TenNV, x.TenKH, x.ThoiGianTao, x.ThoiGianThanhToan, x.SDT, x.DiaChi, (x.TrangThai == 0 ? "Chưa Thanh Toán" : "Đã Thanh Toán"));
+                dgrid_QLHoaDon.Rows.Add(stt++, x.Id, x.MaHD, x.TenNV, x.TenKH, x.ThoiGianTao, x.ThoiGianThanhToan, x.SDT, x.DiaChi, (x.TrangThai == 0 ? "Đã Thanh Toán" : "Chưa Thanh Toán"));
             }
 
         }
@@ -97,7 +97,7 @@ namespace _3.PL.Views
             else
             {
                 HoaDonView hd = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == oID);
-                if (hd.Trangthai == 1)
+                if (hd.Trangthai != 1)
                 {
                     MessageBox.Show("Chỉ có hóa đơn chưa thanh toán mới được xóa : Định Trộm Tiền của quán à");
                 }
