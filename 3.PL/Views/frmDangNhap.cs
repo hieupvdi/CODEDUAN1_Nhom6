@@ -86,8 +86,7 @@ namespace _3.PL.Views
             {
                 Properties.Settings.Default.TaiKhoan = txt_Email.Text;
                 Properties.Settings.Default.MK = txt_pass.Text;
-                //Properties.Settings.Default.TKdaLogin = tbt_tk.Text;
-                //Properties.Settings.Default.MKdaLogin = tbt_mk.Text;
+          
                 Properties.Settings.Default.Save();
 
             }
@@ -95,13 +94,14 @@ namespace _3.PL.Views
             {
                 Properties.Settings.Default.TaiKhoan = "";
                 Properties.Settings.Default.MK = "";
-                //Properties.Settings.Default.TKdaLogin = tbt_tk.Text;
-                //Properties.Settings.Default.MKdaLogin = tbt_mk.Text;
+     
                 Properties.Settings.Default.Save();
             }
         }
-      
 
-     
+        private void btn_Thoat_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

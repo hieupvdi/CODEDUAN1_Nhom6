@@ -135,7 +135,18 @@ namespace _3.PL.Views
             {
                 DataGridViewRow r = dgrid_QLSanPham.Rows[e.RowIndex];
                 u = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(r.Cells[1].Value.ToString())).Id;
-                AddGioHang(u);
+                var obj = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == u);
+                if (obj.TrangThai == 1)
+                {
+                    MessageBox.Show("Sản phẩm đã nghỉ bán");
+                }
+                else {
+
+                    AddGioHang(u);
+
+                }
+                
+              
             }
         }
         private void AddGioHang(Guid u)
@@ -403,11 +414,6 @@ namespace _3.PL.Views
             //}
         }
 
-        private void btn_Sua_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txt_Makh_TextChanged(object sender, EventArgs e)
         {
            
@@ -423,6 +429,52 @@ namespace _3.PL.Views
                
                 }
          
+        }
+
+        private void btn_Thanhtoan_Click(object sender, EventArgs e)
+        {
+            //txt_Mahd.Text = nu.ToString();
+            //lb_Tongtientt.Text = hd.TongTien.ToString() + "VNĐ";
+            if (int.TryParse(txt_Mahd.Text, out int m) && txt_Mahd.Text != "")
+            {
+                HoaDonView hd = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(txt_Mahd.Text) && x.Trangthai == 1);
+                if (hd == null)
+                {
+                    MessageBox.Show("Đơn hàng không tồn tại hoặc đã thanh toán");
+                    lb_Tongtientt.Text = "0";
+                }
+                else
+                {
+                    var Khachhang = _IKhachHangServices.GetAll().FirstOrDefault(x => x.Id == hd.IdKH);
+
+                    if (Convert.ToDecimal(txt_Tienkhdua.Text) > 0 )
+                    {
+                        MessageBox.Show("Vui lòng nhập đúng số tiền");
+                    }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn thanh toán không?", "Thanh toán", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            hd.Trangthai = 0;
+                            _IHoaDonServices.Update(hd);
+                        
+                            _IKhachHangServices.Update(Khachhang);
+                            MessageBox.Show("Thanh toán thành công");
+                  
+                            txt_Tienkhdua.Text = "";
+                            lb_Tongtientt.Text = "0";
+                            lb_Tienthua.Text = "0";
+                           
+
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập mã hóa đơn");
+            }
         }
     }
 }

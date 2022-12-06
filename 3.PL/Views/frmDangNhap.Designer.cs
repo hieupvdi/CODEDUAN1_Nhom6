@@ -38,6 +38,7 @@
             this.btn_Dangnhap = new System.Windows.Forms.Button();
             this.cb_Hienmk = new System.Windows.Forms.CheckBox();
             this.cb_Luumk = new System.Windows.Forms.CheckBox();
+            this.btn_Thoat = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -136,12 +137,24 @@
             this.cb_Luumk.Text = "Lưu Mật Khẩu";
             this.cb_Luumk.UseVisualStyleBackColor = true;
             // 
+            // btn_Thoat
+            // 
+            this.btn_Thoat.Location = new System.Drawing.Point(853, 478);
+            this.btn_Thoat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btn_Thoat.Name = "btn_Thoat";
+            this.btn_Thoat.Size = new System.Drawing.Size(205, 65);
+            this.btn_Thoat.TabIndex = 21;
+            this.btn_Thoat.Text = "Thoát ";
+            this.btn_Thoat.UseVisualStyleBackColor = true;
+            this.btn_Thoat.Click += new System.EventHandler(this.btn_Thoat_Click);
+            // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1071, 565);
+            this.Controls.Add(this.btn_Thoat);
             this.Controls.Add(this.cb_Luumk);
             this.Controls.Add(this.cb_Hienmk);
             this.Controls.Add(this.btn_Dangnhap);
@@ -172,5 +185,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox cb_Hienmk;
         private System.Windows.Forms.CheckBox cb_Luumk;
+        private System.Windows.Forms.Button btn_Thoat;
     }
 }
