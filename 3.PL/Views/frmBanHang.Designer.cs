@@ -112,7 +112,7 @@
             // 
             this.btn_Capnhatsp.Image = ((System.Drawing.Image)(resources.GetObject("btn_Capnhatsp.Image")));
             this.btn_Capnhatsp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Capnhatsp.Location = new System.Drawing.Point(817, 373);
+            this.btn_Capnhatsp.Location = new System.Drawing.Point(817, 359);
             this.btn_Capnhatsp.Name = "btn_Capnhatsp";
             this.btn_Capnhatsp.Size = new System.Drawing.Size(188, 61);
             this.btn_Capnhatsp.TabIndex = 58;

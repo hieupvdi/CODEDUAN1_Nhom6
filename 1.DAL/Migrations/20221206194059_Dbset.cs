@@ -156,8 +156,8 @@ namespace _1.DAL.Migrations
                 name: "HoaDonCT",
                 columns: table => new
                 {
-                    IdHD = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdSP = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdHD = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SoLuong = table.Column<int>(type: "int", nullable: false),
                     DonGia = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
@@ -197,6 +197,11 @@ namespace _1.DAL.Migrations
                 table: "Size",
                 columns: new[] { "Id", "MaSize", "TenSize", "TrangThai" },
                 values: new object[] { new Guid("98917e72-9634-401d-b5f4-6a30b1741b82"), "S1", "Size Lớn", 0 });
+
+            migrationBuilder.InsertData(
+                table: "NhanVien",
+                columns: new[] { "Id", "DiaChi", "Email", "GioiTinh", "IdCV", "LinkAnh", "MaNV", "MatKhau", "NgaySinh", "SDT", "TenNV", "Trangthai" },
+                values: new object[] { new Guid("16819dd5-fbe9-404e-8940-0f2816ec533c"), "Thanh Hóa", "thanh@gmail.com", "Nam", new Guid("e26fa84e-3019-4a14-862f-9fafc6014dfe"), null, "NV1", "123", new DateTime(2022, 12, 7, 2, 40, 59, 9, DateTimeKind.Local).AddTicks(9482), "0337019932", "Lê Minh Thanh", 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_HoaDon_IdKH",

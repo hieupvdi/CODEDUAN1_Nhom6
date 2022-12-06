@@ -18,17 +18,18 @@ namespace _1.DAL.Repositories
         }
         public bool Add(HoaDonCT obj)
         {
-            if (obj == null) return false;            
+            if (obj == null) return false;
+            //obj.IdHD = Guid.NewGuid();//tu dong generate khoa chinh
             _DbContext.HoaDonCTs.Add(obj);
             _DbContext.SaveChanges();
             return true;
         }
-
+         
         public bool Delete(HoaDonCT obj)
         {
             if (obj == null) return false;
 
-            //var HDCT = _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdSP == obj.IdSP);
+            var HDCT = _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdHD == obj.IdHD);
 
             _DbContext.HoaDonCTs.Remove(obj);
             _DbContext.SaveChanges();
@@ -43,19 +44,19 @@ namespace _1.DAL.Repositories
         public HoaDonCT GetById(Guid id)
         {
             if (id == Guid.Empty) return null;
-            return _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdSP == id);
+            return _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdHD == id);
         }
 
         public bool Update(HoaDonCT obj)
         {
             if (obj == null) return false;
 
-            //var HDCT = _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdSP == obj.IdSP);
+            var HDCT = _DbContext.HoaDonCTs.FirstOrDefault(c => c.IdHD == obj.IdHD);
 
-            //HDCT.IdSP = obj.IdSP;
-            //HDCT.IdHD = obj.IdHD;
-            //HDCT.SoLuong = obj.SoLuong;
-            //HDCT.DonGia = obj.DonGia;
+            HDCT.IdSP = obj.IdSP;
+           // HDCT.IdHD = obj.IdHD;
+            HDCT.SoLuong = obj.SoLuong;
+            HDCT.DonGia = obj.DonGia;
             _DbContext.HoaDonCTs.Update(obj);
             _DbContext.SaveChanges();
             return true;

@@ -10,7 +10,7 @@ using _1.DAL.Context;
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(QLDbContext))]
-    [Migration("20221205080220_Dbset")]
+    [Migration("20221206194059_Dbset")]
     partial class Dbset
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -214,6 +214,22 @@ namespace _1.DAL.Migrations
                     b.HasIndex("IdCV");
 
                     b.ToTable("NhanVien");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("16819dd5-fbe9-404e-8940-0f2816ec533c"),
+                            DiaChi = "Thanh Hóa",
+                            Email = "thanh@gmail.com",
+                            GioiTinh = "Nam",
+                            IdCV = new Guid("e26fa84e-3019-4a14-862f-9fafc6014dfe"),
+                            MaNV = "NV1",
+                            MatKhau = "123",
+                            NgaySinh = new DateTime(2022, 12, 7, 2, 40, 59, 9, DateTimeKind.Local).AddTicks(9482),
+                            SDT = "0337019932",
+                            TenNV = "Lê Minh Thanh",
+                            Trangthai = 1
+                        });
                 });
 
             modelBuilder.Entity("_1.DAL.Models.SanPham", b =>

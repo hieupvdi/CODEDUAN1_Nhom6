@@ -31,6 +31,7 @@ namespace _3.PL.Views
         public Guid u;
         public Guid UH;
         public List<HoaDonCTView> _lstHoaDonCTView;
+        public List<HoaDonView> _lstHoaDonView;
         public Guid nu;
         public frmBanHang()
         {
@@ -42,6 +43,7 @@ namespace _3.PL.Views
             _IHoaDonCTServices = new HoaDonCTServices();
             _IKhachHangServices = new KhachHangServices();
             _lstHoaDonCTView = new List<HoaDonCTView>();
+            _lstHoaDonView = new List<HoaDonView>();
             c = new KhachHangView();
          
             LoadDSSanPham();
@@ -162,10 +164,11 @@ namespace _3.PL.Views
 
 
                     IdSP = sp.Id,
+                    MaSP = sp.MaSP,
                     TenSP = sp.TenSP,
                     DonGia = sp.GiaBan,
                     SoLuong = 1,
-                    MaSP = sp.MaSP,
+                  
                    
                 };
                 _lstHoaDonCTView.Add(ghct);
@@ -249,12 +252,13 @@ namespace _3.PL.Views
              
                 if (c != null)
                 {
-
+                    Random rd = new Random();
+                  
                     var HoaDonView = new HoaDonView()
                     {
 
-                        Id = Guid.Empty,
-                        MaHD = "HD" + _IHoaDonServices.GetAll().Select(x => x.Id).FirstOrDefault(),
+                        Id = Guid.NewGuid(),
+                        MaHD = "HD" + rd.Next(1, 100),
                         ThoiGianTao = DateTime.Now,
                         IdNV = h,
                         IdKH = c.Id,
@@ -264,16 +268,12 @@ namespace _3.PL.Views
 
                     };
                     _IHoaDonServices.Add(HoaDonView);
-                    //tìm lại id hóa đơn trong sql      
-                    
-                    UH = _IHoaDonServices.GetAll().Select(x => x.Id ).FirstOrDefault();
             
-                    MessageBox.Show($"Tạo hóa đơn thành công IDHD: {Convert.ToString(UH)}");
                     foreach (var item in _lstHoaDonCTView)
                     {
                         var HoaDonCTView = new HoaDonCTView()
                         {
-                            IdHD = UH,
+                            IdHD = HoaDonView.Id,
                             IdSP = item.IdSP,
                             GiaBan = item.GiaBan,
                             SoLuong = item.SoLuong
@@ -286,7 +286,7 @@ namespace _3.PL.Views
                     lb_Tongtientt.Text = HoaDonView.TongTien.ToString();
                     txt_Makh.Text = "";
                     lb_TongTiengh.Text = "";
-                    //MessageBox.Show($"Tạo hóa đơn thành công IDHD: {Convert.ToString(UH)}");
+                    MessageBox.Show($"Tạo hóa đơn thành công IDHD: {HoaDonView.Id}");
                     LoadDSSanPham();
                     LoadHDCho();
                     LoadGioHang();

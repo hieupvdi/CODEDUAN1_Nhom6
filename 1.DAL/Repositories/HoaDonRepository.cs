@@ -19,7 +19,7 @@ namespace _1.DAL.Repositories
         public bool Add(HoaDon obj)
         {
             if (obj == null) return false;
-            obj.Id = Guid.NewGuid();//tu dong generate khoa chinh
+           // obj.Id = Guid.NewGuid();//tu dong generate khoa chinh
             _DbContext.HoaDons.Add(obj);
             _DbContext.SaveChanges();
             return true;

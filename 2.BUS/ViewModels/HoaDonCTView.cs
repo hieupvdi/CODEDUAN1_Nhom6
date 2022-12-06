@@ -8,19 +8,15 @@ namespace _2.BUS.ViewModels
 {
     public class HoaDonCTView
     {
-        //id Hóa ĐơnCT chỉ dùng để fix lỗi thâm  giỏ hàng ảo vào hóa đơn
-        public Guid Id { get; set; }
+        
         public Guid IdHD { get; set; }
-
         public Guid IdSP { get; set; }
-        //public string MaSP { get; set; }
-        //public string TenSP { get; set; }
+    
         public int SoLuong { get; set; }
 
         public decimal DonGia { get; set; }
 
         //Bảng Hóa Đơn
-
         // public Guid Id { get; set; }
 
         public Guid? IdNV { get; set; }

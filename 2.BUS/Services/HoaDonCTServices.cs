@@ -46,7 +46,7 @@ namespace _2.BUS.Services
         public string Delete(HoaDonCTView obj)
         {
             if (obj == null) return "Xoa that bai";
-            var HDCT = _IHoaDonCTRepository.GetAll().FirstOrDefault(c => c.IdSP == obj.IdSP);
+            var HDCT = _IHoaDonCTRepository.GetAll().FirstOrDefault(c => c.IdHD == obj.IdHD);
 
             if (_IHoaDonCTRepository.Delete(HDCT))
             {
@@ -104,12 +104,12 @@ namespace _2.BUS.Services
                 return GetAll();
             }
 
-            return GetAll().Where(c => c.MaSP.ToLower().StartsWith(input.ToLower()) || c.TenSP.ToLower().StartsWith(input.ToLower())).ToList();
+            return GetAll().Where(c => c.MaHD.ToLower().StartsWith(input.ToLower()) || c.TenSP.ToLower().StartsWith(input.ToLower())).ToList();
         }
 
         public HoaDonCT GetById(Guid id)
         {
-            return _IHoaDonCTRepository.GetAll().FirstOrDefault(c => c.IdSP == id);
+            return _IHoaDonCTRepository.GetAll().FirstOrDefault(c => c.IdHD == id);
         }
 
         public Guid GetIdByName(string name)
@@ -120,10 +120,10 @@ namespace _2.BUS.Services
         public string Update(HoaDonCTView obj)
         {
             if (obj == null) return "Sua that bai";
-            var HDCT = _IHoaDonCTRepository.GetAll().FirstOrDefault(c => c.IdSP == obj.IdSP);
+            var HDCT = _IHoaDonCTRepository.GetAll().FirstOrDefault(c => c.IdHD == obj.IdHD);
 
-            HDCT.IdHD = obj.IdHD;
-           // HDCT.IdSP = obj.IdSP;
+            //HDCT.IdHD = obj.IdHD;
+            HDCT.IdSP = obj.IdSP;
             HDCT.SoLuong = obj.SoLuong;
             HDCT.DonGia = obj.DonGia;
 
