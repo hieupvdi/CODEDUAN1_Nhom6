@@ -97,7 +97,7 @@ namespace _3.PL.Views
             else
             {
                 HoaDonView hd = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == oID);
-                if (hd.Trangthai == 0)
+                if (hd.Trangthai == 1)
                 {
                     MessageBox.Show("Chỉ có hóa đơn chưa thanh toán mới được xóa : Định Trộm Tiền của quán à");
                 }

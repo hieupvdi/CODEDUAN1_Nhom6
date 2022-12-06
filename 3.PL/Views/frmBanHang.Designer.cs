@@ -58,6 +58,7 @@
             this.txt_Makh = new System.Windows.Forms.TextBox();
             this.btn_Themkhachhang = new System.Windows.Forms.Button();
             this.btn_Taohdcho = new System.Windows.Forms.Button();
+            this.btn_CNhoadon = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_QLSanPham)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -178,6 +179,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_CNhoadon);
             this.groupBox1.Controls.Add(this.lb_Tenkh);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.dgrid_QLHoaDon);
@@ -390,6 +392,20 @@
             this.btn_Taohdcho.UseVisualStyleBackColor = false;
             this.btn_Taohdcho.Click += new System.EventHandler(this.btn_Taohdcho_Click);
             // 
+            // btn_CNhoadon
+            // 
+            this.btn_CNhoadon.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_CNhoadon.Font = new System.Drawing.Font("Segoe UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_CNhoadon.Image = ((System.Drawing.Image)(resources.GetObject("btn_CNhoadon.Image")));
+            this.btn_CNhoadon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_CNhoadon.Location = new System.Drawing.Point(158, 473);
+            this.btn_CNhoadon.Name = "btn_CNhoadon";
+            this.btn_CNhoadon.Size = new System.Drawing.Size(178, 56);
+            this.btn_CNhoadon.TabIndex = 62;
+            this.btn_CNhoadon.Text = "Cập nhật HD";
+            this.btn_CNhoadon.UseVisualStyleBackColor = false;
+            this.btn_CNhoadon.Click += new System.EventHandler(this.btn_CNhoadon_Click);
+            // 
             // frmBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -445,5 +461,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lb_Tienthua;
+        private System.Windows.Forms.Button btn_CNhoadon;
     }
 }

@@ -27,8 +27,14 @@ namespace _1.DAL.Extensions
             modelBuilder.Entity<KhachHang>().HasData(
              new KhachHang() { Id = Guid.Parse("6e735591-ec79-4cf9-bc37-c376a498aa30"), MaKH = "KH1", TenKH = "hiếu", SDT = "0337019932", DiaChi = "Thanh Hóa" }
 
+
              );
-         
+            modelBuilder.Entity<NhanVien>().HasData(
+          new NhanVien() { Id = Guid.Parse("16819dd5-fbe9-404e-8940-0f2816ec533c"), IdCV =Guid.Parse ("e26fa84e-3019-4a14-862f-9fafc6014dfe"), MaNV = "NV1",TenNV="Lê Minh Thanh", GioiTinh="Nam",NgaySinh=DateTime.Now,Email="thanh@gmail.com",SDT = "0337019932", DiaChi = "Thanh Hóa",MatKhau="123",Trangthai=1}
+
+
+          );
+
         }
     }
 }

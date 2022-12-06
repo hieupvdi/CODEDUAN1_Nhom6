@@ -476,5 +476,10 @@ namespace _3.PL.Views
                 MessageBox.Show("Vui lòng nhập mã hóa đơn");
             }
         }
+
+        private void btn_CNhoadon_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
