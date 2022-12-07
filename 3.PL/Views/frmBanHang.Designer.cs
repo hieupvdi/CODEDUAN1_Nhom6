@@ -186,6 +186,7 @@
             this.groupBox1.Controls.Add(this.btn_Themkhachhang);
             this.groupBox1.Controls.Add(this.btn_Taohdcho);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(1060, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(484, 897);
@@ -230,7 +231,7 @@
             // 
             this.dgrid_QLHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_QLHoaDon.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgrid_QLHoaDon.Location = new System.Drawing.Point(3, 22);
+            this.dgrid_QLHoaDon.Location = new System.Drawing.Point(3, 25);
             this.dgrid_QLHoaDon.Name = "dgrid_QLHoaDon";
             this.dgrid_QLHoaDon.RowHeadersWidth = 49;
             this.dgrid_QLHoaDon.RowTemplate.Height = 28;
@@ -357,7 +358,7 @@
             // 
             this.txt_Makh.Location = new System.Drawing.Point(158, 308);
             this.txt_Makh.Name = "txt_Makh";
-            this.txt_Makh.Size = new System.Drawing.Size(253, 26);
+            this.txt_Makh.Size = new System.Drawing.Size(253, 29);
             this.txt_Makh.TabIndex = 52;
             this.txt_Makh.TextChanged += new System.EventHandler(this.txt_Makh_TextChanged);
             // 
