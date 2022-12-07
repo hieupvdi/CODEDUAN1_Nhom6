@@ -108,11 +108,12 @@
             // dgrid_ChucVu
             // 
             this.dgrid_ChucVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_ChucVu.Location = new System.Drawing.Point(48, 244);
+            this.dgrid_ChucVu.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgrid_ChucVu.Location = new System.Drawing.Point(0, 270);
             this.dgrid_ChucVu.Name = "dgrid_ChucVu";
             this.dgrid_ChucVu.RowHeadersWidth = 49;
             this.dgrid_ChucVu.RowTemplate.Height = 28;
-            this.dgrid_ChucVu.Size = new System.Drawing.Size(698, 180);
+            this.dgrid_ChucVu.Size = new System.Drawing.Size(800, 180);
             this.dgrid_ChucVu.TabIndex = 8;
             this.dgrid_ChucVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_ChucVu_CellClick);
             // 

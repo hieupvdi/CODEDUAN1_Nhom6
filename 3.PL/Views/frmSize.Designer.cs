@@ -110,11 +110,12 @@
             // dgrid_Size
             // 
             this.dgrid_Size.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_Size.Location = new System.Drawing.Point(47, 246);
+            this.dgrid_Size.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgrid_Size.Location = new System.Drawing.Point(0, 253);
             this.dgrid_Size.Name = "dgrid_Size";
             this.dgrid_Size.RowHeadersWidth = 49;
             this.dgrid_Size.RowTemplate.Height = 28;
-            this.dgrid_Size.Size = new System.Drawing.Size(698, 180);
+            this.dgrid_Size.Size = new System.Drawing.Size(800, 197);
             this.dgrid_Size.TabIndex = 16;
             this.dgrid_Size.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_Size_CellClick);
             // 

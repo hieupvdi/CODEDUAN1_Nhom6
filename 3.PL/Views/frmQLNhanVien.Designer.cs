@@ -39,6 +39,7 @@
             this.txt_Diachi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_Nghiviec = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
             this.btn_ThemCV = new System.Windows.Forms.Button();
@@ -60,7 +61,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btn_Nghiviec = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_QLNhanvien)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -83,11 +83,12 @@
             // dgrid_QLNhanvien
             // 
             this.dgrid_QLNhanvien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_QLNhanvien.Location = new System.Drawing.Point(35, 97);
+            this.dgrid_QLNhanvien.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgrid_QLNhanvien.Location = new System.Drawing.Point(3, 84);
             this.dgrid_QLNhanvien.Name = "dgrid_QLNhanvien";
             this.dgrid_QLNhanvien.RowHeadersWidth = 49;
             this.dgrid_QLNhanvien.RowTemplate.Height = 28;
-            this.dgrid_QLNhanvien.Size = new System.Drawing.Size(1319, 220);
+            this.dgrid_QLNhanvien.Size = new System.Drawing.Size(1396, 285);
             this.dgrid_QLNhanvien.TabIndex = 0;
             this.dgrid_QLNhanvien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_QLNhanvien_CellClick);
             // 
@@ -207,6 +208,17 @@
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chức Vụ";
+            // 
+            // btn_Nghiviec
+            // 
+            this.btn_Nghiviec.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Nghiviec.Location = new System.Drawing.Point(3, 78);
+            this.btn_Nghiviec.Name = "btn_Nghiviec";
+            this.btn_Nghiviec.Size = new System.Drawing.Size(203, 28);
+            this.btn_Nghiviec.TabIndex = 2;
+            this.btn_Nghiviec.Text = "Nghỉ Việc";
+            this.btn_Nghiviec.UseVisualStyleBackColor = true;
+            this.btn_Nghiviec.Click += new System.EventHandler(this.btn_Nghiviec_Click);
             // 
             // btn_Sua
             // 
@@ -393,17 +405,6 @@
             this.label5.Size = new System.Drawing.Size(76, 20);
             this.label5.TabIndex = 7;
             this.label5.Text = "Ngày Sinh";
-            // 
-            // btn_Nghiviec
-            // 
-            this.btn_Nghiviec.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Nghiviec.Location = new System.Drawing.Point(3, 78);
-            this.btn_Nghiviec.Name = "btn_Nghiviec";
-            this.btn_Nghiviec.Size = new System.Drawing.Size(203, 28);
-            this.btn_Nghiviec.TabIndex = 2;
-            this.btn_Nghiviec.Text = "Nghỉ Việc";
-            this.btn_Nghiviec.UseVisualStyleBackColor = true;
-            this.btn_Nghiviec.Click += new System.EventHandler(this.btn_Nghiviec_Click);
             // 
             // frmQLNhanVien
             // 

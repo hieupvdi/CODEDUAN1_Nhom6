@@ -258,7 +258,7 @@ namespace _3.PL.Views
                     {
 
                         Id = Guid.NewGuid(),
-                        MaHD = "HD" + rd.Next(1, 100),
+                        MaHD = "HD" + rd.Next(1,10000),
                         ThoiGianTao = DateTime.Now,
                         IdNV = h,
                         IdKH = c.Id,
@@ -288,7 +288,7 @@ namespace _3.PL.Views
                     lb_Tongtientt.Text = HoaDonView.TongTien.ToString();
                     txt_Makh.Text = "";
                     lb_TongTiengh.Text = "";
-                    MessageBox.Show($"Tạo hóa đơn thành công IDHD: {HoaDonView.Id}");
+                    MessageBox.Show($"Tạo hóa đơn thành công Mã Hóa Đơn là : {HoaDonView.MaHD}");
                     LoadDSSanPham();
                     LoadHDCho();
                     LoadGioHang();
@@ -392,9 +392,7 @@ namespace _3.PL.Views
                             };
                             tien += Convert.ToInt32(item.DonGia * item.SoLuong);
                             _IHoaDonCTServices.Add(HoaDonCTView);
-                            //var p = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == item.IdSP);
-
-                            //_IQLSanPhamServices.Update(p);
+                        
                         }
 
 
@@ -449,14 +447,24 @@ namespace _3.PL.Views
         }
         private void txt_Tienkhdua_TextChanged(object sender, EventArgs e)
         {
-            //if (txt_Tienkhdua.Text != "")
+            //if (txt_Tienkhdua.Text != null)
             //{
-            //    lb_Tienthua.Text = (Convert.ToDecimal(txt_Tienkhdua.Text) - Convert.ToDecimal(lb_Tongtientt.Text)).ToString();
+            //    int tien = 0;
+            //    tien = Convert.ToInt32(txt_Tienkhdua.Text) - Convert.ToInt32(lb_Tongtientt.Text);
+            //    lb_Tienthua.Text=tien.ToString();
             //}
+            //else
+            //{
+            //    lb_Tienthua.Text = "";
+
+            //}
+
+          
+
 
 
         }
-     
+
         private void btn_Thanhtoan_Click(object sender, EventArgs e)
         {
            
@@ -467,7 +475,7 @@ namespace _3.PL.Views
     
                 var hd = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idhdcho);
 
-               // var hoadon = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idhdcho);
+          
                 if (hd.TrangThai != 1)
                 {
                     MessageBox.Show("Đơn hàng không tồn tại hoặc đã thanh toán");
@@ -475,15 +483,15 @@ namespace _3.PL.Views
                 }
                 else
                 {
-                    //MessageBox.Show("Đơn "  hd.MaHD);
+               
                     var Khachhang = _IKhachHangServices.GetAll().FirstOrDefault(x => x.Id == hd.IdKH);
 
-                    //if (Convert.ToDecimal(txt_Tienkhdua.Text) > 0 )
+                    //if (Convert.ToInt32(txt_Tienkhdua.Text) < 0)
                     //{
                     //    MessageBox.Show("Vui lòng nhập đúng số tiền");
-                    //}
-                    //else
-                    //{
+                    //}                  
+                    //else { 
+                    
                         DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn thanh toán không?", "Thanh toán", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.Yes)
                         {

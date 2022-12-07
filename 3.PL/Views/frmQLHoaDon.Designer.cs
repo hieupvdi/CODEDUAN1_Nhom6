@@ -105,7 +105,7 @@
             this.dgrid_Hoadonct.Name = "dgrid_Hoadonct";
             this.dgrid_Hoadonct.RowHeadersWidth = 49;
             this.dgrid_Hoadonct.RowTemplate.Height = 28;
-            this.dgrid_Hoadonct.Size = new System.Drawing.Size(658, 241);
+            this.dgrid_Hoadonct.Size = new System.Drawing.Size(692, 241);
             this.dgrid_Hoadonct.TabIndex = 0;
             // 
             // frmQLHoaDon

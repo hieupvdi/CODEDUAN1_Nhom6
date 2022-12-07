@@ -105,11 +105,12 @@
             // dggrid_LoaisanPham
             // 
             this.dggrid_LoaisanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dggrid_LoaisanPham.Location = new System.Drawing.Point(23, 217);
+            this.dggrid_LoaisanPham.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dggrid_LoaisanPham.Location = new System.Drawing.Point(0, 229);
             this.dggrid_LoaisanPham.Name = "dggrid_LoaisanPham";
             this.dggrid_LoaisanPham.RowHeadersWidth = 49;
             this.dggrid_LoaisanPham.RowTemplate.Height = 28;
-            this.dggrid_LoaisanPham.Size = new System.Drawing.Size(754, 221);
+            this.dggrid_LoaisanPham.Size = new System.Drawing.Size(800, 221);
             this.dggrid_LoaisanPham.TabIndex = 8;
             this.dggrid_LoaisanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dggrid_LoaisanPham_CellClick);
             // 

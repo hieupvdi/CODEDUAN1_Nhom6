@@ -109,11 +109,12 @@
             // dggrid_Khachhang
             // 
             this.dggrid_Khachhang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dggrid_Khachhang.Location = new System.Drawing.Point(50, 268);
+            this.dggrid_Khachhang.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dggrid_Khachhang.Location = new System.Drawing.Point(0, 302);
             this.dggrid_Khachhang.Name = "dggrid_Khachhang";
             this.dggrid_Khachhang.RowHeadersWidth = 49;
             this.dggrid_Khachhang.RowTemplate.Height = 28;
-            this.dggrid_Khachhang.Size = new System.Drawing.Size(705, 247);
+            this.dggrid_Khachhang.Size = new System.Drawing.Size(817, 247);
             this.dggrid_Khachhang.TabIndex = 8;
             this.dggrid_Khachhang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dggrid_Khachhang_CellClick);
             // 

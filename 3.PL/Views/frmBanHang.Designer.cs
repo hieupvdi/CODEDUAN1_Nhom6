@@ -71,9 +71,9 @@
             this.groupBox2.Controls.Add(this.dgrid_QLSanPham);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(3, 511);
+            this.groupBox2.Location = new System.Drawing.Point(3, 449);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1024, 383);
+            this.groupBox2.Size = new System.Drawing.Size(1024, 445);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = " Danh Sách Sản Phẩm";
@@ -81,11 +81,12 @@
             // dgrid_QLSanPham
             // 
             this.dgrid_QLSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_QLSanPham.Location = new System.Drawing.Point(37, 31);
+            this.dgrid_QLSanPham.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgrid_QLSanPham.Location = new System.Drawing.Point(3, 125);
             this.dgrid_QLSanPham.Name = "dgrid_QLSanPham";
             this.dgrid_QLSanPham.RowHeadersWidth = 49;
             this.dgrid_QLSanPham.RowTemplate.Height = 28;
-            this.dgrid_QLSanPham.Size = new System.Drawing.Size(933, 348);
+            this.dgrid_QLSanPham.Size = new System.Drawing.Size(1018, 317);
             this.dgrid_QLSanPham.TabIndex = 0;
             this.dgrid_QLSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_QLSanPham_CellClick);
             // 
@@ -171,7 +172,7 @@
             this.dgrid_Hoadonct.Name = "dgrid_Hoadonct";
             this.dgrid_Hoadonct.RowHeadersWidth = 49;
             this.dgrid_Hoadonct.RowTemplate.Height = 28;
-            this.dgrid_Hoadonct.Size = new System.Drawing.Size(764, 385);
+            this.dgrid_Hoadonct.Size = new System.Drawing.Size(764, 371);
             this.dgrid_Hoadonct.TabIndex = 0;
             this.dgrid_Hoadonct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_Hoadonct_CellClick);
             // 
@@ -200,7 +201,7 @@
             this.btn_CNhoadon.Font = new System.Drawing.Font("Segoe UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_CNhoadon.Image = ((System.Drawing.Image)(resources.GetObject("btn_CNhoadon.Image")));
             this.btn_CNhoadon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_CNhoadon.Location = new System.Drawing.Point(158, 473);
+            this.btn_CNhoadon.Location = new System.Drawing.Point(56, 473);
             this.btn_CNhoadon.Name = "btn_CNhoadon";
             this.btn_CNhoadon.Size = new System.Drawing.Size(178, 56);
             this.btn_CNhoadon.TabIndex = 62;
@@ -230,11 +231,12 @@
             // dgrid_QLHoaDon
             // 
             this.dgrid_QLHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_QLHoaDon.Location = new System.Drawing.Point(43, 43);
+            this.dgrid_QLHoaDon.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgrid_QLHoaDon.Location = new System.Drawing.Point(3, 25);
             this.dgrid_QLHoaDon.Name = "dgrid_QLHoaDon";
             this.dgrid_QLHoaDon.RowHeadersWidth = 49;
             this.dgrid_QLHoaDon.RowTemplate.Height = 28;
-            this.dgrid_QLHoaDon.Size = new System.Drawing.Size(368, 227);
+            this.dgrid_QLHoaDon.Size = new System.Drawing.Size(434, 227);
             this.dgrid_QLHoaDon.TabIndex = 1;
             this.dgrid_QLHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_QLHoaDon_CellClick);
             // 

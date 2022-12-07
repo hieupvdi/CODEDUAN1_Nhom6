@@ -65,9 +65,9 @@
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.dgrid_QLSanPham);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Location = new System.Drawing.Point(0, 430);
+            this.groupBox2.Location = new System.Drawing.Point(0, 377);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1435, 327);
+            this.groupBox2.Size = new System.Drawing.Size(1435, 380);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh Sách";
@@ -75,11 +75,12 @@
             // dgrid_QLSanPham
             // 
             this.dgrid_QLSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_QLSanPham.Location = new System.Drawing.Point(35, 97);
+            this.dgrid_QLSanPham.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgrid_QLSanPham.Location = new System.Drawing.Point(3, 95);
             this.dgrid_QLSanPham.Name = "dgrid_QLSanPham";
             this.dgrid_QLSanPham.RowHeadersWidth = 49;
             this.dgrid_QLSanPham.RowTemplate.Height = 28;
-            this.dgrid_QLSanPham.Size = new System.Drawing.Size(1319, 220);
+            this.dgrid_QLSanPham.Size = new System.Drawing.Size(1429, 282);
             this.dgrid_QLSanPham.TabIndex = 0;
             this.dgrid_QLSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_QLSanPham_CellClick);
             // 
@@ -93,7 +94,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox3.Location = new System.Drawing.Point(1223, 22);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(209, 405);
+            this.groupBox3.Size = new System.Drawing.Size(209, 352);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chức Vụ";
@@ -167,7 +168,7 @@
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox1.Size = new System.Drawing.Size(1435, 430);
+            this.groupBox1.Size = new System.Drawing.Size(1435, 377);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin";
