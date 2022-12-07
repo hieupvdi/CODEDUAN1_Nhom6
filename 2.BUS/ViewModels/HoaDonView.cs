@@ -33,7 +33,7 @@ namespace _2.BUS.ViewModels
         public string SDTNV { get; set; }
         public string DiaChiNV { get; set; }
         public string MatKhau { get; set; }
-        public int Trangthai { get; set; }
+        public int TrangthaiNV { get; set; }
 
         //bảng Khách hàng
         //public Guid Id { get; set; }

@@ -18,7 +18,7 @@ namespace _3.PL.Views
         //gọi sv ql sp
         private IQLSanPhamServices _IQLSanPhamServices;
 
-        private ISizeServices _ISizeServices;
+   
         //Gọi sv hóa đơn chờ
         private IKhachHangServices _IKhachHangServices;
         //Gọi sv hóa đơn ct-giỏ hàng
@@ -32,16 +32,16 @@ namespace _3.PL.Views
         public Guid UH;
         public List<HoaDonCTView> _lstHoaDonCTView;
         public List<HoaDonView> _lstHoaDonView;
-        public Guid nu;
+        public Guid _idhdcho;
         public frmBanHang()
         {
             InitializeComponent();
             _IQLSanPhamServices = new QLSanPhamServices();
             _IQLNhanVienServices = new QLNhanVienServices();
-            _ISizeServices = new SizeServices();
             _IHoaDonServices = new HoaDonServices();
             _IHoaDonCTServices = new HoaDonCTServices();
             _IKhachHangServices = new KhachHangServices();
+
             _lstHoaDonCTView = new List<HoaDonCTView>();
             _lstHoaDonView = new List<HoaDonView>();
             c = new KhachHangView();
@@ -317,12 +317,16 @@ namespace _3.PL.Views
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow r = dgrid_QLHoaDon.Rows[e.RowIndex];
-                nu = Guid.Parse(r.Cells[1].Value.ToString());
-             
+
+                //_idhdcho = _IHoaDonServices.GetAll().FirstOrDefault(x=> x.Id==Guid.Parse(r.Cells[1].Value.ToString())).Id;
+                _idhdcho = Guid.Parse(r.Cells[1].Value.ToString());
+
+
+
                 //hóa dơn chi tiết
-                var od = _IHoaDonCTServices.GetAll().Where(x => x.IdHD == nu);
+                var od = _IHoaDonCTServices.GetAll().Where(x => x.IdHD == _idhdcho);
                 //hóa đơn
-                var cid = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == nu).IdKH;
+                var cid = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idhdcho).IdKH;
                 // khách hàng
                 var c = _IKhachHangServices.GetAll().FirstOrDefault(x => x.Id == cid);
                 txt_Makh.Text = c.MaKH;
@@ -357,16 +361,18 @@ namespace _3.PL.Views
 
         private void btn_Capnhatsp_Click(object sender, EventArgs e)
         {
-            //if (nu != -1)
-            //{
+            var hd = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idhdcho);
+
+            if (hd.TrangThai != 0)
+            {
                 if (_lstHoaDonCTView.Any())
                 {
                     int tien = 0;
                     c = _IKhachHangServices.GetAll().FirstOrDefault(x => x.MaKH == txt_Makh.Text);
                     if (c != null)
                     {
-                        var hoadon = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == nu);
-                        var hoadonct = _IHoaDonCTServices.GetAll().Where(x => x.IdHD == nu);
+                        var hoadon = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idhdcho);
+                        var hoadonct = _IHoaDonCTServices.GetAll().Where(x => x.IdHD == _idhdcho);
                         foreach (var x in hoadonct)
                         {
                             _IHoaDonCTServices.Delete(x);
@@ -377,7 +383,7 @@ namespace _3.PL.Views
                         {
                             var HoaDonCTView  = new HoaDonCTView()
                             {
-                                IdHD = nu,
+                                IdHD = _idhdcho,
                                 IdSP = item.IdSP,
                                 DonGia = item.GiaBan,
                                 SoLuong = item.SoLuong
@@ -397,12 +403,12 @@ namespace _3.PL.Views
                         hoadon.TongTien = tien;
                         _IHoaDonServices.Update(hoadon);
 
-                        lb_Mahd.Text = nu.ToString();
+                        lb_Mahd.Text = _idhdcho.ToString();
                         lb_Tongtientt.Text = tien.ToString()+"VNĐ";
                         txt_Makh.Text = "";
                         lb_TongTiengh.Text = "";
-                        MessageBox.Show($"Cập nhật hóa đơn thành công. ID: {nu}");
-                       // oID = -1;
+                        MessageBox.Show($"Cập nhật hóa đơn thành công. ID: {_idhdcho}");
+                      
                         LoadDSSanPham();         
                         LoadHDCho();
                         dgrid_Hoadonct.Rows.Clear();
@@ -416,14 +422,14 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Chưa có sản phẩm nào trong giỏ hàng");
                 }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Vui lòng chọn hóa đơn chưa thanh toán");
-            //}
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn hóa đơn chưa thanh toán");
+            }
         }
 
-        private void txt_Makh_TextChanged(object sender, EventArgs e)
+            private void txt_Makh_TextChanged(object sender, EventArgs e)
         {
            
                 c = _IKhachHangServices.GetAll().FirstOrDefault(x => x.MaKH == txt_Makh.Text);
@@ -455,16 +461,19 @@ namespace _3.PL.Views
             if (lb_Mahd.Text !=null)
             {
 
-           
-               
-                HoaDonView hd = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(lb_Mahd.Text) && x.Trangthai == 1);
-                if (hd == null)
+
+    
+                var hd = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idhdcho);
+
+               // var hoadon = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idhdcho);
+                if (hd.TrangThai != 1)
                 {
                     MessageBox.Show("Đơn hàng không tồn tại hoặc đã thanh toán");
                     lb_Tongtientt.Text = "0";
                 }
                 else
                 {
+                    //MessageBox.Show("Đơn "  hd.MaHD);
                     var Khachhang = _IKhachHangServices.GetAll().FirstOrDefault(x => x.Id == hd.IdKH);
 
                     //if (Convert.ToDecimal(txt_Tienkhdua.Text) > 0 )
@@ -476,7 +485,8 @@ namespace _3.PL.Views
                         DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn thanh toán không?", "Thanh toán", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.Yes)
                         {
-                            hd.Trangthai = 0;
+                             hd.TrangThai = 0;
+                  
                             _IHoaDonServices.Update(hd);
                         
                             _IKhachHangServices.Update(Khachhang);
@@ -485,7 +495,7 @@ namespace _3.PL.Views
                             txt_Tienkhdua.Text = "";
                             lb_Tongtientt.Text = "0";
                             lb_Tienthua.Text = "0";
-                           
+                        LoadHDCho();
 
                         }
                     //}

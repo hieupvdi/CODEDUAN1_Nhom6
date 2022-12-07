@@ -94,7 +94,7 @@ namespace _2.BUS.Services
                     SDTNV=b.SDT,
                     DiaChiNV=b.DiaChi,
                     MatKhau=b.MatKhau,
-                    Trangthai=b.Trangthai,
+                    TrangthaiNV=b.Trangthai,
 
                     //khách Hàng
                     MaKH=c.MaKH,
