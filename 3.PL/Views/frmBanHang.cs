@@ -518,7 +518,5 @@ namespace _3.PL.Views
                 MessageBox.Show("Vui lòng chọn mã hóa đơn");
             }
         }
-
-  
     }
 }

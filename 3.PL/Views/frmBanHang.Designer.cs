@@ -71,9 +71,9 @@
             this.groupBox2.Controls.Add(this.dgrid_QLSanPham);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(3, 449);
+            this.groupBox2.Location = new System.Drawing.Point(0, 473);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1024, 445);
+            this.groupBox2.Size = new System.Drawing.Size(1060, 424);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = " Danh Sách Sản Phẩm";
@@ -82,29 +82,27 @@
             // 
             this.dgrid_QLSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_QLSanPham.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgrid_QLSanPham.Location = new System.Drawing.Point(3, 125);
+            this.dgrid_QLSanPham.Location = new System.Drawing.Point(3, 104);
             this.dgrid_QLSanPham.Name = "dgrid_QLSanPham";
             this.dgrid_QLSanPham.RowHeadersWidth = 49;
             this.dgrid_QLSanPham.RowTemplate.Height = 28;
-            this.dgrid_QLSanPham.Size = new System.Drawing.Size(1018, 317);
+            this.dgrid_QLSanPham.Size = new System.Drawing.Size(1054, 317);
             this.dgrid_QLSanPham.TabIndex = 0;
             this.dgrid_QLSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_QLSanPham_CellClick);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.groupBox2);
             this.groupBox3.Controls.Add(this.btn_Capnhatsp);
             this.groupBox3.Controls.Add(this.lb_TongTiengh);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.btn_Xoahet);
             this.groupBox3.Controls.Add(this.btn_Xoagh);
             this.groupBox3.Controls.Add(this.dgrid_Hoadonct);
-            this.groupBox3.Controls.Add(this.groupBox1);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1470, 897);
+            this.groupBox3.Size = new System.Drawing.Size(1060, 473);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Giỏ Hàng";
@@ -113,7 +111,7 @@
             // 
             this.btn_Capnhatsp.Image = ((System.Drawing.Image)(resources.GetObject("btn_Capnhatsp.Image")));
             this.btn_Capnhatsp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Capnhatsp.Location = new System.Drawing.Point(817, 359);
+            this.btn_Capnhatsp.Location = new System.Drawing.Point(846, 357);
             this.btn_Capnhatsp.Name = "btn_Capnhatsp";
             this.btn_Capnhatsp.Size = new System.Drawing.Size(188, 61);
             this.btn_Capnhatsp.TabIndex = 58;
@@ -125,7 +123,7 @@
             // 
             this.lb_TongTiengh.AutoSize = true;
             this.lb_TongTiengh.Font = new System.Drawing.Font("Segoe UI", 16.27826F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_TongTiengh.Location = new System.Drawing.Point(865, 109);
+            this.lb_TongTiengh.Location = new System.Drawing.Point(894, 107);
             this.lb_TongTiengh.Name = "lb_TongTiengh";
             this.lb_TongTiengh.Size = new System.Drawing.Size(94, 36);
             this.lb_TongTiengh.TabIndex = 57;
@@ -135,7 +133,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 16.27826F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(865, 55);
+            this.label11.Location = new System.Drawing.Point(894, 53);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(151, 36);
             this.label11.TabIndex = 56;
@@ -145,7 +143,7 @@
             // 
             this.btn_Xoahet.Image = ((System.Drawing.Image)(resources.GetObject("btn_Xoahet.Image")));
             this.btn_Xoahet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Xoahet.Location = new System.Drawing.Point(817, 276);
+            this.btn_Xoahet.Location = new System.Drawing.Point(846, 274);
             this.btn_Xoahet.Name = "btn_Xoahet";
             this.btn_Xoahet.Size = new System.Drawing.Size(188, 63);
             this.btn_Xoahet.TabIndex = 55;
@@ -157,7 +155,7 @@
             // 
             this.btn_Xoagh.Image = ((System.Drawing.Image)(resources.GetObject("btn_Xoagh.Image")));
             this.btn_Xoagh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Xoagh.Location = new System.Drawing.Point(817, 189);
+            this.btn_Xoagh.Location = new System.Drawing.Point(846, 187);
             this.btn_Xoagh.Name = "btn_Xoagh";
             this.btn_Xoagh.Size = new System.Drawing.Size(188, 63);
             this.btn_Xoagh.TabIndex = 54;
@@ -188,9 +186,9 @@
             this.groupBox1.Controls.Add(this.btn_Themkhachhang);
             this.groupBox1.Controls.Add(this.btn_Taohdcho);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox1.Location = new System.Drawing.Point(1027, 25);
+            this.groupBox1.Location = new System.Drawing.Point(1060, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(440, 869);
+            this.groupBox1.Size = new System.Drawing.Size(484, 897);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hóa Đơn chờ";
@@ -201,9 +199,9 @@
             this.btn_CNhoadon.Font = new System.Drawing.Font("Segoe UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_CNhoadon.Image = ((System.Drawing.Image)(resources.GetObject("btn_CNhoadon.Image")));
             this.btn_CNhoadon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_CNhoadon.Location = new System.Drawing.Point(56, 473);
+            this.btn_CNhoadon.Location = new System.Drawing.Point(37, 473);
             this.btn_CNhoadon.Name = "btn_CNhoadon";
-            this.btn_CNhoadon.Size = new System.Drawing.Size(178, 56);
+            this.btn_CNhoadon.Size = new System.Drawing.Size(197, 56);
             this.btn_CNhoadon.TabIndex = 62;
             this.btn_CNhoadon.Text = "Cập nhật HD";
             this.btn_CNhoadon.UseVisualStyleBackColor = false;
@@ -232,11 +230,11 @@
             // 
             this.dgrid_QLHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_QLHoaDon.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgrid_QLHoaDon.Location = new System.Drawing.Point(3, 25);
+            this.dgrid_QLHoaDon.Location = new System.Drawing.Point(3, 22);
             this.dgrid_QLHoaDon.Name = "dgrid_QLHoaDon";
             this.dgrid_QLHoaDon.RowHeadersWidth = 49;
             this.dgrid_QLHoaDon.RowTemplate.Height = 28;
-            this.dgrid_QLHoaDon.Size = new System.Drawing.Size(434, 227);
+            this.dgrid_QLHoaDon.Size = new System.Drawing.Size(478, 227);
             this.dgrid_QLHoaDon.TabIndex = 1;
             this.dgrid_QLHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_QLHoaDon_CellClick);
             // 
@@ -263,9 +261,9 @@
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox4.Location = new System.Drawing.Point(3, 549);
+            this.groupBox4.Location = new System.Drawing.Point(3, 554);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(434, 317);
+            this.groupBox4.Size = new System.Drawing.Size(478, 340);
             this.groupBox4.TabIndex = 20;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thanh Toán";
@@ -359,7 +357,7 @@
             // 
             this.txt_Makh.Location = new System.Drawing.Point(158, 308);
             this.txt_Makh.Name = "txt_Makh";
-            this.txt_Makh.Size = new System.Drawing.Size(253, 29);
+            this.txt_Makh.Size = new System.Drawing.Size(253, 26);
             this.txt_Makh.TabIndex = 52;
             this.txt_Makh.TextChanged += new System.EventHandler(this.txt_Makh_TextChanged);
             // 
@@ -369,9 +367,9 @@
             this.btn_Themkhachhang.Font = new System.Drawing.Font("Segoe UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Themkhachhang.Image = ((System.Drawing.Image)(resources.GetObject("btn_Themkhachhang.Image")));
             this.btn_Themkhachhang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Themkhachhang.Location = new System.Drawing.Point(56, 411);
+            this.btn_Themkhachhang.Location = new System.Drawing.Point(37, 411);
             this.btn_Themkhachhang.Name = "btn_Themkhachhang";
-            this.btn_Themkhachhang.Size = new System.Drawing.Size(173, 56);
+            this.btn_Themkhachhang.Size = new System.Drawing.Size(197, 56);
             this.btn_Themkhachhang.TabIndex = 54;
             this.btn_Themkhachhang.Text = "Khách Hàng";
             this.btn_Themkhachhang.UseVisualStyleBackColor = false;
@@ -383,9 +381,9 @@
             this.btn_Taohdcho.Font = new System.Drawing.Font("Segoe UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Taohdcho.Image = ((System.Drawing.Image)(resources.GetObject("btn_Taohdcho.Image")));
             this.btn_Taohdcho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Taohdcho.Location = new System.Drawing.Point(250, 411);
+            this.btn_Taohdcho.Location = new System.Drawing.Point(261, 411);
             this.btn_Taohdcho.Name = "btn_Taohdcho";
-            this.btn_Taohdcho.Size = new System.Drawing.Size(178, 56);
+            this.btn_Taohdcho.Size = new System.Drawing.Size(193, 56);
             this.btn_Taohdcho.TabIndex = 52;
             this.btn_Taohdcho.Text = "Hóa Đơn chờ";
             this.btn_Taohdcho.UseVisualStyleBackColor = false;
@@ -396,8 +394,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1470, 897);
+            this.ClientSize = new System.Drawing.Size(1544, 897);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Name = "frmBanHang";
             this.Text = "frmBanHang";
             this.groupBox2.ResumeLayout(false);

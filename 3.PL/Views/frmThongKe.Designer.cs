@@ -39,9 +39,11 @@
             // 
             this.groupBox2.Controls.Add(this.dgrid_Thongke);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Location = new System.Drawing.Point(0, 416);
+            this.groupBox2.Location = new System.Drawing.Point(0, 366);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1279, 347);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox2.Size = new System.Drawing.Size(1339, 391);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hóa Đơn";
@@ -49,31 +51,37 @@
             // dgrid_Thongke
             // 
             this.dgrid_Thongke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_Thongke.Location = new System.Drawing.Point(30, 56);
+            this.dgrid_Thongke.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgrid_Thongke.Location = new System.Drawing.Point(4, 123);
+            this.dgrid_Thongke.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgrid_Thongke.Name = "dgrid_Thongke";
             this.dgrid_Thongke.RowHeadersWidth = 49;
             this.dgrid_Thongke.RowTemplate.Height = 28;
-            this.dgrid_Thongke.Size = new System.Drawing.Size(1148, 268);
+            this.dgrid_Thongke.Size = new System.Drawing.Size(1331, 265);
             this.dgrid_Thongke.TabIndex = 0;
             // 
             // groupBox1
             // 
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1279, 416);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox1.Size = new System.Drawing.Size(1339, 366);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin";
             // 
             // frmThongKe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1279, 763);
+            this.ClientSize = new System.Drawing.Size(1339, 757);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
+            this.Font = new System.Drawing.Font("Segoe UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmThongKe";
             this.Text = "frmThongKe";
             this.groupBox2.ResumeLayout(false);

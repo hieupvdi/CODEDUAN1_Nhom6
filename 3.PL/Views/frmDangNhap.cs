@@ -25,7 +25,7 @@ namespace _3.PL.Views
             txt_Email.Text = Properties.Settings.Default.TaiKhoan;
             txt_pass.Text = Properties.Settings.Default.MK;
             cb_Luumk.Checked = true;
-            cb_Hienmk.Checked=true;
+            //cb_Hienmk.Checked=true;
            
 
 
@@ -73,11 +73,11 @@ namespace _3.PL.Views
         {
             if (cb_Hienmk.Checked)
             {
-                
-                txt_pass.PasswordChar = '*';
+                txt_pass.PasswordChar = '\0';
+              
             }
             else {
-                txt_pass.PasswordChar = '\0';
+                txt_pass.PasswordChar = '*';
             }
         }
         public void Luutk()
@@ -101,7 +101,18 @@ namespace _3.PL.Views
 
         private void btn_Thoat_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn Thoát không?", "Thoát", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+               
+        }
+
+        private void frmDangNhap_Load(object sender, EventArgs e)
+        {
+            this.lb_Email.BackColor = System.Drawing.Color.Transparent;
+
         }
     }
 }

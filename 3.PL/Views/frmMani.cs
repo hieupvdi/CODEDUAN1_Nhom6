@@ -75,11 +75,16 @@ namespace _3.PL.Views
 
         private void btn_DangXuat_Click(object sender, EventArgs e)
         {
-            isThoat = false;
-            this.Close();
-            frmDangNhap f = new frmDangNhap();
-            f.Show();
-            this.Hide();
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn Đăng Xuất không?", "Đăng Xuất", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                isThoat = false;
+                this.Close();
+                frmDangNhap f = new frmDangNhap();
+                f.Show();
+                this.Hide();
+            }
+          
         }
 
         private void frmMani_Load(object sender, EventArgs e)

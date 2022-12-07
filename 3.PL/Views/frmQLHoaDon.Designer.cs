@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQLHoaDon));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgrid_QLHoaDon = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -45,8 +46,10 @@
             this.groupBox2.Controls.Add(this.dgrid_QLHoaDon);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1230, 700);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox2.Size = new System.Drawing.Size(1175, 693);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hóa Đơn";
@@ -54,12 +57,13 @@
             // dgrid_QLHoaDon
             // 
             this.dgrid_QLHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_QLHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgrid_QLHoaDon.Location = new System.Drawing.Point(3, 22);
+            this.dgrid_QLHoaDon.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgrid_QLHoaDon.Location = new System.Drawing.Point(4, 25);
+            this.dgrid_QLHoaDon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgrid_QLHoaDon.Name = "dgrid_QLHoaDon";
             this.dgrid_QLHoaDon.RowHeadersWidth = 49;
             this.dgrid_QLHoaDon.RowTemplate.Height = 28;
-            this.dgrid_QLHoaDon.Size = new System.Drawing.Size(1224, 675);
+            this.dgrid_QLHoaDon.Size = new System.Drawing.Size(1167, 279);
             this.dgrid_QLHoaDon.TabIndex = 0;
             this.dgrid_QLHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_QLHoaDon_CellClick);
             // 
@@ -69,18 +73,23 @@
             this.groupBox1.Controls.Add(this.btn_Xoa);
             this.groupBox1.Controls.Add(this.dgrid_Hoadonct);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(0, 387);
+            this.groupBox1.Location = new System.Drawing.Point(0, 381);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1230, 313);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox1.Size = new System.Drawing.Size(1175, 312);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hóa Đơn Chi Tiết";
             // 
             // btn_Inhd
             // 
-            this.btn_Inhd.Location = new System.Drawing.Point(902, 149);
+            this.btn_Inhd.Image = ((System.Drawing.Image)(resources.GetObject("btn_Inhd.Image")));
+            this.btn_Inhd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Inhd.Location = new System.Drawing.Point(840, 160);
+            this.btn_Inhd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btn_Inhd.Name = "btn_Inhd";
-            this.btn_Inhd.Size = new System.Drawing.Size(261, 55);
+            this.btn_Inhd.Size = new System.Drawing.Size(238, 61);
             this.btn_Inhd.TabIndex = 21;
             this.btn_Inhd.TabStop = false;
             this.btn_Inhd.Text = "In Hóa Đơn";
@@ -89,9 +98,12 @@
             // 
             // btn_Xoa
             // 
-            this.btn_Xoa.Location = new System.Drawing.Point(902, 62);
+            this.btn_Xoa.Image = ((System.Drawing.Image)(resources.GetObject("btn_Xoa.Image")));
+            this.btn_Xoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Xoa.Location = new System.Drawing.Point(840, 83);
+            this.btn_Xoa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(258, 50);
+            this.btn_Xoa.Size = new System.Drawing.Size(238, 55);
             this.btn_Xoa.TabIndex = 20;
             this.btn_Xoa.TabStop = false;
             this.btn_Xoa.Text = "Xóa Hóa Đơn";
@@ -101,22 +113,26 @@
             // dgrid_Hoadonct
             // 
             this.dgrid_Hoadonct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_Hoadonct.Location = new System.Drawing.Point(36, 51);
+            this.dgrid_Hoadonct.Location = new System.Drawing.Point(31, 53);
+            this.dgrid_Hoadonct.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgrid_Hoadonct.Name = "dgrid_Hoadonct";
             this.dgrid_Hoadonct.RowHeadersWidth = 49;
             this.dgrid_Hoadonct.RowTemplate.Height = 28;
-            this.dgrid_Hoadonct.Size = new System.Drawing.Size(692, 241);
+            this.dgrid_Hoadonct.Size = new System.Drawing.Size(771, 247);
             this.dgrid_Hoadonct.TabIndex = 0;
             // 
             // frmQLHoaDon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1230, 700);
+            this.ClientSize = new System.Drawing.Size(1175, 693);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
+            this.Font = new System.Drawing.Font("Segoe UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmQLHoaDon";
+            this.ShowInTaskbar = false;
             this.Text = "frmQLHoaDon";
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_QLHoaDon)).EndInit();
