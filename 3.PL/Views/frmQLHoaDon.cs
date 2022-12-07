@@ -19,18 +19,23 @@ namespace _3.PL.Views
         private IHoaDonServices _IHoaDonServices;
         private IQLSanPhamServices _IQLSanPhamServices;
 
+
         //
         private IHoaDonCTServices _IHoaDonCTServices;
         private Guid _idWhenClick;
         public Guid oID;
         public Guid u;
+        public Guid _idhdcho;
+        public List<HoaDonCTView> _lstHoaDonCTView;
         public frmQLHoaDon()
         {
             InitializeComponent();
             _IHoaDonServices = new HoaDonServices();
             _IHoaDonCTServices = new HoaDonCTServices();
             _IQLSanPhamServices = new QLSanPhamServices();
-         
+            _lstHoaDonCTView = new List<HoaDonCTView>();
+          
+
             LoadHoaDon();
        
 
@@ -63,27 +68,24 @@ namespace _3.PL.Views
         }
 
         //bảng chi tiết hóa đơn
-        public void LoadHoaDonCT(Guid idhd)
+        public void LoadHoaDonCT(/*Guid idhd*/)
         {
-            oID = idhd;
             int stt = 1;
-            dgrid_Hoadonct.ColumnCount = 10;
+            dgrid_Hoadonct.ColumnCount = 6;
             dgrid_Hoadonct.Columns[0].Name = "STT";
-            dgrid_Hoadonct.Columns[1].Name = "IDHD";
+            dgrid_Hoadonct.Columns[1].Name = "ID";
             dgrid_Hoadonct.Columns[1].Visible = false;
-            dgrid_Hoadonct.Columns[2].Name = "IDCTSP";
-            dgrid_Hoadonct.Columns[2].Visible = false;
-            dgrid_Hoadonct.Columns[3].Name = "Mã sp";
-            dgrid_Hoadonct.Columns[4].Name = "Tên sp";
-            dgrid_Hoadonct.Columns[5].Name = "Số Lượng";
-            dgrid_Hoadonct.Columns[6].Name = "Đơn Gía";
-      
+            dgrid_Hoadonct.Columns[2].Name = "Mã sp";
+            dgrid_Hoadonct.Columns[3].Name = "Tên sp";
+            dgrid_Hoadonct.Columns[4].Name = "Số Lượng";
+            dgrid_Hoadonct.Columns[5].Name = "Đơn Gía";
+
 
             dgrid_Hoadonct.Rows.Clear();
 
-            foreach (var x in _IHoaDonCTServices.GetAll())
+            foreach (var x in _lstHoaDonCTView)
             {
-                dgrid_Hoadonct.Rows.Add(stt++, x.IdHD, x.IdSP,x.MaSP,x.TenSP, x.SoLuong, x.DonGia);
+                dgrid_Hoadonct.Rows.Add(stt++, x.IdSP, x.MaSP, x.TenSP, x.SoLuong, x.DonGia);
             }
 
         }
@@ -121,14 +123,54 @@ namespace _3.PL.Views
 
         private void dgrid_QLHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
+
+
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow r = dgrid_QLHoaDon.Rows[e.RowIndex];
-                u = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(r.Cells[1].Value.ToString())).Id;
-                LoadHoaDonCT(u);
-            }
 
-    
+
+                _idhdcho = Guid.Parse(r.Cells[1].Value.ToString());
+
+
+
+                //hóa dơn chi tiết
+                var od = _IHoaDonCTServices.GetAll().Where(x => x.IdHD == _idhdcho);
+                //hóa đơn
+                var cid = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idhdcho).IdKH;
+                // khách hàng
+               
+
+                _lstHoaDonCTView = new List<HoaDonCTView>();
+                foreach (var item in od)
+                {
+                    var p = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == item.IdSP);
+
+                    HoaDonCTView HoaDonCTView = new HoaDonCTView()
+                    {
+                        IdSP = p.Id,
+                        MaSP = p.MaSP,
+                        TenSP = p.TenSP,
+                        DonGia = p.GiaBan,
+                        SoLuong = od.FirstOrDefault(x => x.IdSP == p.Id).SoLuong
+                    };
+                    _lstHoaDonCTView.Add(HoaDonCTView);
+
+                    LoadHoaDonCT();
+                }
+
+            
+
+                //if (e.RowIndex >= 0)
+                //{
+                //    DataGridViewRow r = dgrid_QLHoaDon.Rows[e.RowIndex];
+                //    u = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(r.Cells[1].Value.ToString())).Id;
+                //    LoadHoaDonCT(u);
+                //}
+
+
+            }
         }
 
         private void btn_Inhd_Click(object sender, EventArgs e)

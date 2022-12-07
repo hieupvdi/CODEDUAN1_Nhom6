@@ -31,7 +31,7 @@ namespace _3.PL.Views
         public Guid u;
         public Guid UH;
         public List<HoaDonCTView> _lstHoaDonCTView;
-        public List<HoaDonView> _lstHoaDonView;
+ 
         public Guid _idhdcho;
         public frmBanHang()
         {
@@ -43,7 +43,7 @@ namespace _3.PL.Views
             _IKhachHangServices = new KhachHangServices();
 
             _lstHoaDonCTView = new List<HoaDonCTView>();
-            _lstHoaDonView = new List<HoaDonView>();
+      
             c = new KhachHangView();
          
             LoadDSSanPham();
@@ -262,6 +262,8 @@ namespace _3.PL.Views
                         ThoiGianTao = DateTime.Now,
                         IdNV = h,
                         IdKH = c.Id,
+                        DiaChi = c.DiaChi,
+                        SDT= c.SDT,
                         TongTien = tien,
                         TrangThai = 1,
 
@@ -275,7 +277,7 @@ namespace _3.PL.Views
                         {
                             IdHD = HoaDonView.Id,
                             IdSP = item.IdSP,
-                            GiaBan = item.GiaBan,
+                            GiaBan = HoaDonView.TongTien,
                             SoLuong = item.SoLuong
                         };
                         _IHoaDonCTServices.Add(HoaDonCTView);
@@ -485,7 +487,9 @@ namespace _3.PL.Views
                         DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn thanh toán không?", "Thanh toán", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.Yes)
                         {
+                             hd.ThoiGianThanhToan = DateTime.Now;
                              hd.TrangThai = 0;
+
                   
                             _IHoaDonServices.Update(hd);
                         
