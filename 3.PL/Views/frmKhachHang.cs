@@ -26,7 +26,7 @@ namespace _3.PL.Views
         public void LoadKH(string input)
         {
             int stt = 1;
-            dggrid_Khachhang.ColumnCount = 11;
+            dggrid_Khachhang.ColumnCount = 6;
             dggrid_Khachhang.Columns[0].Name = "STT";
             dggrid_Khachhang.Columns[1].Name = "ID";
             dggrid_Khachhang.Columns[1].Visible = false;
@@ -94,6 +94,23 @@ namespace _3.PL.Views
             txt_Tenkh.Text = obj.TenKH;
             txt_Sdt.Text = obj.SDT;
             txt_Diachi.Text = obj.DiaChi;
+        }
+
+        private void txt_Nhaptim_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_Nhaptim.Text)) return;
+            LoadKH(txt_Nhaptim.Text);
+        }
+
+        private void txt_Nhaptim_Leave(object sender, EventArgs e)
+        {
+            txt_Nhaptim.Text = "Tìm kiếm .......";
+            LoadKH(null);
+        }
+
+        private void txt_Nhaptim_Click(object sender, EventArgs e)
+        {
+            txt_Nhaptim.Clear();
         }
     }
 }

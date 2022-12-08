@@ -187,5 +187,37 @@ namespace _3.PL.Views
         {
 
         }
+
+        private void txt_Nhaptim_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_Nhaptim.Text)) return;
+            LoadQLNhanVien(txt_Nhaptim.Text);
+        }
+
+        private void txt_Nhaptim_Leave(object sender, EventArgs e)
+        {
+            txt_Nhaptim.Text = "Tìm kiếm .......";
+            LoadQLNhanVien(null);
+        }
+
+        private void txt_Nhaptim_Click(object sender, EventArgs e)
+        {
+            txt_Nhaptim.Clear();
+        }
+
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+            txt_Manv.Text = null;
+            txt_Tennv.Text = null;
+            pb_Anh.Image = null;
+            cmb_Chucvu.SelectedIndex = 0;
+            rbtn_Nam.Checked = true;
+            date_Ngaysinh.Enabled = false;
+            txt_Sdt.Text = null;
+            txt_Diachi.Text = null;
+            txt_Email.Text = null;
+            txt_Matkhau.Text = null;
+            rbtn_Danglam.Checked = true;   
+        }
     }
     }

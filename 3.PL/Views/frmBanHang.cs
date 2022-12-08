@@ -46,11 +46,13 @@ namespace _3.PL.Views
       
             c = new KhachHangView();
          
-            LoadDSSanPham();
+            LoadDSSanPham(null);
             LoadGioHang();
             LoadHDCho();
+            Loctrangthai();
 
-           
+
+
         }
 
         //bảng hóa đơn -hóa đơn chờ
@@ -79,7 +81,7 @@ namespace _3.PL.Views
 
         }
         //Bảng sản phẩm
-        public void LoadDSSanPham()
+        public void LoadDSSanPham(string input)
         {
             int stt = 1;
             dgrid_QLSanPham.ColumnCount = 8;
@@ -95,7 +97,7 @@ namespace _3.PL.Views
 
             dgrid_QLSanPham.Rows.Clear();
 
-            foreach (var x in _IQLSanPhamServices.GetAll())
+            foreach (var x in _IQLSanPhamServices.GetAll(input))
             {
                 dgrid_QLSanPham.Rows.Add(stt++, x.Id, x.MaSP, x.TenSP, x.TenLoaiSP, x.TenSize, x.GiaBan, (x.TrangThai == 0 ? "Còn Bán" : "Nghỉ Bán"));
             }
@@ -289,7 +291,7 @@ namespace _3.PL.Views
                     txt_Makh.Text = "";
                     lb_TongTiengh.Text = "";
                     MessageBox.Show($"Tạo hóa đơn thành công Mã Hóa Đơn là : {HoaDonView.MaHD}");
-                    LoadDSSanPham();
+                    LoadDSSanPham(null);
                     LoadHDCho();
                     LoadGioHang();
                     _lstHoaDonCTView = new List<HoaDonCTView>();
@@ -409,7 +411,7 @@ namespace _3.PL.Views
                         lb_TongTiengh.Text = "";
                         MessageBox.Show($"Cập nhật hóa đơn thành công. ID: {_idhdcho}");
                       
-                        LoadDSSanPham();         
+                        LoadDSSanPham(null);         
                         LoadHDCho();
                         dgrid_Hoadonct.Rows.Clear();
                     }
@@ -517,6 +519,42 @@ namespace _3.PL.Views
             {
                 MessageBox.Show("Vui lòng chọn mã hóa đơn");
             }
+        }
+
+     
+
+        private void txt_Nhaptim_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_Nhaptim.Text)) return;
+            LoadDSSanPham(txt_Nhaptim.Text);
+        }
+
+        private void txt_Nhaptim_Leave(object sender, EventArgs e)
+        {
+            txt_Nhaptim.Text = "Tìm kiếm .......";
+            LoadDSSanPham(null);
+        }
+
+        private void txt_Nhaptim_Click(object sender, EventArgs e)
+        {
+            txt_Nhaptim.Clear();
+        }
+        private void Loctrangthai()
+        {
+            foreach (var item in _IQLSanPhamServices.GetAll())
+            {
+                cmb_Loctrangthai.Items.Add(item.TrangThai );
+              
+            }
+            cmb_Loctrangthai.SelectedIndex = 0;
+        }
+        private void cmb_Loctrangthai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if (cmb_Loctrangthai.SelectedIndex == -1) LoadDSSanPham(null);
+
+            //var hd = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == u);
+            //LoadDSSanPham(Convert.ToString(_IQLSanPhamServices.GetAll().FirstOrDefault((hd => hd.TrangThai == cmb_Loctrangthai.SelectedIndex)).Id));
+            ////cmb_LocChucVu.Text = "Lọc chức vụ";
         }
     }
 }

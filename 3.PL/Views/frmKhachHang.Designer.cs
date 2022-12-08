@@ -41,6 +41,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txt_Diachi = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.txt_Nhaptim = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dggrid_Khachhang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,7 +125,7 @@
             // 
             this.dggrid_Khachhang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dggrid_Khachhang.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dggrid_Khachhang.Location = new System.Drawing.Point(0, 334);
+            this.dggrid_Khachhang.Location = new System.Drawing.Point(0, 392);
             this.dggrid_Khachhang.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dggrid_Khachhang.Name = "dggrid_Khachhang";
             this.dggrid_Khachhang.RowHeadersWidth = 49;
@@ -169,12 +170,24 @@
             this.label3.TabIndex = 18;
             this.label3.Text = "Địa Chỉ";
             // 
+            // txt_Nhaptim
+            // 
+            this.txt_Nhaptim.Location = new System.Drawing.Point(13, 339);
+            this.txt_Nhaptim.Name = "txt_Nhaptim";
+            this.txt_Nhaptim.Size = new System.Drawing.Size(423, 29);
+            this.txt_Nhaptim.TabIndex = 20;
+            this.txt_Nhaptim.Text = "                  Tìm Kiếm";
+            this.txt_Nhaptim.Click += new System.EventHandler(this.txt_Nhaptim_Click);
+            this.txt_Nhaptim.TextChanged += new System.EventHandler(this.txt_Nhaptim_TextChanged);
+            this.txt_Nhaptim.Leave += new System.EventHandler(this.txt_Nhaptim_Leave);
+            // 
             // frmKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(864, 607);
+            this.ClientSize = new System.Drawing.Size(864, 665);
+            this.Controls.Add(this.txt_Nhaptim);
             this.Controls.Add(this.txt_Diachi);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txt_Sdt);
@@ -211,5 +224,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_Diachi;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txt_Nhaptim;
     }
 }

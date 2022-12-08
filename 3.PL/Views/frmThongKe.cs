@@ -22,10 +22,10 @@ namespace _3.PL.Views
             InitializeComponent();
             _IHoaDonServices = new HoaDonServices();
             _IQLNhanVienServices = new QLNhanVienServices();
-            LoadHD();
+            LoadHD(null);
         }
 
-        public void LoadHD()
+        public void LoadHD(string input)
         {
             int stt = 1;
             dgrid_Thongke.ColumnCount = 10;
@@ -43,11 +43,28 @@ namespace _3.PL.Views
 
             dgrid_Thongke.Rows.Clear();
 
-            foreach (var x in _IHoaDonServices.GetAll())
+            foreach (var x in _IHoaDonServices.GetAll(input))
             {
                 dgrid_Thongke.Rows.Add(stt++, x.Id, x.MaHD, x.TenNV, x.TenKH, x.ThoiGianTao, x.ThoiGianThanhToan, x.SDT, x.DiaChi, (x.TrangThai == 0 ? "Đã Thanh Toán" : "Chưa Thanh Toán"));
             }
 
+        }
+
+        private void txt_Nhaptim_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_Nhaptim.Text)) return;
+            LoadHD(txt_Nhaptim.Text);
+        }
+
+        private void txt_Nhaptim_Leave(object sender, EventArgs e)
+        {
+            txt_Nhaptim.Text = "Tìm kiếm .......";
+            LoadHD(null);
+        }
+
+        private void txt_Nhaptim_Click(object sender, EventArgs e)
+        {
+            txt_Nhaptim.Clear();
         }
     }
 }

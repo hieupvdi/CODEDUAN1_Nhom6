@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQLSanPham));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txt_Nhaptim = new System.Windows.Forms.TextBox();
             this.dgrid_QLSanPham = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_Clear = new System.Windows.Forms.Button();
@@ -64,6 +65,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.txt_Nhaptim);
             this.groupBox2.Controls.Add(this.dgrid_QLSanPham);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox2.Location = new System.Drawing.Point(0, 424);
@@ -74,6 +76,17 @@
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh Sách";
+            // 
+            // txt_Nhaptim
+            // 
+            this.txt_Nhaptim.Location = new System.Drawing.Point(78, 47);
+            this.txt_Nhaptim.Name = "txt_Nhaptim";
+            this.txt_Nhaptim.Size = new System.Drawing.Size(423, 29);
+            this.txt_Nhaptim.TabIndex = 2;
+            this.txt_Nhaptim.Text = "                  Tìm Kiếm";
+            this.txt_Nhaptim.Click += new System.EventHandler(this.txt_Nhaptim_Click);
+            this.txt_Nhaptim.TextChanged += new System.EventHandler(this.txt_Nhaptim_TextChanged);
+            this.txt_Nhaptim.Leave += new System.EventHandler(this.txt_Nhaptim_Leave);
             // 
             // dgrid_QLSanPham
             // 
@@ -381,6 +394,7 @@
             this.Name = "frmQLSanPham";
             this.Text = "frmQLSanPham";
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_QLSanPham)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -417,5 +431,6 @@
         private System.Windows.Forms.Button btn_Xóa;
         private System.Windows.Forms.Button btn_Themanh;
         private System.Windows.Forms.Button btn_Clear;
+        private System.Windows.Forms.TextBox txt_Nhaptim;
     }
 }

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQLNhanVien));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txt_Nhaptim = new System.Windows.Forms.TextBox();
             this.dgrid_QLNhanvien = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pb_Anh = new System.Windows.Forms.PictureBox();
@@ -73,6 +74,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txt_Nhaptim);
             this.groupBox2.Controls.Add(this.dgrid_QLNhanvien);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox2.Location = new System.Drawing.Point(0, 411);
@@ -83,6 +85,17 @@
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh Sách";
+            // 
+            // txt_Nhaptim
+            // 
+            this.txt_Nhaptim.Location = new System.Drawing.Point(46, 66);
+            this.txt_Nhaptim.Name = "txt_Nhaptim";
+            this.txt_Nhaptim.Size = new System.Drawing.Size(423, 29);
+            this.txt_Nhaptim.TabIndex = 3;
+            this.txt_Nhaptim.Text = "                  Tìm Kiếm";
+            this.txt_Nhaptim.Click += new System.EventHandler(this.txt_Nhaptim_Click);
+            this.txt_Nhaptim.TextChanged += new System.EventHandler(this.txt_Nhaptim_TextChanged);
+            this.txt_Nhaptim.Leave += new System.EventHandler(this.txt_Nhaptim_Leave);
             // 
             // dgrid_QLNhanvien
             // 
@@ -423,6 +436,7 @@
             this.btn_Clear.TabIndex = 4;
             this.btn_Clear.Text = "Clear";
             this.btn_Clear.UseVisualStyleBackColor = true;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // btn_Nghiviec
             // 
@@ -480,6 +494,7 @@
             this.Name = "frmQLNhanVien";
             this.Text = "frmQLNhanVien";
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_QLNhanvien)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -527,5 +542,6 @@
         private System.Windows.Forms.PictureBox pb_Anh;
         private System.Windows.Forms.Button btn_Nghiviec;
         private System.Windows.Forms.Button btn_Clear;
+        private System.Windows.Forms.TextBox txt_Nhaptim;
     }
 }

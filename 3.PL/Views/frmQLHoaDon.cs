@@ -36,13 +36,13 @@ namespace _3.PL.Views
             _lstHoaDonCTView = new List<HoaDonCTView>();
           
 
-            LoadHoaDon();
+            LoadHoaDon(null);
        
 
 
         }
         //bảng  hóa đơn
-        public void LoadHoaDon()
+        public void LoadHoaDon(string input)
         {
             int stt = 1;
             dgrid_QLHoaDon.ColumnCount = 10;
@@ -60,7 +60,7 @@ namespace _3.PL.Views
 
             dgrid_QLHoaDon.Rows.Clear();
 
-            foreach (var x in _IHoaDonServices.GetAll())
+            foreach (var x in _IHoaDonServices.GetAll(input))
             {
                 dgrid_QLHoaDon.Rows.Add(stt++, x.Id, x.MaHD, x.TenNV, x.TenKH, x.ThoiGianTao, x.ThoiGianThanhToan, x.SDT, x.DiaChi, (x.TrangThai == 0 ? "Đã Thanh Toán" : "Chưa Thanh Toán"));
             }
@@ -115,7 +115,7 @@ namespace _3.PL.Views
                     _IHoaDonServices.Delete(hd);
                   
                     MessageBox.Show("Xóa thành công");
-                    LoadHoaDon();
+                    LoadHoaDon(null);
                     dgrid_Hoadonct.Rows.Clear();
                 }
             }
@@ -177,6 +177,23 @@ namespace _3.PL.Views
         {
             frmInHoaDon f = new frmInHoaDon();
             f.ShowDialog();
+        }
+
+        private void txt_Nhaptim_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_Nhaptim.Text)) return;
+            LoadHoaDon(txt_Nhaptim.Text);
+        }
+
+        private void txt_Nhaptim_Leave(object sender, EventArgs e)
+        {
+            txt_Nhaptim.Text = "Tìm kiếm .......";
+            LoadHoaDon(null);
+        }
+
+        private void txt_Nhaptim_Click(object sender, EventArgs e)
+        {
+            txt_Nhaptim.Clear();
         }
     }
 }

@@ -31,12 +31,14 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgrid_Thongke = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_Nhaptim = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_Thongke)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txt_Nhaptim);
             this.groupBox2.Controls.Add(this.dgrid_Thongke);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox2.Location = new System.Drawing.Point(0, 366);
@@ -72,6 +74,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin";
             // 
+            // txt_Nhaptim
+            // 
+            this.txt_Nhaptim.Location = new System.Drawing.Point(28, 56);
+            this.txt_Nhaptim.Name = "txt_Nhaptim";
+            this.txt_Nhaptim.Size = new System.Drawing.Size(423, 29);
+            this.txt_Nhaptim.TabIndex = 22;
+            this.txt_Nhaptim.Text = "                  Tìm Kiếm";
+            this.txt_Nhaptim.Click += new System.EventHandler(this.txt_Nhaptim_Click);
+            this.txt_Nhaptim.TextChanged += new System.EventHandler(this.txt_Nhaptim_TextChanged);
+            this.txt_Nhaptim.Leave += new System.EventHandler(this.txt_Nhaptim_Leave);
+            // 
             // frmThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -85,6 +98,7 @@
             this.Name = "frmThongKe";
             this.Text = "frmThongKe";
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_Thongke)).EndInit();
             this.ResumeLayout(false);
 
@@ -95,5 +109,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgrid_Thongke;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txt_Nhaptim;
     }
 }

@@ -31,7 +31,7 @@ namespace _3.PL.Views
             _ISizeServices=new SizeServices();
             rbtn_ConBan.Checked = true;
             LoadCmb();
-            LoadQLSP();
+            LoadQLSP(null);
         }
         private void LoadCmb()
         {
@@ -49,7 +49,7 @@ namespace _3.PL.Views
             cmb_Size.SelectedIndex = 0;
 
         }
-            public void LoadQLSP()
+            public void LoadQLSP(string input)
             {
                 int stt = 1;
                 dgrid_QLSanPham.ColumnCount = 8;
@@ -66,7 +66,7 @@ namespace _3.PL.Views
 
                 dgrid_QLSanPham.Rows.Clear();
 
-            foreach (var x in _IQLSanPhamServices.GetAll())
+            foreach (var x in _IQLSanPhamServices.GetAll(input))
             {
                 dgrid_QLSanPham.Rows.Add(stt++, x.Id,x.MaSP, x.TenSP,x.TenLoaiSP,x.TenSize,x.GiaBan, (x.TrangThai == 0 ? "Còn Bán" : "Nghỉ Bán") );
             }
@@ -128,7 +128,7 @@ namespace _3.PL.Views
         private void btn_Them_Click(object sender, EventArgs e)
         {
             MessageBox.Show(_IQLSanPhamServices.Add(GetDataFromGui()));
-            LoadQLSP();
+            LoadQLSP(null);
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)
@@ -136,7 +136,7 @@ namespace _3.PL.Views
             var temp =  GetDataFromGui();
             temp.Id = _idWhenClick;
             MessageBox.Show(_IQLSanPhamServices.Update(temp));
-            LoadQLSP();
+            LoadQLSP(null);
         }
 
         private void btn_Xóa_Click(object sender, EventArgs e)
@@ -144,7 +144,7 @@ namespace _3.PL.Views
             var temp = GetDataFromGui();
             temp.Id = _idWhenClick;
             MessageBox.Show(_IQLSanPhamServices.Delete(temp));
-            LoadQLSP();
+            LoadQLSP(null);
         }
 
         private void btn_Themanh_Click(object sender, EventArgs e)
@@ -180,6 +180,23 @@ namespace _3.PL.Views
         {
             frmLoai f =new frmLoai();
             f.ShowDialog();
+        }
+
+        private void txt_Nhaptim_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_Nhaptim.Text)) return;
+            LoadQLSP(txt_Nhaptim.Text);
+        }
+
+        private void txt_Nhaptim_Leave(object sender, EventArgs e)
+        {
+            txt_Nhaptim.Text = "Tìm kiếm .......";
+            LoadQLSP(null);
+        }
+
+        private void txt_Nhaptim_Click(object sender, EventArgs e)
+        {
+            txt_Nhaptim.Clear();
         }
     }
 }

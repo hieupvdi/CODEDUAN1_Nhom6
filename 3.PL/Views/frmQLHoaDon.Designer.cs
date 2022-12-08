@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQLHoaDon));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txt_Nhaptim = new System.Windows.Forms.TextBox();
             this.dgrid_QLHoaDon = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_Inhd = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txt_Nhaptim);
             this.groupBox2.Controls.Add(this.dgrid_QLHoaDon);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
@@ -53,6 +55,17 @@
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hóa Đơn";
+            // 
+            // txt_Nhaptim
+            // 
+            this.txt_Nhaptim.Location = new System.Drawing.Point(31, 327);
+            this.txt_Nhaptim.Name = "txt_Nhaptim";
+            this.txt_Nhaptim.Size = new System.Drawing.Size(423, 29);
+            this.txt_Nhaptim.TabIndex = 21;
+            this.txt_Nhaptim.Text = "                  Tìm Kiếm";
+            this.txt_Nhaptim.Click += new System.EventHandler(this.txt_Nhaptim_Click);
+            this.txt_Nhaptim.TextChanged += new System.EventHandler(this.txt_Nhaptim_TextChanged);
+            this.txt_Nhaptim.Leave += new System.EventHandler(this.txt_Nhaptim_Leave);
             // 
             // dgrid_QLHoaDon
             // 
@@ -135,6 +148,7 @@
             this.ShowInTaskbar = false;
             this.Text = "frmQLHoaDon";
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_QLHoaDon)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_Hoadonct)).EndInit();
@@ -150,5 +164,6 @@
         private System.Windows.Forms.DataGridView dgrid_Hoadonct;
         private System.Windows.Forms.Button btn_Inhd;
         private System.Windows.Forms.Button btn_Xoa;
+        private System.Windows.Forms.TextBox txt_Nhaptim;
     }
 }
