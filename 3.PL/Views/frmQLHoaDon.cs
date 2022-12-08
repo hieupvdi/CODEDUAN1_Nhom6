@@ -45,7 +45,7 @@ namespace _3.PL.Views
         public void LoadHoaDon(string input)
         {
             int stt = 1;
-            dgrid_QLHoaDon.ColumnCount = 10;
+            dgrid_QLHoaDon.ColumnCount = 11;
             dgrid_QLHoaDon.Columns[0].Name = "STT";
             dgrid_QLHoaDon.Columns[1].Name = "ID";
             dgrid_QLHoaDon.Columns[1].Visible = false;
@@ -56,13 +56,14 @@ namespace _3.PL.Views
             dgrid_QLHoaDon.Columns[6].Name = "Thời Gian Thanh Toán";
             dgrid_QLHoaDon.Columns[7].Name = "SĐT";
             dgrid_QLHoaDon.Columns[8].Name = "Địa Chỉ";
-            dgrid_QLHoaDon.Columns[9].Name = "Trạng Thái";
+            dgrid_QLHoaDon.Columns[9].Name = "Tổng Tiền";
+            dgrid_QLHoaDon.Columns[10].Name = "Trạng Thái";
 
             dgrid_QLHoaDon.Rows.Clear();
 
             foreach (var x in _IHoaDonServices.GetAll(input))
             {
-                dgrid_QLHoaDon.Rows.Add(stt++, x.Id, x.MaHD, x.TenNV, x.TenKH, x.ThoiGianTao, x.ThoiGianThanhToan, x.SDT, x.DiaChi, (x.TrangThai == 0 ? "Đã Thanh Toán" : "Chưa Thanh Toán"));
+                dgrid_QLHoaDon.Rows.Add(stt++, x.Id, x.MaHD, x.TenNV, x.TenKH, x.ThoiGianTao, x.ThoiGianThanhToan, x.SDT, x.DiaChi,x.TongTien, (x.TrangThai == 0 ? "Đã Thanh Toán" : "Chưa Thanh Toán"));
             }
 
         }

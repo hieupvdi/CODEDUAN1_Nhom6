@@ -16,7 +16,7 @@ namespace _3.PL.Views
     {
         private IHoaDonServices _IHoaDonServices;
         private IQLNhanVienServices _IQLNhanVienServices;
-     
+        Guid _ID;
         public frmThongKe()
         {
             InitializeComponent();
@@ -28,7 +28,8 @@ namespace _3.PL.Views
         public void LoadHD(string input)
         {
             int stt = 1;
-            dgrid_Thongke.ColumnCount = 10;
+    
+            dgrid_Thongke.ColumnCount = 11;
             dgrid_Thongke.Columns[0].Name = "STT";
             dgrid_Thongke.Columns[1].Name = "ID";
             dgrid_Thongke.Columns[1].Visible = false;
@@ -39,17 +40,36 @@ namespace _3.PL.Views
             dgrid_Thongke.Columns[6].Name = "Thời Gian Thanh Toán";
             dgrid_Thongke.Columns[7].Name = "SĐT";
             dgrid_Thongke.Columns[8].Name = "Địa Chỉ";
-            dgrid_Thongke.Columns[9].Name = "Trạng Thái";
-
+            dgrid_Thongke.Columns[9].Name = "Tổng Tiền";
+            dgrid_Thongke.Columns[10].Name = "Trạng Thái";
             dgrid_Thongke.Rows.Clear();
+          
+                foreach (var x in _IHoaDonServices.GetAll(input))
+                {
+                    dgrid_Thongke.Rows.Add(stt++, x.Id, x.MaHD, x.TenNV, x.TenKH, x.ThoiGianTao, x.ThoiGianThanhToan, x.SDT, x.DiaChi, x.TongTien, (x.TrangThai == 0 ? "Đã Thanh Toán" : "Chưa Thanh Toán"));
+                 
 
-            foreach (var x in _IHoaDonServices.GetAll(input))
-            {
-                dgrid_Thongke.Rows.Add(stt++, x.Id, x.MaHD, x.TenNV, x.TenKH, x.ThoiGianTao, x.ThoiGianThanhToan, x.SDT, x.DiaChi, (x.TrangThai == 0 ? "Đã Thanh Toán" : "Chưa Thanh Toán"));
-            }
-
+                }
+    
         }
+        public void doanhthu()
+        {
+            //int st = 0;
 
+            //var sp = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _ID);
+            //if (sp.TrangThai==0)
+            //{
+            //    int tien = 0;
+            //    foreach (var item in _IHoaDonServices.GetAll())
+            //    {
+            //        tien += Convert.ToInt32(item.TongTien *st);
+            //    }
+            //}
+            //else {
+            //    st++;
+            //}
+            //lb_Doanhthungay.Text = tien.ToString() + "VNĐ";
+        }
         private void txt_Nhaptim_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txt_Nhaptim.Text)) return;

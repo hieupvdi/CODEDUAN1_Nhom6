@@ -24,22 +24,26 @@ namespace _3.PL.Views
         {
             try {
 
-                SmtpClient mailclient = new SmtpClient("smatp.gmail.com", 587);
-                mailclient.EnableSsl=true;
-                //tài khoản gửi mã
-                mailclient.Credentials = new NetworkCredential("hieuphamtnt123456789@gmail.com", "Anhhieutnt123");
-                //tài khoản gửi mã gửi cho ai
+   
 
-                MailMessage message = new MailMessage("hieuphamtnt123456789@gmail.com", txt_Email.Text);
 
-                message.Subject = txt_Maxacnhan.Text;
-                message.Body = txt_Maxacnhan.Text;
+                MailAddress From = new MailAddress("hieuphamtnt123456789@gmail.com","Anhhieutnt123");
+                MailAddress to = new MailAddress("hieuphamvan.dev.it@gmail.com");
+                System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage(From, to);
+                message.Subject = "Đemo code Gửi email";
+                message.Body = "nội dung muốn gửi email";
+                message.IsBodyHtml = true;
 
-                mailclient.Send(message);
+                SmtpClient client = new SmtpClient("smatp.gmail.com", 587);
+                client.UseDefaultCredentials = false;
+                client.Credentials = new System.Net.NetworkCredential("hieuphamtnt123456789@gmail.com", "lmgsvrmzqonpynii");
+                client.EnableSsl = true;
+                client.Send(message);
                 MessageBox.Show("Gửi Email  thành công");
 
+
             }
-            catch
+            catch(Exception ex)
             {
                 MessageBox.Show("Gửi Email Không thành công");
             }
