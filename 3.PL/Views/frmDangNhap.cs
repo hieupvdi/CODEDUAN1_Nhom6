@@ -99,20 +99,27 @@ namespace _3.PL.Views
             }
         }
 
-        private void btn_Thoat_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn Thoát không?", "Thoát", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
+        //private void btn_Thoat_Click(object sender, EventArgs e)
+        //{
+        //    //DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn Thoát không?", "Thoát", MessageBoxButtons.YesNo);
+        //    //if (dialogResult == DialogResult.Yes)
+        //    //{
+        //    //    Application.Exit();
+        //    //}
                
-        }
+        //}
 
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
             this.lb_Email.BackColor = System.Drawing.Color.Transparent;
 
+        }
+
+        private void llb_Quenmk_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmQuenmk f = new frmQuenmk();
+            this.Hide();
+            f.ShowDialog();
         }
     }
 }

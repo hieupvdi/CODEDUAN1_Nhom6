@@ -38,9 +38,9 @@
             this.btn_Dangnhap = new System.Windows.Forms.Button();
             this.cb_Hienmk = new System.Windows.Forms.CheckBox();
             this.cb_Luumk = new System.Windows.Forms.CheckBox();
-            this.btn_Thoat = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.llb_Quenmk = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -110,7 +110,7 @@
             // 
             this.btn_Dangnhap.Image = ((System.Drawing.Image)(resources.GetObject("btn_Dangnhap.Image")));
             this.btn_Dangnhap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Dangnhap.Location = new System.Drawing.Point(627, 393);
+            this.btn_Dangnhap.Location = new System.Drawing.Point(642, 426);
             this.btn_Dangnhap.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btn_Dangnhap.Name = "btn_Dangnhap";
             this.btn_Dangnhap.Size = new System.Drawing.Size(205, 65);
@@ -142,19 +142,6 @@
             this.cb_Luumk.Text = "Lưu Mật Khẩu";
             this.cb_Luumk.UseVisualStyleBackColor = true;
             // 
-            // btn_Thoat
-            // 
-            this.btn_Thoat.Image = ((System.Drawing.Image)(resources.GetObject("btn_Thoat.Image")));
-            this.btn_Thoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Thoat.Location = new System.Drawing.Point(853, 488);
-            this.btn_Thoat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btn_Thoat.Name = "btn_Thoat";
-            this.btn_Thoat.Size = new System.Drawing.Size(205, 65);
-            this.btn_Thoat.TabIndex = 21;
-            this.btn_Thoat.Text = "Thoát ";
-            this.btn_Thoat.UseVisualStyleBackColor = true;
-            this.btn_Thoat.Click += new System.EventHandler(this.btn_Thoat_Click);
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -178,14 +165,25 @@
             this.label1.TabIndex = 23;
             this.label1.Text = "Đăng Nhập";
             // 
+            // llb_Quenmk
+            // 
+            this.llb_Quenmk.AutoSize = true;
+            this.llb_Quenmk.Location = new System.Drawing.Point(554, 384);
+            this.llb_Quenmk.Name = "llb_Quenmk";
+            this.llb_Quenmk.Size = new System.Drawing.Size(128, 21);
+            this.llb_Quenmk.TabIndex = 24;
+            this.llb_Quenmk.TabStop = true;
+            this.llb_Quenmk.Text = "Quên Mật Khẩu";
+            this.llb_Quenmk.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llb_Quenmk_LinkClicked);
+            // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1071, 565);
+            this.Controls.Add(this.llb_Quenmk);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btn_Thoat);
             this.Controls.Add(this.cb_Luumk);
             this.Controls.Add(this.cb_Hienmk);
             this.Controls.Add(this.btn_Dangnhap);
@@ -219,8 +217,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox cb_Hienmk;
         private System.Windows.Forms.CheckBox cb_Luumk;
-        private System.Windows.Forms.Button btn_Thoat;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel llb_Quenmk;
     }
 }

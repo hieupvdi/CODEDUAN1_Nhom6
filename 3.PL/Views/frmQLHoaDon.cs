@@ -23,7 +23,7 @@ namespace _3.PL.Views
         //
         private IHoaDonCTServices _IHoaDonCTServices;
         private Guid _idWhenClick;
-        public Guid oID;
+ 
         public Guid u;
         public Guid _idhdcho;
         public List<HoaDonCTView> _lstHoaDonCTView;
@@ -92,20 +92,20 @@ namespace _3.PL.Views
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            if (oID == null)
+            if (_idhdcho == null)
             {
                 MessageBox.Show("Vui lòng chọn hóa đơn cần xóa");
             }
             else
             {
-                HoaDonView hd = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == oID);
-                if (hd.TrangThai != 0)
+                HoaDonView hd = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idhdcho);
+                if (hd.TrangThai != 1)
                 {
                     MessageBox.Show("Chỉ có hóa đơn chưa thanh toán mới được xóa : Định Trộm Tiền của quán à");
                 }
                 else
                 {
-                    var _lshd = _IHoaDonCTServices.GetAll().Where(x => x.IdHD == oID);
+                    var _lshd = _IHoaDonCTServices.GetAll().Where(x => x.IdHD == _idhdcho);
                     foreach (var a in _lshd)
                     {
                         var p = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == a.IdSP);
