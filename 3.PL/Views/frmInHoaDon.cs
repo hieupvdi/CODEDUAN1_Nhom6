@@ -17,19 +17,6 @@ namespace _3.PL.Views
             InitializeComponent();
         }
 
-        private void txt_Tienkhdua_TextChanged(object sender, EventArgs e)
-        {
-            lb_Tienthua.Text = (int.Parse(txt_Tienkhdua.Text) - int.Parse(txt_Tongtien.Text)).ToString();
-        }
-
-        private void txt_Tongtien_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_Thanhtoan_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
