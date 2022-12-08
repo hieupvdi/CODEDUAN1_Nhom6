@@ -54,21 +54,7 @@ namespace _3.PL.Views
         }
         public void doanhthu()
         {
-            //int st = 0;
-
-            //var sp = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _ID);
-            //if (sp.TrangThai==0)
-            //{
-            //    int tien = 0;
-            //    foreach (var item in _IHoaDonServices.GetAll())
-            //    {
-            //        tien += Convert.ToInt32(item.TongTien *st);
-            //    }
-            //}
-            //else {
-            //    st++;
-            //}
-            //lb_Doanhthungay.Text = tien.ToString() + "VNĐ";
+           // lb_Doanhthungay.Text = _IHoaDonServices.GetAll().Select(x => x.Id).Distinct().Sum(x => x.TongTien).ToString();
         }
         private void txt_Nhaptim_TextChanged(object sender, EventArgs e)
         {

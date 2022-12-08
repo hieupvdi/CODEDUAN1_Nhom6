@@ -80,7 +80,11 @@ namespace _3.PL.Views
            
                 foreach (var x in _IHoaDonServices.GetAll())
                 {
+                 if (x.TrangThai == 1)
+                 {
                     dgrid_QLHoaDon.Rows.Add(stt++, x.Id, x.MaHD, x.TenNV, x.TenKH, x.ThoiGianTao,/* x.ThoiGianThanhToan, x.SDT, x.DiaChi,*/x.TongTien, (x.TrangThai == 0 ? "Đã Thanh Toán" : "Chưa Thanh Toán"));
+                }
+                    
                 }
             
         }
