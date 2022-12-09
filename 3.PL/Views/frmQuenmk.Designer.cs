@@ -37,6 +37,8 @@
             this.txt_Maxacnhan = new System.Windows.Forms.TextBox();
             this.btn_Doimk = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btn_Otp = new System.Windows.Forms.Button();
+            this.cb_Hienmk = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lb_Email
@@ -91,15 +93,14 @@
             this.txt_Maxacnhan.Location = new System.Drawing.Point(258, 211);
             this.txt_Maxacnhan.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.txt_Maxacnhan.Name = "txt_Maxacnhan";
-            this.txt_Maxacnhan.PasswordChar = '*';
-            this.txt_Maxacnhan.Size = new System.Drawing.Size(145, 29);
+            this.txt_Maxacnhan.Size = new System.Drawing.Size(192, 29);
             this.txt_Maxacnhan.TabIndex = 20;
             // 
             // btn_Doimk
             // 
             this.btn_Doimk.Image = ((System.Drawing.Image)(resources.GetObject("btn_Doimk.Image")));
             this.btn_Doimk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Doimk.Location = new System.Drawing.Point(343, 403);
+            this.btn_Doimk.Location = new System.Drawing.Point(351, 399);
             this.btn_Doimk.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btn_Doimk.Name = "btn_Doimk";
             this.btn_Doimk.Size = new System.Drawing.Size(205, 65);
@@ -120,11 +121,37 @@
             this.label2.TabIndex = 24;
             this.label2.Text = "Quên Mật khẩu";
             // 
+            // btn_Otp
+            // 
+            this.btn_Otp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Otp.Location = new System.Drawing.Point(514, 210);
+            this.btn_Otp.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btn_Otp.Name = "btn_Otp";
+            this.btn_Otp.Size = new System.Drawing.Size(126, 29);
+            this.btn_Otp.TabIndex = 25;
+            this.btn_Otp.Text = "Gửi lại OTP";
+            this.btn_Otp.UseVisualStyleBackColor = true;
+            this.btn_Otp.Click += new System.EventHandler(this.btn_Otp_Click);
+            // 
+            // cb_Hienmk
+            // 
+            this.cb_Hienmk.AutoSize = true;
+            this.cb_Hienmk.Location = new System.Drawing.Point(258, 344);
+            this.cb_Hienmk.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cb_Hienmk.Name = "cb_Hienmk";
+            this.cb_Hienmk.Size = new System.Drawing.Size(142, 25);
+            this.cb_Hienmk.TabIndex = 26;
+            this.cb_Hienmk.Text = "Hiện Mật Khẩu";
+            this.cb_Hienmk.UseVisualStyleBackColor = true;
+            this.cb_Hienmk.CheckedChanged += new System.EventHandler(this.cb_Hienmk_CheckedChanged);
+            // 
             // frmQuenmk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(919, 497);
+            this.Controls.Add(this.cb_Hienmk);
+            this.Controls.Add(this.btn_Otp);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_Doimk);
             this.Controls.Add(this.txt_Maxacnhan);
@@ -152,5 +179,7 @@
         private System.Windows.Forms.TextBox txt_Maxacnhan;
         private System.Windows.Forms.Button btn_Doimk;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_Otp;
+        private System.Windows.Forms.CheckBox cb_Hienmk;
     }
 }

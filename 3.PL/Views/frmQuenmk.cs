@@ -1,4 +1,6 @@
-﻿using System;
+﻿using _2.BUS.IServices;
+using _2.BUS.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,38 +16,92 @@ namespace _3.PL.Views
 {
     public partial class frmQuenmk : Form
     {
-        //https://myaccount.google.com/u/0/lesssecureapps?pli=1&rapt=AEjHL4PrZJpj22ximQ3RmHLpgOoZnoDKAPqvptNb7kEol-H88dQWVTQkLuRukBaw7bPok0631R72MR7JNANna80mwn8uVKXUbA  //đã bị chặn dứng dụng k an toàn tắt bảo mật
+     
+        private IQLNhanVienServices _IQLNhanVienServices;
+   
         public frmQuenmk()
         {
             InitializeComponent();
+            txt_Email.Text = Properties.Settings.Default.TaiKhoan;
+            _IQLNhanVienServices = new QLNhanVienServices();
+        }
+        Random rd = new Random();
+        int otp;
+        private void btn_Otp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //tạo mã otp 
+                otp = rd.Next(6,100000);
+                var fromAddress = new MailAddress("hieuphamtnt123456789@gmail.com"); //email dùng để gửi mã otp
+                var toAddress = new MailAddress(txt_Email.ToString()); //email dùng để nhận mã otp
+                const string frompass = "rizvxvbbwtfdunrj";//mã xác thực 2 lớp  rồi để nhận mã
+
+                const string subject = "OTP Code";
+                string body = otp.ToString();
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, frompass),
+                    Timeout = 2000000
+                };
+
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = body
+
+
+                })
+                {
+                    smtp.Send(message);
+                }
+                MessageBox.Show("Mã OTP Đã Được Gửi đến Email :" + txt_Email.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Email :" + txt_Email.Text + " Không tồn tại hoặc ghi sai Email");
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void btn_Doimk_Click(object sender, EventArgs e)
         {
-            try {
+            if (otp.ToString().Equals(txt_Maxacnhan.Text))
+            {
+                MessageBox.Show("Xác Minh Thành công");
 
-   
+                Guid h = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Email == Properties.Settings.Default.TaiKhoan).Id;
+                var NV = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Id == h);
+                NV.MatKhau = txt_Matkhaumoi.Text;
 
+                _IQLNhanVienServices.Update(NV);
+                MessageBox.Show("Đổi mật khẩu thành công");
+                frmDangNhap f=new frmDangNhap();
+                f.Hide();
+                f.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Mã xác minh không chính xác ");
+            }
+        }
 
-                MailAddress From = new MailAddress("hieuphamtnt123456789@gmail.com","Anhhieutnt123");
-                MailAddress to = new MailAddress("hieuphamvan.dev.it@gmail.com");
-                System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage(From, to);
-                message.Subject = "Đemo code Gửi email";
-                message.Body = "nội dung muốn gửi email";
-                message.IsBodyHtml = true;
-
-                SmtpClient client = new SmtpClient("smatp.gmail.com", 587);
-                client.UseDefaultCredentials = false;
-                client.Credentials = new System.Net.NetworkCredential("hieuphamtnt123456789@gmail.com", "lmgsvrmzqonpynii");
-                client.EnableSsl = true;
-                client.Send(message);
-                MessageBox.Show("Gửi Email  thành công");
-
+        private void cb_Hienmk_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_Hienmk.Checked)
+            {
+                txt_Matkhaumoi.PasswordChar = '\0';
 
             }
-            catch(Exception ex)
+            else
             {
-                MessageBox.Show("Gửi Email Không thành công");
+                txt_Matkhaumoi.PasswordChar = '*';
             }
         }
     }

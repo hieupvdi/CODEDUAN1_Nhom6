@@ -414,7 +414,7 @@ namespace _3.PL.Views
                         lb_Tongtientt.Text = tien.ToString()+"VNĐ";
                         txt_Makh.Text = "";
                         lb_TongTiengh.Text = "";
-                        MessageBox.Show($"Cập nhật hóa đơn thành công. ID: {_idhdcho}");
+                        MessageBox.Show($"Cập nhật hóa đơn thành công. ID: {hd.MaHD}");
                       
                         LoadDSSanPham(null);         
                         LoadHDCho();
