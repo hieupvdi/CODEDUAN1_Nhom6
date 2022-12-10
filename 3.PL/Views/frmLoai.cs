@@ -39,6 +39,34 @@ namespace _3.PL.Views
                 dggrid_LoaisanPham.Rows.Add(stt++, x.Id, x.MaLoaiSP, x.TenLoaiSP);
             }
         }
+        public bool Checkduluu()
+        {
+
+            if (txt_Tenlsp.Text.Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập Tên loại sp");
+                return false;
+            }
+            else if (txt_Tenlsp.Text.Length < 5)
+            {
+                MessageBox.Show("Tên loại sp phải có ít nhất 5 kí tự");
+                return false;
+            }
+            else if (txt_Malsp.Text.Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập mã loại sp");
+                return false;
+            }
+            else if (txt_Malsp.Text.Length < 2)
+            {
+                MessageBox.Show("mã loại sp phải có ít nhất 2 kí tự");
+                return false;
+            }
+        
+
+
+            return true;
+        }
         public LoaiSPView GetDataFromGui()
         {
             return new LoaiSPView()
@@ -69,16 +97,30 @@ namespace _3.PL.Views
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_ILoaiSPServices.Add(GetDataFromGui()));
-            LoadLSP(null);
+            if (!Checkduluu())
+            {
+
+            }
+            else
+            {
+                MessageBox.Show(_ILoaiSPServices.Add(GetDataFromGui()));
+                LoadLSP(null);
+            }
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            var temp = GetDataFromGui();
-            temp.Id = _idWhenClick;
-            MessageBox.Show(_ILoaiSPServices.Update(temp));
-            LoadLSP(null);
+            if (!Checkduluu())
+            {
+
+            }
+            else
+            {
+                var temp = GetDataFromGui();
+                temp.Id = _idWhenClick;
+                MessageBox.Show(_ILoaiSPServices.Update(temp));
+                LoadLSP(null);
+            }
         }
 
         private void btn_Xoa_Click(object sender, EventArgs e)

@@ -448,7 +448,7 @@
             this.btn_Nghiviec.Name = "btn_Nghiviec";
             this.btn_Nghiviec.Size = new System.Drawing.Size(221, 57);
             this.btn_Nghiviec.TabIndex = 2;
-            this.btn_Nghiviec.Text = "Nghỉ Việc";
+            this.btn_Nghiviec.Text = "Xóa";
             this.btn_Nghiviec.UseVisualStyleBackColor = true;
             this.btn_Nghiviec.Click += new System.EventHandler(this.btn_Nghiviec_Click);
             // 

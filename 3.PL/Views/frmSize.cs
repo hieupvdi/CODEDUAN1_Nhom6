@@ -42,6 +42,38 @@ namespace _3.PL.Views
                 dgrid_Size.Rows.Add(stt++, x.Id, x.MaSize, x.TenSize,/*x.Gia,*/x.TrangThai == 0 ? "Còn Bán" : "Nghỉ Bán");
             }
         }
+        public bool Checkduluu()
+        {
+
+            if (txt_Tensize.Text.Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập Tên size");
+                return false;
+            }
+            else if (txt_Tensize.Text.Length < 5)
+            {
+                MessageBox.Show("Tên size phải có ít nhất 5 kí tự");
+                return false;
+            }
+            else if (txt_Masize.Text.Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập mã size");
+                return false;
+            }
+            else if (txt_Masize.Text.Length < 2)
+            {
+                MessageBox.Show("mã size phải có ít nhất 2 kí tự");
+                return false;
+            }        
+            else if (!txt_Giaban.Text.All(char.IsNumber))
+            {
+                MessageBox.Show("Gía bán phải là số !");
+                return false;
+            }
+      
+
+            return true;
+        }
         public SizeView GetDataFromGui()
         {
             return new SizeView()
@@ -84,17 +116,30 @@ namespace _3.PL.Views
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-          
-            MessageBox.Show(_ISizeServices.Add(GetDataFromGui()));
-            LoadSize();
+            if (!Checkduluu())
+            {
+
+            }
+            else
+            {
+                MessageBox.Show(_ISizeServices.Add(GetDataFromGui()));
+                LoadSize();
+            }
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            var temp = GetDataFromGui();
-            temp.Id = _idWhenClick;
-            MessageBox.Show(_ISizeServices.Update(temp));
-            LoadSize();
+            if (!Checkduluu())
+            {
+
+            }
+            else
+            {
+                var temp = GetDataFromGui();
+                temp.Id = _idWhenClick;
+                MessageBox.Show(_ISizeServices.Update(temp));
+                LoadSize();
+            }
         }
 
         private void btn_Xoa_Click(object sender, EventArgs e)

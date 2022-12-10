@@ -79,6 +79,7 @@
             this.dgrid_Thongke.RowTemplate.Height = 28;
             this.dgrid_Thongke.Size = new System.Drawing.Size(1331, 265);
             this.dgrid_Thongke.TabIndex = 0;
+            this.dgrid_Thongke.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_Thongke_CellClick);
             // 
             // groupBox1
             // 

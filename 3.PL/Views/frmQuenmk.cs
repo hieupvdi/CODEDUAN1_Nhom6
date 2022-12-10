@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -27,6 +28,21 @@ namespace _3.PL.Views
         }
         Random rd = new Random();
         int otp;
+        public bool Checkduluu()
+        {
+            string email = txt_Email.Text;
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,10})+)$");
+            Match match = regex.Match(email);
+            if (!match.Success)
+            {
+                MessageBox.Show("Email không hợp lệ!!!");
+                txt_Email.Text = "";
+                return false;
+            }
+
+
+            return true;
+        }
         private void btn_Otp_Click(object sender, EventArgs e)
         {
             try
@@ -72,23 +88,30 @@ namespace _3.PL.Views
 
         private void btn_Doimk_Click(object sender, EventArgs e)
         {
-            if (otp.ToString().Equals(txt_Maxacnhan.Text))
+            if (!Checkduluu())
             {
-                MessageBox.Show("Xác Minh Thành công");
 
-                Guid h = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Email == Properties.Settings.Default.TaiKhoan).Id;
-                var NV = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Id == h);
-                NV.MatKhau = txt_Matkhaumoi.Text;
-
-                _IQLNhanVienServices.Update(NV);
-                MessageBox.Show("Đổi mật khẩu thành công");
-                frmDangNhap f=new frmDangNhap();
-                f.Hide();
-                f.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Mã xác minh không chính xác ");
+                if (otp.ToString().Equals(txt_Maxacnhan.Text))
+                {
+                    MessageBox.Show("Xác Minh Thành công");
+
+                    Guid h = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Email == Properties.Settings.Default.TaiKhoan).Id;
+                    var NV = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Id == h);
+                    NV.MatKhau = txt_Matkhaumoi.Text;
+
+                    _IQLNhanVienServices.Update(NV);
+                    MessageBox.Show("Đổi mật khẩu thành công");
+                    frmDangNhap f = new frmDangNhap();
+                    this.Hide();
+                    f.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Mã xác minh không chính xác ");
+                }
             }
         }
 

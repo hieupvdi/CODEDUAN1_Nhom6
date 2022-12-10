@@ -129,7 +129,7 @@
             this.btn_Otp.Name = "btn_Otp";
             this.btn_Otp.Size = new System.Drawing.Size(126, 29);
             this.btn_Otp.TabIndex = 25;
-            this.btn_Otp.Text = "Gửi lại OTP";
+            this.btn_Otp.Text = "Gửi OTP";
             this.btn_Otp.UseVisualStyleBackColor = true;
             this.btn_Otp.Click += new System.EventHandler(this.btn_Otp_Click);
             // 

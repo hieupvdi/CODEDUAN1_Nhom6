@@ -49,7 +49,7 @@ namespace _3.PL.Views
             LoadDSSanPham(null);
             LoadGioHang();
             LoadHDCho();
-            Loctrangthai();
+    
 
 
 
@@ -80,10 +80,10 @@ namespace _3.PL.Views
            
                 foreach (var x in _IHoaDonServices.GetAll())
                 {
-                 if (x.TrangThai == 1)
-                 {
-                    dgrid_QLHoaDon.Rows.Add(stt++, x.Id, x.MaHD, x.TenNV, x.TenKH, x.ThoiGianTao,/* x.ThoiGianThanhToan, x.SDT, x.DiaChi,*/x.TongTien, (x.TrangThai == 0 ? "Đã Thanh Toán" : "Chưa Thanh Toán"));
-                }
+                    if (x.TrangThai == 1)
+                    {
+                        dgrid_QLHoaDon.Rows.Add(stt++, x.Id, x.MaHD, x.TenNV, x.TenKH, x.ThoiGianTao,/* x.ThoiGianThanhToan, x.SDT, x.DiaChi,*/x.TongTien, (x.TrangThai == 0 ? "Đã Thanh Toán" : "Chưa Thanh Toán"));
+                    }
                     
                 }
             
@@ -139,8 +139,31 @@ namespace _3.PL.Views
 
         }
 
-     
 
+        public bool Checkduluu()
+        {
+
+       
+             if (txt_Makh.Text.Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập mã Khách Hàng");
+                return false;
+            }
+            else if (txt_Makh.Text.Length < 2)
+            {
+                MessageBox.Show("mã Khách Hàng phải có ít nhất 2 kí tự");
+                return false;
+            }
+       
+            else if (!txt_Tienkhdua.Text.All(char.IsNumber))
+            {
+                MessageBox.Show("Tiền khách đưa  phải là số !");
+                return false;
+            }
+          
+
+            return true;
+        }
         private void dgrid_QLSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -248,71 +271,78 @@ namespace _3.PL.Views
 
         private void btn_Taohdcho_Click(object sender, EventArgs e)
         {
-            if (_lstHoaDonCTView.Any())//check có sp trong bảng tạm có k
+            if (!Checkduluu())
             {
-                decimal tien = 0;
-                foreach (var item in _lstHoaDonCTView)
-                {
-                    tien += item.DonGia * item.SoLuong;
-                }
-                //lấy id nv / id kh
 
-                Guid h = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Email == Properties.Settings.Default.TaiKhoan).Id;
-                c = _IKhachHangServices.GetAll().FirstOrDefault(x => x.MaKH == txt_Makh.Text);
-             
-                if (c != null)
-                {
-                    Random rd = new Random();
-                  
-                    var HoaDonView = new HoaDonView()
-                    {
-
-                        Id = Guid.NewGuid(),
-                        MaHD = "HD" + rd.Next(1,10000),
-                        ThoiGianTao = DateTime.Now,
-                        IdNV = h,
-                        IdKH = c.Id,
-                        DiaChi = c.DiaChi,
-                        SDT= c.SDT,
-                        TongTien = tien,
-                        TrangThai = 1,
-
-
-                    };
-                    _IHoaDonServices.Add(HoaDonView);
-            
-                    foreach (var item in _lstHoaDonCTView)
-                    {
-                        var HoaDonCTView = new HoaDonCTView()
-                        {
-                            IdHD = HoaDonView.Id,
-                            IdSP = item.IdSP,
-                            GiaBan = HoaDonView.TongTien,
-                            SoLuong = item.SoLuong
-                        };
-                        _IHoaDonCTServices.Add(HoaDonCTView);
-                   
-                    }
-
-                    lb_Mahd.Text = HoaDonView.Id.ToString();
-                    lb_Tongtientt.Text = HoaDonView.TongTien.ToString();
-                    txt_Makh.Text = "";
-                    lb_TongTiengh.Text = "";
-                    MessageBox.Show($"Tạo hóa đơn thành công Mã Hóa Đơn là : {HoaDonView.MaHD}");
-                    LoadDSSanPham(null);
-                    LoadHDCho();
-                    LoadGioHang();
-                    _lstHoaDonCTView = new List<HoaDonCTView>();
-                    dgrid_Hoadonct.Rows.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Vui lòng nhập khách hàng");
-                }
             }
             else
             {
-                MessageBox.Show("Chưa có sản phẩm nào trong giỏ hàng");
+                if (_lstHoaDonCTView.Any())//check có sp trong bảng tạm có k
+                {
+                    decimal tien = 0;
+                    foreach (var item in _lstHoaDonCTView)
+                    {
+                        tien += item.DonGia * item.SoLuong;
+                    }
+                    //lấy id nv / id kh
+
+                    Guid h = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Email == Properties.Settings.Default.TaiKhoan).Id;
+                    c = _IKhachHangServices.GetAll().FirstOrDefault(x => x.MaKH == txt_Makh.Text);
+
+                    if (c != null)
+                    {
+                        Random rd = new Random();
+
+                        var HoaDonView = new HoaDonView()
+                        {
+
+                            Id = Guid.NewGuid(),
+                            MaHD = "HD" + rd.Next(1, 10000),
+                            ThoiGianTao = DateTime.Now,
+                            IdNV = h,
+                            IdKH = c.Id,
+                            DiaChi = c.DiaChi,
+                            SDT = c.SDT,
+                            TongTien = tien,
+                            TrangThai = 1,
+
+
+                        };
+                        _IHoaDonServices.Add(HoaDonView);
+
+                        foreach (var item in _lstHoaDonCTView)
+                        {
+                            var HoaDonCTView = new HoaDonCTView()
+                            {
+                                IdHD = HoaDonView.Id,
+                                IdSP = item.IdSP,
+                                GiaBan = HoaDonView.TongTien,
+                                SoLuong = item.SoLuong
+                            };
+                            _IHoaDonCTServices.Add(HoaDonCTView);
+
+                        }
+
+                        lb_Mahd.Text = HoaDonView.Id.ToString();
+                        lb_Tongtientt.Text = HoaDonView.TongTien.ToString();
+                        txt_Makh.Text = "";
+                        lb_TongTiengh.Text = "";
+                        MessageBox.Show($"Tạo hóa đơn thành công Mã Hóa Đơn là : {HoaDonView.MaHD}");
+                        LoadDSSanPham(null);
+                        LoadHDCho();
+                        LoadGioHang();
+                        _lstHoaDonCTView = new List<HoaDonCTView>();
+                        dgrid_Hoadonct.Rows.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng nhập khách hàng");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Chưa có sản phẩm nào trong giỏ hàng");
+                }
             }
 
         }
@@ -455,7 +485,14 @@ namespace _3.PL.Views
 
         private void txt_Tienkhdua_TextChanged(object sender, EventArgs e)
         {
-            if (txt_Tienkhdua.Text != "")
+
+
+             if (!txt_Tienkhdua.Text.All(char.IsNumber))
+            {
+                MessageBox.Show("Tiền khách đưa  phải là số !");
+            
+            }
+            else if(txt_Tienkhdua.Text != "")
             {
                 lb_Tienthua.Text = (Convert.ToDouble(txt_Tienkhdua.Text) - Convert.ToDouble(lb_Tongtientt.Text)).ToString();
            
@@ -467,53 +504,58 @@ namespace _3.PL.Views
 
         private void btn_Thanhtoan_Click(object sender, EventArgs e)
         {
-
-            if (lb_Mahd.Text != null)
+            if (!Checkduluu())
             {
-                var hd = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idhdcho);
-                if (hd.TrangThai != 1)
-                {
-                    MessageBox.Show("Đơn hàng không tồn tại hoặc đã thanh toán");
-                    lb_Tongtientt.Text = "0";
-                }
-                else
-                {
 
-
-                    if (Convert.ToDouble(txt_Tienkhdua.Text) < Convert.ToDouble(lb_Tongtientt.Text))
-                    {
-                        MessageBox.Show("Thieu tien");
-                    }                  
-                    else
-                    {
-                        var Khachhang = _IKhachHangServices.GetAll().FirstOrDefault(x => x.Id == hd.IdKH);
-                        DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn thanh toán không?", "Thanh toán", MessageBoxButtons.YesNo);
-                        if (dialogResult == DialogResult.Yes)
-                        {
-                            hd.ThoiGianThanhToan = DateTime.Now;
-                            hd.TrangThai = 0;
-
-
-                            _IHoaDonServices.Update(hd);
-
-                            _IKhachHangServices.Update(Khachhang);
-                            MessageBox.Show("Thanh toán thành công");
-
-                            txt_Tienkhdua.Text = "";
-                            lb_Tongtientt.Text = "0";
-                            lb_Tienthua.Text = "0";
-                            LoadHDCho();
-
-                        }
-                    }
-                }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn mã hóa đơn");
+                if (lb_Mahd.Text != null)
+                {
+                    var hd = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idhdcho);
+                    if (hd.TrangThai != 1)
+                    {
+                        MessageBox.Show("Đơn hàng không tồn tại hoặc đã thanh toán");
+                        lb_Tongtientt.Text = "0";
+                    }
+                    else
+                    {
+
+
+                        if (Convert.ToDouble(txt_Tienkhdua.Text) < Convert.ToDouble(lb_Tongtientt.Text))
+                        {
+                            MessageBox.Show("Thieu tien");
+                        }
+                        else
+                        {
+                            var Khachhang = _IKhachHangServices.GetAll().FirstOrDefault(x => x.Id == hd.IdKH);
+                            DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn thanh toán không?", "Thanh toán", MessageBoxButtons.YesNo);
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                hd.ThoiGianThanhToan = DateTime.Now;
+                                hd.TrangThai = 0;
+
+
+                                _IHoaDonServices.Update(hd);
+
+                                _IKhachHangServices.Update(Khachhang);
+                                MessageBox.Show("Thanh toán thành công");
+
+                                txt_Tienkhdua.Text = "";
+                                lb_Tongtientt.Text = "0";
+                                lb_Tienthua.Text = "0";
+                                LoadHDCho();
+
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn mã hóa đơn");
+                }
+
             }
-
-
 
 
 
@@ -537,22 +579,7 @@ namespace _3.PL.Views
         {
             txt_Nhaptim.Clear();
         }
-        private void Loctrangthai()
-        {
-            foreach (var item in _IQLSanPhamServices.GetAll())
-            {
-                cmb_Loctrangthai.Items.Add(item.TrangThai );
-              
-            }
-            cmb_Loctrangthai.SelectedIndex = 0;
-        }
-        private void cmb_Loctrangthai_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //if (cmb_Loctrangthai.SelectedIndex == -1) LoadDSSanPham(null);
-
-            //var hd = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == u);
-            //LoadDSSanPham(Convert.ToString(_IQLSanPhamServices.GetAll().FirstOrDefault((hd => hd.TrangThai == cmb_Loctrangthai.SelectedIndex)).Id));
-            ////cmb_LocChucVu.Text = "Lọc chức vụ";
-        }
+ 
+ 
     }
 }

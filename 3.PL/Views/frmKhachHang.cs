@@ -43,6 +43,52 @@ namespace _3.PL.Views
             }
 
         }
+        public bool Checkduluu()
+        {
+           
+             if (txt_Tenkh.Text.Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập Tên Khách Hàng");
+                return false;
+            }
+            else if (txt_Tenkh.Text.Length < 5)
+            {
+                MessageBox.Show("Tên Khách Hàng phải có ít nhất 5 kí tự");
+                return false;
+            }
+            else  if (txt_Makh.Text.Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập mã Khách Hàng");
+                return false;
+            }
+            else if (txt_Makh.Text.Length < 2)
+            {
+                MessageBox.Show("mã Khách Hàng phải có ít nhất 2 kí tự");
+                return false;
+            }
+            else if (txt_Sdt.Text.Length < 10)
+            {
+                MessageBox.Show("Số điện thoại phải có ít nhất 10 kí tự");
+                return false;
+            }
+            else if (txt_Sdt.Text.Length > 12)
+            {
+                MessageBox.Show("Số điện thoại không được lớn hơn 12  kí tự");
+                return false;
+            }
+            else if (!txt_Sdt.Text.All(char.IsNumber))
+            {
+                MessageBox.Show("Số điện thoại phải là số !");
+                return false;
+            }
+            else if (txt_Diachi.Text.Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập địa chỉ !");
+                return false;
+            }
+           
+            return true;
+        }
         private KhachHangView GetDataFromGui()
         {        
             return new KhachHangView()
@@ -57,24 +103,42 @@ namespace _3.PL.Views
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_IKhachHangServices.Add(GetDataFromGui()));
-            LoadKH(null);
+            if (!Checkduluu())
+            {
+
+            }
+            else
+            {
+                MessageBox.Show(_IKhachHangServices.Add(GetDataFromGui()));
+                LoadKH(null);
+            }
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            var temp = GetDataFromGui();
-            temp.Id = _idWhenClick;
-            MessageBox.Show(_IKhachHangServices.Update(temp));
-            LoadKH(null);
+            if (!Checkduluu())
+            {
+
+            }
+            else
+            {
+                var temp = GetDataFromGui();
+                temp.Id = _idWhenClick;
+                MessageBox.Show(_IKhachHangServices.Update(temp));
+                LoadKH(null);
+            }
         }
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            var temp = GetDataFromGui();
-            temp.Id = _idWhenClick;
-            MessageBox.Show(_IKhachHangServices.Delete(temp));
-            LoadKH(null);
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn muốn xóa khách hàng  không việc xóa khách hàng có thể làm mất hóa đơn chứ khách hàng?", "Xóa", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                var temp = GetDataFromGui();
+                temp.Id = _idWhenClick;
+                MessageBox.Show(_IKhachHangServices.Delete(temp));
+                LoadKH(null);
+            }
         }
 
         private void dggrid_Khachhang_CellClick(object sender, DataGridViewCellEventArgs e)

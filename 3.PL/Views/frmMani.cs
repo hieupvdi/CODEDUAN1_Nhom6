@@ -38,6 +38,7 @@ namespace _3.PL.Views
             pn_frmchuyen.Controls.Add(form);
             form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
+            pb_TrangChu.Hide();
             form.Show();
         }
    

@@ -87,7 +87,42 @@ namespace _3.PL.Views
             };
             return spv;
         }
+        public bool Checkduluu()
+        {
+        
+             if (txt_Tensp.Text.Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập Tên sản phẩm");
+                return false;
+            }
+            else if (txt_Tensp.Text.Length < 5)
+            {
+                MessageBox.Show("Tên sản phẩm phải có ít nhất 5 kí tự");
+                return false;
+            }
+            else if(txt_Masp.Text.Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập Mã sản phẩm");
+                return false;
+            }
+            else if (txt_Masp.Text.Length < 2)
+            {
+                MessageBox.Show("Mã sản phẩm phải có ít nhất 2 kí tự");
+                return false;
+            }
+            else if (!txt_Giaban.Text.All(char.IsNumber))
+            {
+                MessageBox.Show("Gía bán phải là số !");
+                return false;
+            }
+            else if (pb_Anh.Image == null)
+            {
+                MessageBox.Show("Bạn chưa tải ảnh sp !");
+                return false;
+            }
 
+            return true;
+        }
         private void dgrid_QLSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int RowIndex = e.RowIndex;
@@ -103,6 +138,7 @@ namespace _3.PL.Views
             var obj = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == _idWhenClick);
             txt_Masp.Text = obj.MaSP;
             txt_Tensp.Text = obj.TenSP;
+
             Imagename = obj.LinkAnh;
             if (Imagename != null && File.Exists(Imagename))
             {
@@ -113,6 +149,7 @@ namespace _3.PL.Views
             {
                 pb_Anh.Image = null;
             }
+
             txt_Giaban.Text =Convert.ToString(obj.GiaBan);
             if (obj.TrangThai==0)
             {
@@ -127,16 +164,30 @@ namespace _3.PL.Views
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_IQLSanPhamServices.Add(GetDataFromGui()));
-            LoadQLSP(null);
+            if (!Checkduluu())
+            {
+
+            }
+            else
+            {
+                MessageBox.Show(_IQLSanPhamServices.Add(GetDataFromGui()));
+                LoadQLSP(null);
+            }
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            var temp =  GetDataFromGui();
-            temp.Id = _idWhenClick;
-            MessageBox.Show(_IQLSanPhamServices.Update(temp));
-            LoadQLSP(null);
+            if (!Checkduluu())
+            {
+
+            }
+            else
+            {
+                var temp = GetDataFromGui();
+                temp.Id = _idWhenClick;
+                MessageBox.Show(_IQLSanPhamServices.Update(temp));
+                LoadQLSP(null);
+            }
         }
 
         private void btn_Xóa_Click(object sender, EventArgs e)
@@ -156,6 +207,7 @@ namespace _3.PL.Views
                 pb_Anh.Image = Image.FromFile(op.FileName);
                 pb_Anh.SizeMode = PictureBoxSizeMode.StretchImage;
             }
+
         }
 
         private void btn_clre_Click(object sender, EventArgs e)

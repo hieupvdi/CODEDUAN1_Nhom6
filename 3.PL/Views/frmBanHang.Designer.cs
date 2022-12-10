@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBanHang));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cmb_Loctrangthai = new System.Windows.Forms.ComboBox();
             this.txt_Nhaptim = new System.Windows.Forms.TextBox();
             this.dgrid_QLSanPham = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -41,7 +40,6 @@
             this.btn_Xoagh = new System.Windows.Forms.Button();
             this.dgrid_Hoadonct = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_CNhoadon = new System.Windows.Forms.Button();
             this.lb_Tenkh = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgrid_QLHoaDon = new System.Windows.Forms.DataGridView();
@@ -70,7 +68,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cmb_Loctrangthai);
             this.groupBox2.Controls.Add(this.txt_Nhaptim);
             this.groupBox2.Controls.Add(this.dgrid_QLSanPham);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -81,15 +78,6 @@
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = " Danh Sách Sản Phẩm";
-            // 
-            // cmb_Loctrangthai
-            // 
-            this.cmb_Loctrangthai.FormattingEnabled = true;
-            this.cmb_Loctrangthai.Location = new System.Drawing.Point(597, 45);
-            this.cmb_Loctrangthai.Name = "cmb_Loctrangthai";
-            this.cmb_Loctrangthai.Size = new System.Drawing.Size(145, 29);
-            this.cmb_Loctrangthai.TabIndex = 2;
-            this.cmb_Loctrangthai.SelectedIndexChanged += new System.EventHandler(this.cmb_Loctrangthai_SelectedIndexChanged);
             // 
             // txt_Nhaptim
             // 
@@ -200,7 +188,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btn_CNhoadon);
             this.groupBox1.Controls.Add(this.lb_Tenkh);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.dgrid_QLHoaDon);
@@ -216,20 +203,7 @@
             this.groupBox1.Size = new System.Drawing.Size(603, 897);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Hóa Đơn chờ";
-            // 
-            // btn_CNhoadon
-            // 
-            this.btn_CNhoadon.BackColor = System.Drawing.Color.IndianRed;
-            this.btn_CNhoadon.Font = new System.Drawing.Font("Segoe UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_CNhoadon.Image = ((System.Drawing.Image)(resources.GetObject("btn_CNhoadon.Image")));
-            this.btn_CNhoadon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_CNhoadon.Location = new System.Drawing.Point(37, 473);
-            this.btn_CNhoadon.Name = "btn_CNhoadon";
-            this.btn_CNhoadon.Size = new System.Drawing.Size(197, 56);
-            this.btn_CNhoadon.TabIndex = 62;
-            this.btn_CNhoadon.Text = "Cập nhật HD";
-            this.btn_CNhoadon.UseVisualStyleBackColor = false;
+            this.groupBox1.Text = "Hóa Đơn Chờ Thanh Toán";
             // 
             // lb_Tenkh
             // 
@@ -469,9 +443,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lb_Tienthua;
-        private System.Windows.Forms.Button btn_CNhoadon;
         private System.Windows.Forms.Label lb_Mahd;
         private System.Windows.Forms.TextBox txt_Nhaptim;
-        private System.Windows.Forms.ComboBox cmb_Loctrangthai;
     }
 }

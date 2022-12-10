@@ -41,10 +41,13 @@
             this.lb_Chucvu = new System.Windows.Forms.Label();
             this.lb_Tennv = new System.Windows.Forms.Label();
             this.pn_frmchuyen = new System.Windows.Forms.Panel();
+            this.pb_TrangChu = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Anhdn)).BeginInit();
+            this.pn_frmchuyen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_TrangChu)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -219,6 +222,7 @@
             // pn_frmchuyen
             // 
             this.pn_frmchuyen.BackColor = System.Drawing.Color.Transparent;
+            this.pn_frmchuyen.Controls.Add(this.pb_TrangChu);
             this.pn_frmchuyen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_frmchuyen.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.pn_frmchuyen.Location = new System.Drawing.Point(188, 49);
@@ -226,6 +230,17 @@
             this.pn_frmchuyen.Name = "pn_frmchuyen";
             this.pn_frmchuyen.Size = new System.Drawing.Size(1686, 920);
             this.pn_frmchuyen.TabIndex = 2;
+            // 
+            // pb_TrangChu
+            // 
+            this.pb_TrangChu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_TrangChu.Image = ((System.Drawing.Image)(resources.GetObject("pb_TrangChu.Image")));
+            this.pb_TrangChu.Location = new System.Drawing.Point(0, 0);
+            this.pb_TrangChu.Name = "pb_TrangChu";
+            this.pb_TrangChu.Size = new System.Drawing.Size(1686, 920);
+            this.pb_TrangChu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_TrangChu.TabIndex = 0;
+            this.pb_TrangChu.TabStop = false;
             // 
             // panel3
             // 
@@ -258,6 +273,8 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_Anhdn)).EndInit();
+            this.pn_frmchuyen.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_TrangChu)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -279,5 +296,6 @@
         private System.Windows.Forms.Panel pn_frmchuyen;
         private System.Windows.Forms.Label lb_Chucvu;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pb_TrangChu;
     }
 }

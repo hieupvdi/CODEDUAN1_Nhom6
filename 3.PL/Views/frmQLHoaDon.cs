@@ -163,12 +163,6 @@ namespace _3.PL.Views
 
             
 
-                //if (e.RowIndex >= 0)
-                //{
-                //    DataGridViewRow r = dgrid_QLHoaDon.Rows[e.RowIndex];
-                //    u = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == Guid.Parse(r.Cells[1].Value.ToString())).Id;
-                //    LoadHoaDonCT(u);
-                //}
 
 
             }

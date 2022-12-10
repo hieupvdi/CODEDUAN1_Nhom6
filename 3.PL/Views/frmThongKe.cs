@@ -1,5 +1,6 @@
 ﻿using _2.BUS.IServices;
 using _2.BUS.Services;
+using _2.BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,13 +17,16 @@ namespace _3.PL.Views
     {
         private IHoaDonServices _IHoaDonServices;
         private IQLNhanVienServices _IQLNhanVienServices;
+  
         Guid _ID;
         public frmThongKe()
         {
             InitializeComponent();
             _IHoaDonServices = new HoaDonServices();
             _IQLNhanVienServices = new QLNhanVienServices();
+     
             LoadHD(null);
+            doanhthu();
         }
 
         public void LoadHD(string input)
@@ -50,11 +54,28 @@ namespace _3.PL.Views
                  
 
                 }
-    
+           
         }
         public void doanhthu()
         {
-           // lb_Doanhthungay.Text = _IHoaDonServices.GetAll().Select(x => x.Id).Distinct().Sum(x => x.TongTien).ToString();
+            //_ID = Guid.Parse(dgrid_Thongke.Rows.);
+
+            //var obj = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _ID);
+
+            //// Guid _id = Guid.Parse(_IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == x.TrangThai == 1)).ToString();
+
+
+            //int sp = dgrid_Thongke.Rows.Count;
+
+            //    sp = sp - 1;
+            //    lb_Sodonngay.Text = sp.ToString();
+
+
+            //String data = dgrid_Thongke.DocumentText;
+            //if (match.Success)
+            //{
+            //    dgrid_Thongke.Text = match.Groups[0].Value;
+            //}
         }
         private void txt_Nhaptim_TextChanged(object sender, EventArgs e)
         {
@@ -71,6 +92,25 @@ namespace _3.PL.Views
         private void txt_Nhaptim_Click(object sender, EventArgs e)
         {
             txt_Nhaptim.Clear();
+        }
+
+        private void dgrid_Thongke_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int RowIndex = e.RowIndex;
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
+            if (RowIndex == _IHoaDonServices.GetAll().Count)
+            {
+                return;
+            }
+            _ID = Guid.Parse(dgrid_Thongke.Rows[RowIndex].Cells[1].Value.ToString());
+            var obj = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _ID);
+
+       
+
+
         }
     }
 }
