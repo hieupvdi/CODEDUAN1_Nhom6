@@ -323,7 +323,7 @@ namespace _3.PL.Views
 
                         }
 
-                        lb_Mahd.Text = HoaDonView.Id.ToString();
+                        lb_Mahd.Text = HoaDonView.MaHD.ToString();
                         lb_Tongtientt.Text = HoaDonView.TongTien.ToString();
                         txt_Makh.Text = "";
                         lb_TongTiengh.Text = "";

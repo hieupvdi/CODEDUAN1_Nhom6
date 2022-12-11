@@ -201,7 +201,7 @@ namespace _1.DAL.Migrations
             migrationBuilder.InsertData(
                 table: "NhanVien",
                 columns: new[] { "Id", "DiaChi", "Email", "GioiTinh", "IdCV", "LinkAnh", "MaNV", "MatKhau", "NgaySinh", "SDT", "TenNV", "Trangthai" },
-                values: new object[] { new Guid("16819dd5-fbe9-404e-8940-0f2816ec533c"), "Thanh Hóa", "thanh@gmail.com", "Nam", new Guid("e26fa84e-3019-4a14-862f-9fafc6014dfe"), null, "NV1", "123", new DateTime(2022, 12, 7, 2, 40, 59, 9, DateTimeKind.Local).AddTicks(9482), "0337019932", "Lê Minh Thanh", 1 });
+                values: new object[] { new Guid("16819dd5-fbe9-404e-8940-0f2816ec533c"), "Thanh Hóa", "hieuphamvan.dev.it@gmail.com", "Nam", new Guid("e26fa84e-3019-4a14-862f-9fafc6014dfe"), "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\icon\\c2437ba9152ab9a7_ec2594949c8901fa_9972415113439532143215.jpg", "NV1", "123", new DateTime(2022, 12, 11, 14, 7, 45, 138, DateTimeKind.Local).AddTicks(9841), "0337019932", "Lê Minh Thanh", 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_HoaDon_IdKH",

@@ -218,12 +218,13 @@ namespace _1.DAL.Migrations
                         {
                             Id = new Guid("16819dd5-fbe9-404e-8940-0f2816ec533c"),
                             DiaChi = "Thanh Hóa",
-                            Email = "thanh@gmail.com",
+                            Email = "hieuphamvan.dev.it@gmail.com",
                             GioiTinh = "Nam",
                             IdCV = new Guid("e26fa84e-3019-4a14-862f-9fafc6014dfe"),
+                            LinkAnh = "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\icon\\c2437ba9152ab9a7_ec2594949c8901fa_9972415113439532143215.jpg",
                             MaNV = "NV1",
                             MatKhau = "123",
-                            NgaySinh = new DateTime(2022, 12, 7, 2, 40, 59, 9, DateTimeKind.Local).AddTicks(9482),
+                            NgaySinh = new DateTime(2022, 12, 11, 14, 7, 45, 138, DateTimeKind.Local).AddTicks(9841),
                             SDT = "0337019932",
                             TenNV = "Lê Minh Thanh",
                             Trangthai = 1
