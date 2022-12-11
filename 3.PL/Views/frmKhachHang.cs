@@ -16,11 +16,13 @@ namespace _3.PL.Views
     public partial class frmKhachHang : Form
     {
         private IKhachHangServices _IKhachHangServices;
+        private IHoaDonServices _IHoaDonServices;
         private Guid _idWhenClick;
         public frmKhachHang()
         {
             InitializeComponent();
             _IKhachHangServices = new KhachHangServices();
+            _IHoaDonServices=new HoaDonServices();
             LoadKH(null);
         }
         public void LoadKH(string input)
@@ -131,13 +133,24 @@ namespace _3.PL.Views
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn muốn xóa khách hàng  không việc xóa khách hàng có thể làm mất hóa đơn chứ khách hàng?", "Xóa", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            Guid h = _IKhachHangServices.GetAll().FirstOrDefault(x => x.Id == _idWhenClick).Id;
+            var NV = _IHoaDonServices.GetAll().FirstOrDefault(x => x.IdKH == h);
+
+            if (NV != null)
             {
-                var temp = GetDataFromGui();
-                temp.Id = _idWhenClick;
-                MessageBox.Show(_IKhachHangServices.Delete(temp));
-                LoadKH(null);
+                MessageBox.Show("khách hàng đã mua hàng nên k thể xóa đ");
+
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn muốn xóa khách hàng  không việc xóa khách hàng có thể làm mất hóa đơn chứ khách hàng?", "Xóa", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    var temp = GetDataFromGui();
+                    temp.Id = _idWhenClick;
+                    MessageBox.Show(_IKhachHangServices.Delete(temp));
+                    LoadKH(null);
+                }
             }
         }
 
