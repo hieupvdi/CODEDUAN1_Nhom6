@@ -216,9 +216,11 @@ namespace _3.PL.Views
                 return;
             }
             _idWhenClick = Guid.Parse(dgrid_QLNhanvien.Rows[RowIndex].Cells[1].Value.ToString());
+         
             var obj = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Id == _idWhenClick);
             txt_Manv.Text = obj.MaNV;
             txt_Tennv.Text = obj.TenNV;
+            cmb_Chucvu.SelectedIndex = _IChucVuServices.GetAll().FindIndex(c => c.Id == obj.IdCV);
             Imagename = obj.LinkAnh;
             if (Imagename != null && File.Exists(Imagename))
             {

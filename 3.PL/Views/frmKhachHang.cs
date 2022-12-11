@@ -39,7 +39,7 @@ namespace _3.PL.Views
 
             foreach (var x in _IKhachHangServices.GetAll(input))
             {
-                dggrid_Khachhang.Rows.Add(stt++,x.Id,x.MaKH,x.TenKH,x.TenKH,x.SDT,x.DiaChi);
+                dggrid_Khachhang.Rows.Add(stt++,x.Id,x.MaKH,x.TenKH,x.SDT,x.DiaChi);
             }
 
         }
@@ -66,26 +66,26 @@ namespace _3.PL.Views
                 MessageBox.Show("mã Khách Hàng phải có ít nhất 2 kí tự");
                 return false;
             }
-            else if (txt_Sdt.Text.Length < 10)
-            {
-                MessageBox.Show("Số điện thoại phải có ít nhất 10 kí tự");
-                return false;
-            }
-            else if (txt_Sdt.Text.Length > 12)
-            {
-                MessageBox.Show("Số điện thoại không được lớn hơn 12  kí tự");
-                return false;
-            }
-            else if (!txt_Sdt.Text.All(char.IsNumber))
-            {
-                MessageBox.Show("Số điện thoại phải là số !");
-                return false;
-            }
-            else if (txt_Diachi.Text.Length == 0)
-            {
-                MessageBox.Show("Bạn chưa nhập địa chỉ !");
-                return false;
-            }
+            //else if (txt_Sdt.Text.Length < 10)
+            //{
+            //    MessageBox.Show("Số điện thoại phải có ít nhất 10 kí tự");
+            //    return false;
+            //}
+            //else if (txt_Sdt.Text.Length > 12)
+            //{
+            //    MessageBox.Show("Số điện thoại không được lớn hơn 12  kí tự");
+            //    return false;
+            //}
+            //else if (!txt_Sdt.Text.All(char.IsNumber))
+            //{
+            //    MessageBox.Show("Số điện thoại phải là số !");
+            //    return false;
+            //}
+            //else if (txt_Diachi.Text.Length == 0)
+            //{
+            //    MessageBox.Show("Bạn chưa nhập địa chỉ !");
+            //    return false;
+            //}
            
             return true;
         }

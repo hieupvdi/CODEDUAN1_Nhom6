@@ -138,6 +138,8 @@ namespace _3.PL.Views
             var obj = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.Id == _idWhenClick);
             txt_Masp.Text = obj.MaSP;
             txt_Tensp.Text = obj.TenSP;
+            cmb_Loaisp.SelectedIndex = _ILoaiSPServices.GetAll().FindIndex(c => c.Id == obj.IdLoaiSP);
+            cmb_Size.SelectedIndex = _ISizeServices.GetAll().FindIndex(c => c.Id == obj.IdSize);
 
             Imagename = obj.LinkAnh;
             if (Imagename != null && File.Exists(Imagename))
