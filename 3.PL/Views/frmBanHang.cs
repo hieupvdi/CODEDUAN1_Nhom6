@@ -579,7 +579,7 @@ namespace _3.PL.Views
         {
             txt_Nhaptim.Clear();
         }
- 
- 
+
+      
     }
 }

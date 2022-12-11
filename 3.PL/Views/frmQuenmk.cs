@@ -100,13 +100,24 @@ namespace _3.PL.Views
 
                     Guid h = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Email == txt_Email.Text).Id;
                     var NV = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Id == h);
-                    NV.MatKhau = txt_Matkhaumoi.Text;
 
-                    _IQLNhanVienServices.Update(NV);
-                    MessageBox.Show("Đổi mật khẩu thành công");
-                    frmDangNhap f = new frmDangNhap();
-                    this.Hide();
-                    f.ShowDialog();
+                    if (NV.Trangthai == 1)
+                    {
+                        MessageBox.Show("Nhân Viên đã nghỉ việc");
+                        frmDangNhap f = new frmDangNhap();
+                        this.Hide();
+                        f.ShowDialog();
+                    }
+                    else
+                    {
+                        NV.MatKhau = txt_Matkhaumoi.Text;
+
+                        _IQLNhanVienServices.Update(NV);
+                        MessageBox.Show("Đổi mật khẩu thành công");
+                        frmDangNhap f = new frmDangNhap();
+                        this.Hide();
+                        f.ShowDialog();
+                    }
                 }
                 else
                 {
