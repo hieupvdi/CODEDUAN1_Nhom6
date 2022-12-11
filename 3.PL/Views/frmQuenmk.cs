@@ -98,7 +98,7 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Xác Minh Thành công");
 
-                    Guid h = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Email == Properties.Settings.Default.TaiKhoan).Id;
+                    Guid h = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Email == txt_Email.Text).Id;
                     var NV = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Id == h);
                     NV.MatKhau = txt_Matkhaumoi.Text;
 
