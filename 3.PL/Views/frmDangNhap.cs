@@ -81,9 +81,9 @@ namespace _3.PL.Views
                     }
                     else
                     {
-                        var login = _IQLNhanVienServices.GetAll().Where(p => p.Email == txt_Email.Text && p.MatKhau == txt_pass.Text).FirstOrDefault();
+                        var dn = _IQLNhanVienServices.GetAll().Where(p => p.Email == txt_Email.Text && p.MatKhau == txt_pass.Text).FirstOrDefault();
 
-                        if (login != null)
+                        if (dn != null)
                         {
 
                             Luutk();

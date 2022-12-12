@@ -134,9 +134,9 @@ namespace _3.PL.Views
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
             Guid h = _IKhachHangServices.GetAll().FirstOrDefault(x => x.Id == _idWhenClick).Id;
-            var NV = _IHoaDonServices.GetAll().FirstOrDefault(x => x.IdKH == h);
+            var kh = _IHoaDonServices.GetAll().FirstOrDefault(x => x.IdKH == h);
 
-            if (NV != null)
+            if (kh != null)
             {
                 MessageBox.Show("khách hàng đã mua hàng nên k thể xóa đ");
 

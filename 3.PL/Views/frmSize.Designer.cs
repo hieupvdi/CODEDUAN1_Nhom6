@@ -40,8 +40,6 @@
             this.rbtn_Nghiban = new System.Windows.Forms.RadioButton();
             this.rbtn_ConBan = new System.Windows.Forms.RadioButton();
             this.label9 = new System.Windows.Forms.Label();
-            this.txt_Giaban = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_Size)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +47,7 @@
             // 
             this.btn_Xoa.Image = ((System.Drawing.Image)(resources.GetObject("btn_Xoa.Image")));
             this.btn_Xoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Xoa.Location = new System.Drawing.Point(540, 243);
+            this.btn_Xoa.Location = new System.Drawing.Point(540, 213);
             this.btn_Xoa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(209, 60);
@@ -62,7 +60,7 @@
             // 
             this.btn_Sua.Image = ((System.Drawing.Image)(resources.GetObject("btn_Sua.Image")));
             this.btn_Sua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Sua.Location = new System.Drawing.Point(291, 242);
+            this.btn_Sua.Location = new System.Drawing.Point(291, 212);
             this.btn_Sua.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(209, 59);
@@ -75,7 +73,7 @@
             // 
             this.btn_Them.Image = ((System.Drawing.Image)(resources.GetObject("btn_Them.Image")));
             this.btn_Them.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Them.Location = new System.Drawing.Point(28, 242);
+            this.btn_Them.Location = new System.Drawing.Point(28, 212);
             this.btn_Them.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(209, 61);
@@ -125,19 +123,19 @@
             // 
             this.dgrid_Size.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_Size.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgrid_Size.Location = new System.Drawing.Point(0, 326);
+            this.dgrid_Size.Location = new System.Drawing.Point(0, 297);
             this.dgrid_Size.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgrid_Size.Name = "dgrid_Size";
             this.dgrid_Size.RowHeadersWidth = 49;
             this.dgrid_Size.RowTemplate.Height = 28;
-            this.dgrid_Size.Size = new System.Drawing.Size(805, 232);
+            this.dgrid_Size.Size = new System.Drawing.Size(805, 243);
             this.dgrid_Size.TabIndex = 16;
             this.dgrid_Size.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_Size_CellClick);
             // 
             // rbtn_Nghiban
             // 
             this.rbtn_Nghiban.AutoSize = true;
-            this.rbtn_Nghiban.Location = new System.Drawing.Point(291, 172);
+            this.rbtn_Nghiban.Location = new System.Drawing.Point(291, 133);
             this.rbtn_Nghiban.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.rbtn_Nghiban.Name = "rbtn_Nghiban";
             this.rbtn_Nghiban.Size = new System.Drawing.Size(99, 25);
@@ -149,7 +147,7 @@
             // rbtn_ConBan
             // 
             this.rbtn_ConBan.AutoSize = true;
-            this.rbtn_ConBan.Location = new System.Drawing.Point(165, 172);
+            this.rbtn_ConBan.Location = new System.Drawing.Point(165, 133);
             this.rbtn_ConBan.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.rbtn_ConBan.Name = "rbtn_ConBan";
             this.rbtn_ConBan.Size = new System.Drawing.Size(91, 25);
@@ -161,39 +159,19 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(45, 177);
+            this.label9.Location = new System.Drawing.Point(45, 138);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(90, 21);
             this.label9.TabIndex = 33;
             this.label9.Text = "Trạng Thái";
             // 
-            // txt_Giaban
-            // 
-            this.txt_Giaban.Location = new System.Drawing.Point(176, 125);
-            this.txt_Giaban.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txt_Giaban.Name = "txt_Giaban";
-            this.txt_Giaban.Size = new System.Drawing.Size(422, 29);
-            this.txt_Giaban.TabIndex = 37;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 132);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 21);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Gía Bán";
-            // 
             // frmSize
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(805, 558);
-            this.Controls.Add(this.txt_Giaban);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(805, 540);
             this.Controls.Add(this.rbtn_Nghiban);
             this.Controls.Add(this.rbtn_ConBan);
             this.Controls.Add(this.label9);
@@ -228,7 +206,5 @@
         private System.Windows.Forms.RadioButton rbtn_Nghiban;
         private System.Windows.Forms.RadioButton rbtn_ConBan;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txt_Giaban;
-        private System.Windows.Forms.Label label1;
     }
 }
