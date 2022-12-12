@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LvYUpt42qja8VhRr8QGYyFI1DHpXaOomC02VWudGrNYu50Xy9SFzJorPY/bqMaH3i6Wi+86Auw+9ddmxpwBcpg==",
+  "dgSpecHash": "o3ucR8a/U1GIZvCZwIx9cp6BRvrhbE+1bS2hBVsVxMT8LvX8kepgQ4SF7Zr4PxOj6RHzJd4IuqEbfWGaAGZxmw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\nhom6_Giuhb\\1.DAL\\1.DAL.csproj",
+  "projectFilePath": "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\DUAN1_Nhom6\\1.DAL\\1.DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hieup\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\hieup\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
