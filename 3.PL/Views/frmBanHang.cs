@@ -467,21 +467,26 @@ namespace _3.PL.Views
         }
 
             private void txt_Makh_TextChanged(object sender, EventArgs e)
-        {
-           
-                c = _IKhachHangServices.GetAll().FirstOrDefault(x => x.MaKH == txt_Makh.Text);
-                if (c != null)
-                {
-                    lb_Tenkh.Text = c.TenKH;
-                   
-                }
-                else
-                {
-                    lb_Tenkh.Text = "Chưa nhập mã kh";
-               
-                }
-         
-        }
+            {
+               if (txt_Makh.Text.Length > 50)
+               {
+                    MessageBox.Show("mã Khách Hàng phải nhỏ hơn 50 kí tự");
+            }
+               else
+               {
+                    c = _IKhachHangServices.GetAll().FirstOrDefault(x => x.MaKH == txt_Makh.Text);
+                    if (c != null)
+                    {
+                        lb_Tenkh.Text = c.TenKH;
+
+                    }
+                    else
+                    {
+                        lb_Tenkh.Text = "Chưa nhập mã kh";
+
+                    }
+               }
+            }
 
         private void txt_Tienkhdua_TextChanged(object sender, EventArgs e)
         {

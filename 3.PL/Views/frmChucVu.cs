@@ -38,6 +38,44 @@ namespace _3.PL.Views
                 dgrid_ChucVu.Rows.Add(stt++, x.Id, x.MaCV, x.TenCV);
             }
         }
+        public bool Checkduluu()
+        {
+
+            if (txt_Tencv.Text.Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập Tên Chức Vụ");
+                return false;
+            }
+            else if (txt_Tencv.Text.Length < 5)
+            {
+                MessageBox.Show("Tên Chức Vụ phải có ít nhất 5 kí tự");
+                return false;
+            }
+            else if (txt_Tencv.Text.Length > 100)
+            {
+                MessageBox.Show("Tên Chức Vụ phải nhỏ hơn 100 kí tự");
+                return false;
+            }
+            else if (txt_Macv.Text.Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập mã Chức Vụ");
+                return false;
+            }
+            else if (txt_Macv.Text.Length < 2)
+            {
+                MessageBox.Show("mã Chức Vụ phải có ít nhất 2 kí tự");
+                return false;
+            }
+            else if (txt_Macv.Text.Length > 50)
+            {
+                MessageBox.Show("mã Chức Vụ phải nhỏ hơn 50 kí tự");
+                return false;
+            }
+        
+    
+
+            return true;
+        }
         public ChucVuView GetDataFromGui()
         {
             return new ChucVuView()
@@ -51,8 +89,24 @@ namespace _3.PL.Views
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_IChucVuServices.Add(GetDataFromGui()));
-            LoadCV(null);
+            if (_IChucVuServices.GetAll().Any(x => x.MaCV == txt_Macv.Text))
+            {
+                MessageBox.Show("Mã Chức Vụ Đã Tồn tại");
+               
+            }
+            else
+            {
+                if (!Checkduluu())
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show(_IChucVuServices.Add(GetDataFromGui()));
+                    LoadCV(null);
+                }
+            }
+        
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)

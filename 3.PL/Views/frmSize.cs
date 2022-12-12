@@ -55,6 +55,11 @@ namespace _3.PL.Views
                 MessageBox.Show("Tên size phải có ít nhất 5 kí tự");
                 return false;
             }
+            else if (txt_Tensize.Text.Length > 100)
+            {
+                MessageBox.Show("Tên size phải nhỏ hơn 100 kí tự");
+                return false;
+            }
             else if (txt_Masize.Text.Length == 0)
             {
                 MessageBox.Show("Bạn chưa nhập mã size");
@@ -64,13 +69,19 @@ namespace _3.PL.Views
             {
                 MessageBox.Show("mã size phải có ít nhất 2 kí tự");
                 return false;
-            }        
+            }
+            else if (txt_Masize.Text.Length > 50)
+            {
+                MessageBox.Show("mã size phải nhỏ hơn 50 kí tự");
+                return false;
+            }
+         
             //else if (!txt_Giaban.Text.All(char.IsNumber))
             //{
             //    MessageBox.Show("Gía bán phải là số !");
             //    return false;
             //}
-      
+
 
             return true;
         }
@@ -116,15 +127,24 @@ namespace _3.PL.Views
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            if (!Checkduluu())
+            if (_ISizeServices.GetAll().Any(x => x.MaSize == txt_Masize.Text))
             {
-
+                MessageBox.Show("Mã size phẩm Đã Tồn tại");
+              
             }
             else
             {
-                MessageBox.Show(_ISizeServices.Add(GetDataFromGui()));
-                LoadSize();
+                if (!Checkduluu())
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show(_ISizeServices.Add(GetDataFromGui()));
+                    LoadSize();
+                }
             }
+        
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)

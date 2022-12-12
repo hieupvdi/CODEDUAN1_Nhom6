@@ -56,6 +56,11 @@ namespace _3.PL.Views
                 txt_Email.Text = "";
                 return false;
             }
+            else if (txt_Email.Text.Length > 100)
+            {
+                MessageBox.Show("Email phải nhỏ hơn 100 kí tự");
+                return false;
+            }
             else if (txt_Tennv.Text.Length == 0)
             {
                 MessageBox.Show("Bạn chưa nhập Tên nhân viên");
@@ -66,6 +71,11 @@ namespace _3.PL.Views
                 MessageBox.Show("Tên nhân viên phải có ít nhất 5 kí tự");
                 return false;
             }
+            else if (txt_Tennv.Text.Length > 100)
+            {
+                MessageBox.Show("Tên nhân viên phải nhỏ hơn 100 kí tự");
+                return false;
+            }
             else if (txt_Manv.Text.Length == 0)
             {
                 MessageBox.Show("Bạn chưa nhập mã nhân viên");
@@ -74,6 +84,16 @@ namespace _3.PL.Views
             else if (txt_Manv.Text.Length < 2)
             {
                 MessageBox.Show("mã nhân viên phải có ít nhất 2 kí tự");
+                return false;
+            }
+            else if (txt_Manv.Text.Length > 50)
+            {
+                MessageBox.Show("mã nhân viên phải nhỏ hơn 50 kí tự");
+                return false;
+            }
+            else if (txt_Sdt.Text.Length ==0)
+            {
+                MessageBox.Show("Bạn chưa nhập Số điện thoại");
                 return false;
             }
             else if (txt_Sdt.Text.Length < 10)
@@ -94,6 +114,21 @@ namespace _3.PL.Views
             else if (txt_Diachi.Text.Length == 0)
             {
                 MessageBox.Show("Bạn chưa nhập địa chỉ !");
+                return false;
+            }
+            else if (txt_Diachi.Text.Length > 100)
+            {
+                MessageBox.Show("địa chỉ phải nhỏ hơn 100 kí tự");
+                return false;
+            }
+            else if (txt_Matkhau.Text.Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập Mật Khẩu !");
+                return false;
+            }
+            else if (txt_Matkhau.Text.Length > 100)
+            {
+                MessageBox.Show("Mật Khẩu phải nhỏ hơn 100 kí tự");
                 return false;
             }
             else if (pb_Anh.Image == null)
@@ -145,7 +180,7 @@ namespace _3.PL.Views
                 SDT = txt_Sdt.Text,
                 DiaChi = txt_Diachi.Text,
                 MatKhau = txt_Matkhau.Text,
-                Trangthai = rbtn_Danglam.Checked ? 1 : 0,
+                Trangthai = rbtn_Danglam.Checked ? 0 : 1,
                 IdCV = _IChucVuServices.GetAll()[cmb_Chucvu.SelectedIndex].Id,
                 
             };
@@ -156,24 +191,33 @@ namespace _3.PL.Views
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            var checkEmail = _IQLNhanVienServices.GetAll().FirstOrDefault(p => p.Email == txt_Email.Text);
-            if (!Checkduluu())
+            if (_IQLNhanVienServices.GetAll().Any(x => x.MaNV == txt_Manv.Text))
             {
-
+                MessageBox.Show("Mã nhân viên Đã Tồn tại");
+             
             }
             else
             {
-                if (checkEmail != null)
+                var checkEmail = _IQLNhanVienServices.GetAll().FirstOrDefault(p => p.Email == txt_Email.Text);
+                if (!Checkduluu())
                 {
-                    MessageBox.Show("Email đã được sử dụng, hãy chọn Email khác");
+
                 }
                 else
                 {
+                    if (checkEmail != null)
+                    {
+                        MessageBox.Show("Email đã được sử dụng, hãy chọn Email khác");
+                    }
+                    else
+                    {
 
-                    MessageBox.Show(_IQLNhanVienServices.Add(GetDataFromGui()));
-                    LoadQLNhanVien(null);
+                        MessageBox.Show(_IQLNhanVienServices.Add(GetDataFromGui()));
+                        LoadQLNhanVien(null);
+                    }
                 }
             }
+         
         }
 
 

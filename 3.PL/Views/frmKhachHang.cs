@@ -58,6 +58,11 @@ namespace _3.PL.Views
                 MessageBox.Show("Tên Khách Hàng phải có ít nhất 5 kí tự");
                 return false;
             }
+            else if (txt_Tenkh.Text.Length > 100)
+            {
+                MessageBox.Show("Tên Khách Hàng phải nhỏ hơn 100 kí tự");
+                return false;
+            }
             else  if (txt_Makh.Text.Length == 0)
             {
                 MessageBox.Show("Bạn chưa nhập mã Khách Hàng");
@@ -68,6 +73,12 @@ namespace _3.PL.Views
                 MessageBox.Show("mã Khách Hàng phải có ít nhất 2 kí tự");
                 return false;
             }
+            else if (txt_Makh.Text.Length > 50)
+            {
+                MessageBox.Show("mã Khách Hàng phải nhỏ hơn 50 kí tự");
+                return false;
+            }
+       
             //else if (txt_Sdt.Text.Length < 10)
             //{
             //    MessageBox.Show("Số điện thoại phải có ít nhất 10 kí tự");
@@ -105,15 +116,24 @@ namespace _3.PL.Views
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            if (!Checkduluu())
+            if (_IKhachHangServices.GetAll().Any(x => x.MaKH == txt_Makh.Text))
             {
+                MessageBox.Show("Mã Khách Hàng Đã Tồn tại");
 
             }
             else
             {
-                MessageBox.Show(_IKhachHangServices.Add(GetDataFromGui()));
-                LoadKH(null);
+                if (!Checkduluu())
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show(_IKhachHangServices.Add(GetDataFromGui()));
+                    LoadKH(null);
+                }
             }
+       
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)

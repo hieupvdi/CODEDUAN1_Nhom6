@@ -100,6 +100,11 @@ namespace _3.PL.Views
                 MessageBox.Show("Tên sản phẩm phải có ít nhất 5 kí tự");
                 return false;
             }
+            else if (txt_Tensp.Text.Length > 100)
+            {
+                MessageBox.Show("Tên sản phẩm phải nhỏ hơn 100 kí tự");
+                return false;
+            }
             else if(txt_Masp.Text.Length == 0)
             {
                 MessageBox.Show("Bạn chưa nhập Mã sản phẩm");
@@ -108,6 +113,11 @@ namespace _3.PL.Views
             else if (txt_Masp.Text.Length < 2)
             {
                 MessageBox.Show("Mã sản phẩm phải có ít nhất 2 kí tự");
+                return false;
+            }
+            else if (txt_Masp.Text.Length > 50)
+            {
+                MessageBox.Show("Mã sản phẩm phải nhỏ hơn 50 kí tự");
                 return false;
             }
             else if (!txt_Giaban.Text.All(char.IsNumber))
@@ -166,15 +176,24 @@ namespace _3.PL.Views
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            if (!Checkduluu())
+            if (_IQLSanPhamServices.GetAll().Any(x => x.MaSP == txt_Masp.Text))
             {
-
+                MessageBox.Show("Mã sản phẩm Đã Tồn tại");
+               
             }
             else
             {
-                MessageBox.Show(_IQLSanPhamServices.Add(GetDataFromGui()));
-                LoadQLSP(null);
+                if (!Checkduluu())
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show(_IQLSanPhamServices.Add(GetDataFromGui()));
+                    LoadQLSP(null);
+                }
             }
+      
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)

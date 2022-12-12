@@ -52,6 +52,11 @@ namespace _3.PL.Views
                 MessageBox.Show("Tên loại sp phải có ít nhất 5 kí tự");
                 return false;
             }
+            else if (txt_Tenlsp.Text.Length > 100)
+            {
+                MessageBox.Show("Tên loại sp phải nhỏ hơn 100 kí tự");
+                return false;
+            }
             else if (txt_Malsp.Text.Length == 0)
             {
                 MessageBox.Show("Bạn chưa nhập mã loại sp");
@@ -62,7 +67,13 @@ namespace _3.PL.Views
                 MessageBox.Show("mã loại sp phải có ít nhất 2 kí tự");
                 return false;
             }
-        
+            else if (txt_Malsp.Text.Length > 50)
+            {
+                MessageBox.Show("mã loại sp phải nhỏ hơn 50 kí tự");
+                return false;
+            }
+       
+
 
 
             return true;
@@ -97,15 +108,24 @@ namespace _3.PL.Views
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            if (!Checkduluu())
+            if (_ILoaiSPServices.GetAll().Any(x => x.MaLoaiSP == txt_Malsp.Text))
             {
-
+                MessageBox.Show("Mã loại sp Đã Tồn tại");
+            
             }
             else
             {
-                MessageBox.Show(_ILoaiSPServices.Add(GetDataFromGui()));
-                LoadLSP(null);
+                if (!Checkduluu())
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show(_ILoaiSPServices.Add(GetDataFromGui()));
+                    LoadLSP(null);
+                }
             }
+          
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)

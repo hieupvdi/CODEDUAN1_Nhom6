@@ -45,43 +45,75 @@ namespace _3.PL.Views
         }
         private void btn_Otp_Click(object sender, EventArgs e)
         {
-            try
+            if (!Checkduluu())
             {
-                //tạo mã otp 
-                otp = rd.Next(6,100000);
-                var fromAddress = new MailAddress("hieuphamtnt123456789@gmail.com"); //email dùng để gửi mã otp
-                var toAddress = new MailAddress(txt_Email.ToString()); //email dùng để nhận mã otp
-                const string frompass = "rizvxvbbwtfdunrj";//mã xác thực 2 lớp  rồi để nhận mã
 
-                const string subject = "OTP Code";
-                string body = otp.ToString();
-                var smtp = new SmtpClient
-                {
-                    Host = "smtp.gmail.com",
-                    Port = 587,
-                    EnableSsl = true,
-                    DeliveryMethod = SmtpDeliveryMethod.Network,
-                    UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential(fromAddress.Address, frompass),
-                    Timeout = 2000000
-                };
-
-                using (var message = new MailMessage(fromAddress, toAddress)
-                {
-                    Subject = subject,
-                    Body = body
-
-
-                })
-                {
-                    smtp.Send(message);
-                }
-                MessageBox.Show("Mã OTP Đã Được Gửi đến Email :" + txt_Email.Text);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Email :" + txt_Email.Text + " Không tồn tại hoặc ghi sai Email");
-                MessageBox.Show(ex.Message);
+
+
+
+                var DL = _IQLNhanVienServices.GetAll().Where(p => p.Email == txt_Email.Text ).FirstOrDefault();
+                if (DL != null)
+                {
+                    Guid h = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Email == txt_Email.Text).Id;
+                    var NV = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Id == h);
+                    if (NV.Trangthai == 1)
+                    {
+                        MessageBox.Show("Nhân Viên đã nghỉ việc");
+                       
+                    }
+                    else
+                    {
+                        try
+                        {
+                            //tạo mã otp 
+                            otp = rd.Next(6, 100000);
+                            var fromAddress = new MailAddress("hieuphamtnt123456789@gmail.com"); //email dùng để gửi mã otp
+                            var toAddress = new MailAddress(txt_Email.ToString()); //email dùng để nhận mã otp
+                            const string frompass = "rizvxvbbwtfdunrj";//mã xác thực 2 lớp  rồi để nhận mã
+
+                            const string subject = "OTP Code";
+                            string body = otp.ToString();
+                            var smtp = new SmtpClient
+                            {
+                                Host = "smtp.gmail.com",
+                                Port = 587,
+                                EnableSsl = true,
+                                DeliveryMethod = SmtpDeliveryMethod.Network,
+                                UseDefaultCredentials = false,
+                                Credentials = new NetworkCredential(fromAddress.Address, frompass),
+                                Timeout = 2000000
+                            };
+
+                            using (var message = new MailMessage(fromAddress, toAddress)
+                            {
+                                Subject = subject,
+                                Body = body
+
+
+                            })
+                            {
+                                smtp.Send(message);
+                            }
+                            MessageBox.Show("Mã OTP Đã Được Gửi đến Email :" + txt_Email.Text);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Email :" + txt_Email.Text + " Không tồn tại hoặc ghi sai Email");
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(txt_Email.Text+"Email Này Không không phải Email Của nhân Viên ");
+                }
+
+
+    
+        
             }
 
         }
