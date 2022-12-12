@@ -62,13 +62,13 @@ namespace _3.PL.Views
 
             //var obj = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _ID);
 
-            //// Guid _id = Guid.Parse(_IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == x.TrangThai == 1)).ToString();
+            // Guid _id = Guid.Parse(_IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == x.TrangThai == 1)).ToString();
 
 
-            //int sp = dgrid_Thongke.Rows.Count;
+            int sp = dgrid_Thongke.Rows.Count;
 
-            //    sp = sp - 1;
-            //    lb_Sodonngay.Text = sp.ToString();
+            sp = sp - 1;
+            lb_Sodonngay.Text = sp.ToString();
 
 
             //String data = dgrid_Thongke.DocumentText;
