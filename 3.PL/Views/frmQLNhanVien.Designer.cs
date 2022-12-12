@@ -61,7 +61,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_Clear = new System.Windows.Forms.Button();
-            this.btn_Nghiviec = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
@@ -411,7 +410,6 @@
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox3.Controls.Add(this.btn_Clear);
-            this.groupBox3.Controls.Add(this.btn_Nghiviec);
             this.groupBox3.Controls.Add(this.btn_Sua);
             this.groupBox3.Controls.Add(this.btn_Them);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
@@ -429,7 +427,7 @@
             this.btn_Clear.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_Clear.Image = ((System.Drawing.Image)(resources.GetObject("btn_Clear.Image")));
             this.btn_Clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Clear.Location = new System.Drawing.Point(4, 206);
+            this.btn_Clear.Location = new System.Drawing.Point(4, 149);
             this.btn_Clear.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btn_Clear.Name = "btn_Clear";
             this.btn_Clear.Size = new System.Drawing.Size(221, 51);
@@ -437,20 +435,6 @@
             this.btn_Clear.Text = "Clear";
             this.btn_Clear.UseVisualStyleBackColor = true;
             this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
-            // 
-            // btn_Nghiviec
-            // 
-            this.btn_Nghiviec.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Nghiviec.Image = ((System.Drawing.Image)(resources.GetObject("btn_Nghiviec.Image")));
-            this.btn_Nghiviec.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Nghiviec.Location = new System.Drawing.Point(4, 149);
-            this.btn_Nghiviec.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btn_Nghiviec.Name = "btn_Nghiviec";
-            this.btn_Nghiviec.Size = new System.Drawing.Size(221, 57);
-            this.btn_Nghiviec.TabIndex = 2;
-            this.btn_Nghiviec.Text = "Xóa";
-            this.btn_Nghiviec.UseVisualStyleBackColor = true;
-            this.btn_Nghiviec.Click += new System.EventHandler(this.btn_Nghiviec_Click);
             // 
             // btn_Sua
             // 
@@ -540,7 +524,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_Themanh;
         private System.Windows.Forms.PictureBox pb_Anh;
-        private System.Windows.Forms.Button btn_Nghiviec;
         private System.Windows.Forms.Button btn_Clear;
         private System.Windows.Forms.TextBox txt_Nhaptim;
     }

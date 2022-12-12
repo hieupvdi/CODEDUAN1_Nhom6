@@ -49,60 +49,69 @@ namespace _3.PL.Views
         }
         private void btn_Dangnhap_Click(object sender, EventArgs e)
         {
-            if (!Checkduluu())
+            var DL = _IQLNhanVienServices.GetAll().Where(p => p.Email == txt_Email.Text).FirstOrDefault();
+            if (DL != null)
             {
-
-            }
-            else
-            {
-                Guid h = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Email == txt_Email.Text).Id;
-                var NV = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Id == h);
-                if (NV.Trangthai == 1)
+                if (!Checkduluu())
                 {
-                    MessageBox.Show("Nhân Viên đã nghỉ việc");
+
                 }
                 else
                 {
-
-                    if (txt_Email.Text == "" && txt_pass.Text == "")
+                    Guid h = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Email == txt_Email.Text).Id;
+                    var NV = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Id == h);
+                    if (NV.Trangthai == 1)
                     {
-                        MessageBox.Show("Email và pass trống");
-
-                    }
-                    else if (txt_Email.Text == "")
-                    {
-
-                        MessageBox.Show("Email trống");
-
-                    }
-                    else if (txt_pass.Text == "")
-                    {
-                        MessageBox.Show(" pass trống");
+                        MessageBox.Show("Nhân Viên đã nghỉ việc");
                     }
                     else
                     {
-                        var dn = _IQLNhanVienServices.GetAll().Where(p => p.Email == txt_Email.Text && p.MatKhau == txt_pass.Text).FirstOrDefault();
 
-                        if (dn != null)
+                        if (txt_Email.Text == "" && txt_pass.Text == "")
+                        {
+                            MessageBox.Show("Email và pass trống");
+
+                        }
+                        else if (txt_Email.Text == "")
                         {
 
-                            Luutk();
-                            frmMani f = new frmMani();
-                            this.Hide();
-                            f.ShowDialog();
+                            MessageBox.Show("Email trống");
 
+                        }
+                        else if (txt_pass.Text == "")
+                        {
+                            MessageBox.Show(" pass trống");
                         }
                         else
                         {
-                            MessageBox.Show("Email hoặc pass sai ");
+                            var dn = _IQLNhanVienServices.GetAll().Where(p => p.Email == txt_Email.Text && p.MatKhau == txt_pass.Text).FirstOrDefault();
+
+                            if (dn != null)
+                            {
+
+                                Luutk();
+                                frmMani f = new frmMani();
+                                this.Hide();
+                                f.ShowDialog();
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Email hoặc pass sai ");
+
+                            }
 
                         }
 
                     }
 
                 }
-                
             }
+            else
+            {
+                MessageBox.Show(txt_Email.Text + "Email Này Không không phải Email Của nhân Viên ");
+            }
+               
           
 
         }

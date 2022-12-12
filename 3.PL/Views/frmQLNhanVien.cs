@@ -317,17 +317,17 @@ namespace _3.PL.Views
 
     
 
-        private void btn_Nghiviec_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn muốn xóa nhân viên  không việc xóa nhân viên có thể làm mất hóa đơn chứ nhân viên : (Thay vào bạn có thể đổi trạng thái sang nghỉ việc !!!)?", "Xóa", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                var temp = GetDataFromGui();
-                temp.Id = _idWhenClick;
-                MessageBox.Show(_IQLNhanVienServices.Delete(temp));
-                LoadQLNhanVien(null);
-            }
-        }
+        //private void btn_Nghiviec_Click(object sender, EventArgs e)
+        //{
+        //    DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn muốn xóa nhân viên  không việc xóa nhân viên có thể làm mất hóa đơn chứ nhân viên : (Thay vào bạn có thể đổi trạng thái sang nghỉ việc !!!)?", "Xóa", MessageBoxButtons.YesNo);
+        //    if (dialogResult == DialogResult.Yes)
+        //    {
+        //        var temp = GetDataFromGui();
+        //        temp.Id = _idWhenClick;
+        //        MessageBox.Show(_IQLNhanVienServices.Delete(temp));
+        //        LoadQLNhanVien(null);
+        //    }
+        //}
 
         private void txt_Nhaptim_TextChanged(object sender, EventArgs e)
         {
