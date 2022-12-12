@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Od5iGOkEdRPS7ziGFtRIrni/yoxeYdljMnqKDn/qr0DlKX7a5izd/XZL2jWZKVzAyQPru79fO3bqD1mo3UrFKA==",
+  "dgSpecHash": "LY1bZQddenhSA3yRO730w6jwtcYxr8Gnw3W88kV8ObJpJsbHNGtbRm4WQ7HeO8qdWqsN1yJSVaCjFueQxvjfNw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\DUAN1_Nhom6\\3.PL\\3.PL.csproj",
+  "projectFilePath": "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\nhom6_Giuhb\\3.PL\\3.PL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hieup\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\hieup\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
