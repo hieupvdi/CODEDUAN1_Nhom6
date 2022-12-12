@@ -10,7 +10,7 @@ using _1.DAL.Context;
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(QLDbContext))]
-    [Migration("20221211070745_Dbset")]
+    [Migration("20221212122621_Dbset")]
     partial class Dbset
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,10 +28,14 @@ namespace _1.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MaCV")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("MaCV");
 
                     b.Property<string>("TenCV")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("TenCV");
 
                     b.HasKey("Id");
 
@@ -53,7 +57,9 @@ namespace _1.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("DiaChi")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)")
+                        .HasColumnName("DiaChi");
 
                     b.Property<Guid?>("IdKH")
                         .IsRequired()
@@ -64,10 +70,14 @@ namespace _1.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MaHD")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("MaHD");
 
                     b.Property<string>("SDT")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("SDT");
 
                     b.Property<DateTime>("ThoiGianTao")
                         .HasColumnType("datetime2");
@@ -76,10 +86,12 @@ namespace _1.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("TongTien")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal")
+                        .HasColumnName("TongTien");
 
                     b.Property<int>("TrangThai")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("TrangThai");
 
                     b.HasKey("Id");
 
@@ -99,10 +111,12 @@ namespace _1.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("DonGia")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal")
+                        .HasColumnName("DonGia");
 
                     b.Property<int>("SoLuong")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("SoLuong");
 
                     b.HasKey("IdSP", "IdHD");
 
@@ -118,16 +132,24 @@ namespace _1.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("DiaChi")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)")
+                        .HasColumnName("DiaChi");
 
                     b.Property<string>("MaKH")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("MaKH");
 
                     b.Property<string>("SDT")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("SDT");
 
                     b.Property<string>("TenKH")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("TenKH");
 
                     b.HasKey("Id");
 
@@ -140,7 +162,7 @@ namespace _1.DAL.Migrations
                             DiaChi = "Thanh Hóa",
                             MaKH = "KH1",
                             SDT = "0337019932",
-                            TenKH = "hiếu"
+                            TenKH = "Đức Hải"
                         });
                 });
 
@@ -151,10 +173,14 @@ namespace _1.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MaLoaiSP")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("MaLoaiSP");
 
                     b.Property<string>("TenLoaiSP")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("TenLoaiSP");
 
                     b.HasKey("Id");
 
@@ -176,38 +202,55 @@ namespace _1.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("DiaChi")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("DiaChi");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("Email");
 
                     b.Property<string>("GioiTinh")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("GioiTinh");
 
                     b.Property<Guid?>("IdCV")
                         .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LinkAnh")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)")
+                        .HasColumnName("LinkAnh");
 
                     b.Property<string>("MaNV")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("MaNV");
 
                     b.Property<string>("MatKhau")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("MatKhau");
 
                     b.Property<DateTime>("NgaySinh")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("SDT")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("SDT");
 
                     b.Property<string>("TenNV")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("TenNV");
 
                     b.Property<int>("Trangthai")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Trangthai");
 
                     b.HasKey("Id");
 
@@ -226,10 +269,10 @@ namespace _1.DAL.Migrations
                             LinkAnh = "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\icon\\c2437ba9152ab9a7_ec2594949c8901fa_9972415113439532143215.jpg",
                             MaNV = "NV1",
                             MatKhau = "123",
-                            NgaySinh = new DateTime(2022, 12, 11, 14, 7, 45, 138, DateTimeKind.Local).AddTicks(9841),
+                            NgaySinh = new DateTime(2022, 12, 12, 19, 26, 21, 298, DateTimeKind.Local).AddTicks(5355),
                             SDT = "0337019932",
                             TenNV = "Lê Minh Thanh",
-                            Trangthai = 1
+                            Trangthai = 0
                         });
                 });
 
@@ -240,7 +283,8 @@ namespace _1.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("GiaBan")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal")
+                        .HasColumnName("GiaBan");
 
                     b.Property<Guid?>("IdLoaiSP")
                         .IsRequired()
@@ -251,16 +295,23 @@ namespace _1.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LinkAnh")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)")
+                        .HasColumnName("LinkAnh");
 
                     b.Property<string>("MaSP")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("MaSP");
 
                     b.Property<string>("TenSP")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("TenSP");
 
                     b.Property<int>("TrangThai")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Trangthai");
 
                     b.HasKey("Id");
 
@@ -278,13 +329,18 @@ namespace _1.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MaSize")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("MaSize");
 
                     b.Property<string>("TenSize")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("TenSize");
 
                     b.Property<int>("TrangThai")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("TrangThai");
 
                     b.HasKey("Id");
 

@@ -19,17 +19,17 @@ namespace _1.DAL.Configurations
 
             builder.Property(k => k.IdLoaiSP).IsRequired();
             builder.Property(k => k.IdSize).IsRequired();
-           // builder.Property(p => p.MaSP).HasColumnName("MaSP").
-           //     HasColumnType("nvarchar(100)").IsRequired();
-           // builder.Property(p => p.TenSP).HasColumnName("TenSP").
-           //     HasColumnType("nvarchar(100)").IsRequired(); // nvarchar(100) not null
-           // builder.Property(p => p.LinkAnh).HasColumnName("LinkAnh").
-           //HasColumnType("nvarchar(100)").IsRequired(); // decimal not null
-           // builder.Property(p => p.GiaBan).HasColumnName("GiaBan").
-           //   HasColumnType("decimal").IsRequired(); // decimal not null
+            builder.Property(p => p.MaSP).HasColumnName("MaSP").
+                HasColumnType("nvarchar(50)").IsRequired();
+            builder.Property(p => p.TenSP).HasColumnName("TenSP").
+                HasColumnType("nvarchar(100)").IsRequired(); // nvarchar(100) not null
+            builder.Property(p => p.LinkAnh).HasColumnName("LinkAnh").
+                HasColumnType("nvarchar(200)").IsRequired(); 
+            builder.Property(p => p.GiaBan).HasColumnName("GiaBan").
+              HasColumnType("decimal").IsRequired(); // decimal not null
 
-            //builder.Property(p => p.TrangThai).HasColumnName("Trangthai").
-            //    HasColumnType("int").IsRequired();
+            builder.Property(p => p.TrangThai).HasColumnName("Trangthai").
+                HasColumnType("int").IsRequired();
 
             // Set khóa ngoại
             builder.HasOne(x => x.LoaiSP)

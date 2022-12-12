@@ -88,7 +88,7 @@ namespace _3.PL.Views
             //    MessageBox.Show("Bạn chưa nhập địa chỉ !");
             //    return false;
             //}
-           
+
             return true;
         }
         private KhachHangView GetDataFromGui()

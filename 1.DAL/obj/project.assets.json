@@ -5804,11 +5804,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\nhom6_Giuhb\\1.DAL\\1.DAL.csproj",
+      "projectUniqueName": "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\DUAN1_Nhom6\\1.DAL\\1.DAL.csproj",
       "projectName": "1.DAL",
-      "projectPath": "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\nhom6_Giuhb\\1.DAL\\1.DAL.csproj",
+      "projectPath": "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\DUAN1_Nhom6\\1.DAL\\1.DAL.csproj",
       "packagesPath": "C:\\Users\\hieup\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\nhom6_Giuhb\\1.DAL\\obj\\",
+      "outputPath": "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\DUAN1_Nhom6\\1.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

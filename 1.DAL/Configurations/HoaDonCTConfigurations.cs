@@ -16,12 +16,12 @@ namespace _1.DAL.Configurations
             builder.ToTable("HoaDonCT"); // Đặt tên bảng (Nếu ko thì lấy mặc định của class)
             builder.Property(k => k.IdSP).IsRequired();
             builder.Property(k => k.IdHD).IsRequired();
-         
 
-            //builder.Property(p => p.SoLuong).HasColumnName("SoLuong").
-            //   HasColumnType("int").IsRequired();
-            //builder.Property(p => p.DonGia).HasColumnName("DonGia").
-            //  HasColumnType("decimal").IsRequired();
+
+            builder.Property(p => p.SoLuong).HasColumnName("SoLuong").
+               HasColumnType("int").IsRequired();
+            builder.Property(p => p.DonGia).HasColumnName("DonGia").
+              HasColumnType("decimal").IsRequired();
 
             //Sset khóa chính
             builder.HasKey(x => new { x.IdSP, x.IdHD }); // Set khóa chính

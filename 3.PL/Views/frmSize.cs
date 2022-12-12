@@ -28,7 +28,7 @@ namespace _3.PL.Views
         public void LoadSize()
         {
             int stt = 1;
-            dgrid_Size.ColumnCount = 7;
+            dgrid_Size.ColumnCount = 5;
             dgrid_Size.Columns[0].Name = "STT";
             dgrid_Size.Columns[1].Name = "Id";
             dgrid_Size.Columns[1].Visible = false;
@@ -65,11 +65,11 @@ namespace _3.PL.Views
                 MessageBox.Show("mã size phải có ít nhất 2 kí tự");
                 return false;
             }        
-            else if (!txt_Giaban.Text.All(char.IsNumber))
-            {
-                MessageBox.Show("Gía bán phải là số !");
-                return false;
-            }
+            //else if (!txt_Giaban.Text.All(char.IsNumber))
+            //{
+            //    MessageBox.Show("Gía bán phải là số !");
+            //    return false;
+            //}
       
 
             return true;

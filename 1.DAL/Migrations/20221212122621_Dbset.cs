@@ -12,8 +12,8 @@ namespace _1.DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    MaCV = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TenCV = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    MaCV = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    TenCV = table.Column<string>(type: "nvarchar(100)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -25,10 +25,10 @@ namespace _1.DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    MaKH = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TenKH = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SDT = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DiaChi = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    MaKH = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    TenKH = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    SDT = table.Column<string>(type: "nvarchar(20)", nullable: false),
+                    DiaChi = table.Column<string>(type: "nvarchar(200)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -40,8 +40,8 @@ namespace _1.DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    MaLoaiSP = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TenLoaiSP = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    MaLoaiSP = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    TenLoaiSP = table.Column<string>(type: "nvarchar(100)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -53,8 +53,8 @@ namespace _1.DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    MaSize = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TenSize = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MaSize = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    TenSize = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     TrangThai = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -68,15 +68,15 @@ namespace _1.DAL.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdCV = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    MaNV = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TenNV = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LinkAnh = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GioiTinh = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MaNV = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    TenNV = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    LinkAnh = table.Column<string>(type: "nvarchar(200)", nullable: false),
+                    GioiTinh = table.Column<string>(type: "nvarchar(20)", nullable: false),
                     NgaySinh = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SDT = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DiaChi = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MatKhau = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    SDT = table.Column<string>(type: "nvarchar(20)", nullable: false),
+                    DiaChi = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    MatKhau = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     Trangthai = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -97,11 +97,11 @@ namespace _1.DAL.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdLoaiSP = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdSize = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    MaSP = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TenSP = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LinkAnh = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GiaBan = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    TrangThai = table.Column<int>(type: "int", nullable: false)
+                    MaSP = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    TenSP = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    LinkAnh = table.Column<string>(type: "nvarchar(200)", nullable: false),
+                    GiaBan = table.Column<decimal>(type: "decimal", nullable: false),
+                    Trangthai = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -127,12 +127,12 @@ namespace _1.DAL.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdNV = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdKH = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    MaHD = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MaHD = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     ThoiGianTao = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ThoiGianThanhToan = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SDT = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DiaChi = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TongTien = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    SDT = table.Column<string>(type: "nvarchar(20)", nullable: false),
+                    DiaChi = table.Column<string>(type: "nvarchar(200)", nullable: false),
+                    TongTien = table.Column<decimal>(type: "decimal", nullable: false),
                     TrangThai = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -159,7 +159,7 @@ namespace _1.DAL.Migrations
                     IdSP = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdHD = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SoLuong = table.Column<int>(type: "int", nullable: false),
-                    DonGia = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    DonGia = table.Column<decimal>(type: "decimal", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -186,7 +186,7 @@ namespace _1.DAL.Migrations
             migrationBuilder.InsertData(
                 table: "KhachHang",
                 columns: new[] { "Id", "DiaChi", "MaKH", "SDT", "TenKH" },
-                values: new object[] { new Guid("6e735591-ec79-4cf9-bc37-c376a498aa30"), "Thanh Hóa", "KH1", "0337019932", "hiếu" });
+                values: new object[] { new Guid("6e735591-ec79-4cf9-bc37-c376a498aa30"), "Thanh Hóa", "KH1", "0337019932", "Đức Hải" });
 
             migrationBuilder.InsertData(
                 table: "LoaiSP",
@@ -201,7 +201,7 @@ namespace _1.DAL.Migrations
             migrationBuilder.InsertData(
                 table: "NhanVien",
                 columns: new[] { "Id", "DiaChi", "Email", "GioiTinh", "IdCV", "LinkAnh", "MaNV", "MatKhau", "NgaySinh", "SDT", "TenNV", "Trangthai" },
-                values: new object[] { new Guid("16819dd5-fbe9-404e-8940-0f2816ec533c"), "Thanh Hóa", "hieuphamvan.dev.it@gmail.com", "Nam", new Guid("e26fa84e-3019-4a14-862f-9fafc6014dfe"), "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\icon\\c2437ba9152ab9a7_ec2594949c8901fa_9972415113439532143215.jpg", "NV1", "123", new DateTime(2022, 12, 11, 14, 7, 45, 138, DateTimeKind.Local).AddTicks(9841), "0337019932", "Lê Minh Thanh", 1 });
+                values: new object[] { new Guid("16819dd5-fbe9-404e-8940-0f2816ec533c"), "Thanh Hóa", "hieuphamvan.dev.it@gmail.com", "Nam", new Guid("e26fa84e-3019-4a14-862f-9fafc6014dfe"), "C:\\Users\\hieup\\OneDrive\\Máy tính\\DU_AN_1\\icon\\c2437ba9152ab9a7_ec2594949c8901fa_9972415113439532143215.jpg", "NV1", "123", new DateTime(2022, 12, 12, 19, 26, 21, 298, DateTimeKind.Local).AddTicks(5355), "0337019932", "Lê Minh Thanh", 0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_HoaDon_IdKH",

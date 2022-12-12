@@ -316,7 +316,7 @@ namespace _3.PL.Views
                             {
                                 IdHD = HoaDonView.Id,
                                 IdSP = item.IdSP,
-                                GiaBan = HoaDonView.TongTien,
+                                DonGia = HoaDonView.TongTien,
                                 SoLuong = item.SoLuong
                             };
                             _IHoaDonCTServices.Add(HoaDonCTView);
