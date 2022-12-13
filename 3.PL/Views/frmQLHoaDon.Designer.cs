@@ -33,9 +33,9 @@
             this.txt_Nhaptim = new System.Windows.Forms.TextBox();
             this.dgrid_QLHoaDon = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_Inhd = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.dgrid_Hoadonct = new System.Windows.Forms.DataGridView();
-            this.btn_Inhd = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_QLHoaDon)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -95,6 +95,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hóa Đơn Chi Tiết";
             // 
+            // btn_Inhd
+            // 
+            this.btn_Inhd.Image = ((System.Drawing.Image)(resources.GetObject("btn_Inhd.Image")));
+            this.btn_Inhd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Inhd.Location = new System.Drawing.Point(840, 157);
+            this.btn_Inhd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btn_Inhd.Name = "btn_Inhd";
+            this.btn_Inhd.Size = new System.Drawing.Size(238, 61);
+            this.btn_Inhd.TabIndex = 63;
+            this.btn_Inhd.TabStop = false;
+            this.btn_Inhd.Text = "Load Lại";
+            this.btn_Inhd.UseVisualStyleBackColor = true;
+            this.btn_Inhd.Click += new System.EventHandler(this.btn_Inhd_Click);
+            // 
             // btn_Xoa
             // 
             this.btn_Xoa.Image = ((System.Drawing.Image)(resources.GetObject("btn_Xoa.Image")));
@@ -119,19 +133,6 @@
             this.dgrid_Hoadonct.RowTemplate.Height = 28;
             this.dgrid_Hoadonct.Size = new System.Drawing.Size(771, 247);
             this.dgrid_Hoadonct.TabIndex = 0;
-            // 
-            // btn_Inhd
-            // 
-            this.btn_Inhd.Image = ((System.Drawing.Image)(resources.GetObject("btn_Inhd.Image")));
-            this.btn_Inhd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Inhd.Location = new System.Drawing.Point(840, 157);
-            this.btn_Inhd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btn_Inhd.Name = "btn_Inhd";
-            this.btn_Inhd.Size = new System.Drawing.Size(238, 61);
-            this.btn_Inhd.TabIndex = 63;
-            this.btn_Inhd.TabStop = false;
-            this.btn_Inhd.Text = "In Hóa Đơn";
-            this.btn_Inhd.UseVisualStyleBackColor = true;
             // 
             // frmQLHoaDon
             // 

@@ -168,12 +168,6 @@ namespace _3.PL.Views
             }
         }
 
-        private void btn_Inhd_Click(object sender, EventArgs e)
-        {
-            frmInHoaDon f = new frmInHoaDon();
-            f.ShowDialog();
-        }
-
         private void txt_Nhaptim_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txt_Nhaptim.Text)) return;
@@ -189,6 +183,13 @@ namespace _3.PL.Views
         private void txt_Nhaptim_Click(object sender, EventArgs e)
         {
             txt_Nhaptim.Clear();
+        }
+
+        private void btn_Inhd_Click(object sender, EventArgs e)
+        {
+            _lstHoaDonCTView = new List<HoaDonCTView>();
+            LoadHoaDonCT();
+
         }
     }
 }

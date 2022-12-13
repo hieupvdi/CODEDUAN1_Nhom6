@@ -10,9 +10,6 @@
     <Compile Update="Views\frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\frmInHoaDon.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\frmKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>

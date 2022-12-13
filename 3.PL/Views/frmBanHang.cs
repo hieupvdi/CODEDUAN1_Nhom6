@@ -25,7 +25,7 @@ namespace _3.PL.Views
         private IHoaDonCTServices _IHoaDonCTServices;
         private IHoaDonServices _IHoaDonServices;
         private IQLNhanVienServices _IQLNhanVienServices;
-        public KhachHangView c;
+        public KhachHangView kh;
 
 
         public Guid u;
@@ -44,7 +44,7 @@ namespace _3.PL.Views
 
             _lstHoaDonCTView = new List<HoaDonCTView>();
       
-            c = new KhachHangView();
+            kh = new KhachHangView();
          
             LoadDSSanPham(null);
             LoadGioHang();
@@ -235,12 +235,17 @@ namespace _3.PL.Views
         }
         private void btn_Xoagh_Click(object sender, EventArgs e)
         {
-
-            var item = _lstHoaDonCTView.FirstOrDefault(x => x.IdSP == u);
-            _lstHoaDonCTView.Remove(item);
-
-
-            LoadGioHang();
+            if (_lstHoaDonCTView.Any())
+            {
+                var item = _lstHoaDonCTView.FirstOrDefault(x => x.IdSP == u);
+                _lstHoaDonCTView.Remove(item);
+                LoadGioHang();
+            }
+            else
+            {
+                MessageBox.Show("Chưa có sản phẩm nào trong giỏ hàng");
+            }
+           ;
 
 
         }
@@ -249,11 +254,11 @@ namespace _3.PL.Views
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow r = dgrid_QLSanPham.Rows[e.RowIndex];
-                //pID = Convert.ToInt32(r.Cells[0].Value.ToString());
+                DataGridViewRow r = dgrid_Hoadonct.Rows[e.RowIndex];               
                 u = _IQLSanPhamServices.GetAll().FirstOrDefault(x => x.MaSP == r.Cells[2].Value.ToString()).Id;
                 //AddGioHang(u);
             }
+          
         }
 
         private void btn_Xoahet_Click(object sender, EventArgs e)
@@ -287,9 +292,9 @@ namespace _3.PL.Views
                     //lấy id nv / id kh
 
                     Guid h = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Email == Properties.Settings.Default.TaiKhoan).Id;
-                    c = _IKhachHangServices.GetAll().FirstOrDefault(x => x.MaKH == txt_Makh.Text);
+                    kh = _IKhachHangServices.GetAll().FirstOrDefault(x => x.MaKH == txt_Makh.Text);
 
-                    if (c != null)
+                    if (kh != null)
                     {
                         Random rd = new Random();
 
@@ -300,9 +305,9 @@ namespace _3.PL.Views
                             MaHD = "HD" + rd.Next(1, 10000),
                             ThoiGianTao = DateTime.Now,
                             IdNV = h,
-                            IdKH = c.Id,
-                            DiaChi = c.DiaChi,
-                            SDT = c.SDT,
+                            IdKH = kh.Id,
+                            DiaChi = kh.DiaChi,
+                            SDT = kh.SDT,
                             TongTien = tien,
                             TrangThai = 1,
 
@@ -370,8 +375,8 @@ namespace _3.PL.Views
                 //hóa đơn
                 var cid = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idhdcho).IdKH;
                 // khách hàng
-                var c = _IKhachHangServices.GetAll().FirstOrDefault(x => x.Id == cid);
-                txt_Makh.Text = c.MaKH;
+                var khi = _IKhachHangServices.GetAll().FirstOrDefault(x => x.Id == cid);
+                txt_Makh.Text = khi.MaKH;
              
                 _lstHoaDonCTView = new List<HoaDonCTView>();
                 foreach (var item in od)
@@ -407,8 +412,8 @@ namespace _3.PL.Views
                 if (_lstHoaDonCTView.Any())
                 {
                     int tien = 0;
-                    c = _IKhachHangServices.GetAll().FirstOrDefault(x => x.MaKH == txt_Makh.Text);
-                    if (c != null)
+                    kh = _IKhachHangServices.GetAll().FirstOrDefault(x => x.MaKH == txt_Makh.Text);
+                    if (kh != null)
                     {
                         var hoadon = _IHoaDonServices.GetAll().FirstOrDefault(x => x.Id == _idhdcho);
                         var hoadonct = _IHoaDonCTServices.GetAll().Where(x => x.IdHD == _idhdcho);
@@ -436,11 +441,11 @@ namespace _3.PL.Views
                         Guid h = _IQLNhanVienServices.GetAll().FirstOrDefault(x => x.Email == Properties.Settings.Default.TaiKhoan).Id;
                         hoadon.ThoiGianTao = DateTime.Now;
                         hoadon.IdNV = h;
-                        hoadon.IdKH = c.Id;
+                        hoadon.IdKH = kh.Id;
                         hoadon.TongTien = tien;
                         _IHoaDonServices.Update(hoadon);
 
-                        lb_Mahd.Text = _idhdcho.ToString();
+                        lb_Mahd.Text = hd.MaHD;
                         lb_Tongtientt.Text = tien.ToString()+"VNĐ";
                         txt_Makh.Text = "";
                         lb_TongTiengh.Text = "";
@@ -474,10 +479,10 @@ namespace _3.PL.Views
             }
                else
                {
-                    c = _IKhachHangServices.GetAll().FirstOrDefault(x => x.MaKH == txt_Makh.Text);
-                    if (c != null)
+                    kh = _IKhachHangServices.GetAll().FirstOrDefault(x => x.MaKH == txt_Makh.Text);
+                    if (kh != null)
                     {
-                        lb_Tenkh.Text = c.TenKH;
+                        lb_Tenkh.Text = kh.TenKH;
 
                     }
                     else
@@ -529,7 +534,7 @@ namespace _3.PL.Views
 
                         if (Convert.ToDouble(txt_Tienkhdua.Text) < Convert.ToDouble(lb_Tongtientt.Text))
                         {
-                            MessageBox.Show("Thieu tien");
+                            MessageBox.Show("khách Đưa thiếu  tien");
                         }
                         else
                         {
