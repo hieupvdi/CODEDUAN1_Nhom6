@@ -311,7 +311,6 @@ C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\nhom6_Giuhb\3.PL\obj\Debug\net5.0-win
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\nhom6_Giuhb\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.frmBanHang.resources
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\nhom6_Giuhb\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.frmChucVu.resources
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\nhom6_Giuhb\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.frmDangNhap.resources
-C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\nhom6_Giuhb\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.frmInHoaDon.resources
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\nhom6_Giuhb\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.frmKhachHang.resources
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\nhom6_Giuhb\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.frmLoai.resources
 C:\Users\hieup\OneDrive\Máy tính\DU_AN_1\nhom6_Giuhb\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.frmMani.resources
